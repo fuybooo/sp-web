@@ -18,20 +18,19 @@ export class TableComponent implements OnInit, OnDestroy {
   @Input() params: any = {};
   @Input() columns: Column[] = [];
   @Input() dataSet = [];
-  @Input() isCheckbox = true;
-  @Input() isRadio = false;
-  @Input() key = 'id';
+  @Input() isCheckbox = true; // 是否显示多选
+  @Input() isRadio = false; // 是否显示单选
+  @Input() isSortCol = false; // 是否显示序号
+  @Input() key = 'id'; // 数据的主键
   @Input() tableSize = 'small';
-  @Input() tableId;
+  @Input() tableId; // 表格的唯一标识
   @Input() selectDefault; // 让数据中的flag字段值为1的数据默认变为选中状态
-  @Input() resultKey = 'results';
-  @Input() specialTableType;
+  @Input() resultKey = 'results'; // 返回结果中list数据的key
+  @Input() specialTableType; // 特殊的表格 -- 返回数据之后需要对数据进行特殊处理的情况
   @Output() refreshStatusChange = new EventEmitter(); // 改变选中状态时发射事件
   @Output() afterSearch = new EventEmitter(); // 完成查询时发射事件
   @Output() eventChange = new EventEmitter(); // 自定义事件
   subscript;
-  specialPropRate = '';
-  rateVisible: boolean;
   constructor(
     public tableService: TableService,
     public coreService: CoreService,
@@ -74,6 +73,7 @@ export class TableComponent implements OnInit, OnDestroy {
       dataSet: this.dataSet,
       isCheckbox: this.isCheckbox,
       isRadio: this.isRadio,
+      isSortCol: this.isSortCol,
       key: this.key,
       resultKey: this.resultKey,
       tableSize: this.tableSize,
@@ -84,16 +84,5 @@ export class TableComponent implements OnInit, OnDestroy {
       eventChange: this.eventChange,
       specialTableType: this.specialTableType,
     });
-  }
-  //
-  // getHref(col, data) {
-  //   const params = col.linkParam ? ('/' + col.linkParam.split(',').map(field => data[field]).join('/')) : '';
-  //   return `/#${col.link}${params}`;
-  // }
-  isFormatText(col) {
-    return typeof col.formatter !== 'string';
-  }
-  getFormatText(col, data) {
-    return col.formatter(data[col.field || data[col.key]], data);
   }
 }

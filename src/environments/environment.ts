@@ -5,10 +5,9 @@
 
 export const environment = {
   production: false,
-  project: 'com', // com
+  project: 'com', // com gov
   isStatic: true,
-  apiPath: 'http://172.16.10.8:8060/uk-bsc/v1', // 海军的服务器
-  // apiPath: 'http://172.16.10.11:8080/uk-bsc/v1', //栋梁的服务器
+  apiPath: 'http://172.16.10.8:8060/uk-bsc/v1', // 服务器
   apiPathChangeable: true,
   deployPath: '',
 };

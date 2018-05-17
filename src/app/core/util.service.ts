@@ -11,7 +11,6 @@ import {
   loginInfoKey,
   REGEXP,
 } from '../shared/shared.model';
-import {Dictionary, urls} from './urls.model';
 import {NzTreeNode} from 'ng-zorro-antd';
 declare let $: any;
 /**'
@@ -21,9 +20,6 @@ declare let $: any;
  */
 @Injectable()
 export class UtilService {
-  private static urls = urls;
-  static dictionary: Dictionary = {};
-
   constructor(private http: HttpClient) {
   }
 
@@ -33,7 +29,7 @@ export class UtilService {
    * @param paramsId
    * @returns {string}
    */
-  static getUrl(urlKey, paramsId?) {
+  static getUrl(mainUrl, paramsId?) {
     const getSafeStr = (str: string) => {
       if (str.slice(-1) === '/') {
         return str.slice(0, str.length - 2);
@@ -46,13 +42,7 @@ export class UtilService {
     if (environment.apiPathChangeable && localStorage && localStorage_apiPath) {
       environment.apiPath = path = getSafeStr(localStorage_apiPath);
     }
-    let realKey = urlKey;
-    let id = '';
-    if (urlKey.includes('/')) {
-      realKey = urlKey.slice(0, urlKey.indexOf('/'));
-      id = urlKey.slice(urlKey.indexOf('/') + 1);
-    }
-    const url = UtilService.urls[realKey] + (id ? `/${id}` : (paramsId === undefined ? '' : `/${paramsId}`));
+    const url = mainUrl + (paramsId === undefined ? '' : `/${paramsId}`);
     return environment.isStatic ?
       (environment.deployPath + '/assets/mock' + url + '.json') : (path + url + '/');
   }
@@ -363,23 +353,23 @@ export class UtilService {
     }));
   }
 
-  /**
-   * 通过条件判断是否应该执行函数
-   * @param fn
-   */
-  static executeFn(fn) {
-    if (UtilService.isEmptyObject(UtilService.dictionary)) {
-      const timer = setInterval(() => {
-        if (localStorage.getItem(dictionaryInfoKey)) {
-          UtilService.dictionary = JSON.parse(localStorage.getItem(dictionaryInfoKey));
-          fn();
-          clearInterval(timer);
-        }
-      }, 10);
-    } else {
-      fn();
-    }
-  }
+  // /**
+  //  * 通过条件判断是否应该执行函数
+  //  * @param fn
+  //  */
+  // static executeFn(fn) {
+  //   if (UtilService.isEmptyObject(UtilService.dictionary)) {
+  //     const timer = setInterval(() => {
+  //       if (localStorage.getItem(dictionaryInfoKey)) {
+  //         UtilService.dictionary = JSON.parse(localStorage.getItem(dictionaryInfoKey));
+  //         fn();
+  //         clearInterval(timer);
+  //       }
+  //     }, 10);
+  //   } else {
+  //     fn();
+  //   }
+  // }
 
   /**
    * 深度trim
@@ -556,46 +546,4 @@ export class UtilService {
       });
     };
   }
-
-  /**
-   * 查询字典
-   */
-  getDictionaries() {
-    if (!localStorage.getItem(dictionaryInfoKey) || localStorage.getItem(dictionaryInfoKey) === '{}') {
-      this.get('dictionarys').subscribe((res: HttpRes) => {
-        if (res.code === 200) {
-          let di = {};
-          res.data.dictionarylist.forEach(d => {
-            const list = di[d.typecode] || [];
-            di[d.typecode] = [...list, d];
-          });
-          localStorage.setItem(dictionaryInfoKey, JSON.stringify(di));
-        }
-      });
-    }
-  }
-
-  /**
-   * 从后台缓存中查找字典
-   */
-  // fetchDic() {
-  //   if (!localStorage.getItem(dictionaryInfoKey) || localStorage.getItem(dictionaryInfoKey) === '{}') {
-  //     this.get('cache', {action: 'querydictionaryall'}).subscribe((res: HttpRes) => {
-  //       if (res.code === 200) {
-  //         let d = {};
-  //         let dictionary = res.data;
-  //         for (let key in dictionary) {
-  //           let d_key = key.replace('UK:DICTIONARY:', '');
-  //           let value = dictionary[key];
-  //           let array = [];
-  //           for (const k in value) {
-  //             array.push({code: k, name: value[k]});
-  //           }
-  //           d[d_key] = array;
-  //         }
-  //         localStorage.setItem(dictionaryInfoKey, JSON.stringify(d));
-  //       }
-  //     });
-  //   }
-  // }
 }

@@ -28,13 +28,12 @@ export class TableService {
   columns: Column[] = [];
   isCheckbox = true;
   isRadio = false;
+  isSortCol = false;
   tableSize = 'small';
   tableId;
   selectDefault;
   refreshStatusChange;
   afterSearch;
-  specialHeadType = true; // 全部收起/全部展开 true显示全部展开 false显示全部收起
-  hasSpecialRows = false;
   resultKey = 'results';
 
   constructor(private utilService: UtilService) {
@@ -51,7 +50,6 @@ export class TableService {
         }
       }
     }
-    this.hasSpecialRows = this.columns.some(item => item.specialHead === 'expand');
     for (const col of this.columns) {
       if (col.field) {
         this.sortMap[col.field] = null;
@@ -132,30 +130,6 @@ export class TableService {
               res
             });
           }
-          // 处理特殊情况
-          if (this.specialTableType === 'user') {
-            this.dataSet.map(item => {
-              let subordinatelist = [];
-              // 合并部门中的字段
-              if (item.subordinatelist && item.subordinatelist.length) {
-                let subItem = item.subordinatelist[0];
-                delete subItem.id;
-                Object.assign(item, subItem);
-                subordinatelist = item.subordinatelist.slice(1).map(s => {
-                  delete s.id;
-                  return s;
-                });
-              }
-              // 复制一份用户的数据
-              const copyItem = $.extend(true, {}, item);
-              delete copyItem.subordinatelist;
-              // 为每条数据设置 subordinatelist
-              item.subordinatelist = subordinatelist.map(_item => Object.assign(_item, copyItem));
-            });
-          }
-          // if (this.hasSpecialRows) {
-          //   this.dataSet.forEach(item => this.specialRowMap[item[this.key]] = item.extraRows ? JSON.parse(item.extraRows) : []);
-          // }
         }
       });
     }
@@ -224,29 +198,6 @@ export class TableService {
           dataSet: this.dataSet
         });
       }
-    }
-  }
-  // ===========================
-  // 特殊操作
-  // ===========================
-  /**
-   * 全部收起和展开
-   */
-  changeSpecialHeadType() {
-    this.specialHeadType = !this.specialHeadType;
-    this.dataSet.forEach(item => {
-      item.isExpand = !this.specialHeadType;
-    });
-  }
-
-  handleClickExpand(data) {
-    data.isExpand = !data.isExpand;
-    // 检查是否已经全部展开
-    if (this.dataSet.every(item => item.isExpand)) {
-      this.specialHeadType = false;
-    }
-    if (this.dataSet.every(item => !item.isExpand)) {
-      this.specialHeadType = true;
     }
   }
 }

@@ -1,3 +1,57 @@
-<p>
-  question works!
-</p>
+<div class="common-page">
+  <div nz-row [nzGutter]="10">
+    <div nz-col [nzSpan]="3">
+      <nz-dropdown class="w">
+        <button class="w" nz-button nz-dropdown><span>状态</span> <i class="anticon anticon-down"></i></button>
+        <ul nz-menu>
+          <li nz-menu-item>
+            <a>状态1</a>
+          </li>
+          <li nz-menu-item>
+            <a>状态2</a>
+          </li>
+          <li nz-menu-item>
+            <a>状态3</a>
+          </li>
+        </ul>
+      </nz-dropdown>
+    </div>
+    <div nz-col [nzSpan]="3">
+      <nz-dropdown class="w">
+        <button class="w" nz-button nz-dropdown><span>类型</span> <i class="anticon anticon-down"></i></button>
+        <ul nz-menu>
+          <li nz-menu-item>
+            <a>类型1</a>
+          </li>
+          <li nz-menu-item>
+            <a>类型2</a>
+          </li>
+          <li nz-menu-item>
+            <a>类型3</a>
+          </li>
+        </ul>
+      </nz-dropdown>
+    </div>
+    <div nz-col [nzSpan]="6">
+      <input class="w" type="text" nz-input placeholder="输入内容进行查询">
+    </div>
+    <div nz-col [nzSpan]="6">
+      <nz-range-picker class="w" [(ngModel)]="dateRange" (ngModelChange)="onChange($event)"></nz-range-picker>
+    </div>
+    <div nz-col [nzSpan]="2">
+      <button class="w" nz-button [nzType]="'primary'">查询</button>
+    </div>
+    <div nz-col [nzSpan]="4">
+      <button class="w" nz-button [nzType]="'primary'">我要提问</button>
+    </div>
+  </div>
+  <div class="mt20">
+    <app-table
+      [dataSet]="dataSet"
+      [columns]="columns"
+      [tableId]="tableId"
+      [isSortCol]="true"
+      [isCheckbox]="false"
+    ></app-table>
+  </div>
+</div>

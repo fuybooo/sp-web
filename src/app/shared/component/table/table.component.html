@@ -22,6 +22,7 @@
       [nzIndeterminate]="tableService.indeterminate"
       (nzCheckedChange)=" tableService.checkAll($event)"></th>
     <th *ngIf="tableService.isRadio"></th>
+    <th *ngIf="tableService.isSortCol">序号</th>
     <th *ngFor="let col of tableService.columns"
         [nzShowSort]="col.sortable"
         [nzSortKey]="col.field"
@@ -37,19 +38,6 @@
           {{col.title}}
         </span>
       </ng-container>
-      <!--用户列表中：全部展开与全部收起-->
-      <ng-container *ngIf="col.specialHead === 'expand'">
-        <span class="cp" (click)="tableService.changeSpecialHeadType()">
-          <ng-container *ngIf="tableService.specialHeadType">
-            全部展开<i class="icon-uk-openupall f10 ml5"></i>
-          </ng-container>
-          <ng-container *ngIf="!tableService.specialHeadType">
-            全部收起<i class="icon-uk-tuckupall f10 ml5"></i>
-          </ng-container>
-        </span>
-      </ng-container>
-      <!--根据不同的操作类型显示不同的head-->
-      <ng-container *ngIf="col.operateType"></ng-container>
     </th>
   </tr>
   </thead>
@@ -58,7 +46,6 @@
     <tr (click)="tableService.handleClickRadio(data)"
         [class.ant-table-row-hover]="data.isSelected"
         [class.border-bottom-none]="data.isExpand"
-        *ngIf="data.status !== -1"
     >
       <!--控制checkbox的显示-->
       <td *ngIf="tableService.isCheckbox"
@@ -69,6 +56,10 @@
       <td *ngIf="tableService.isRadio">
         <label nz-radio [(ngModel)]="data.isSelected"></label>
       </td>
+      <!--控制序号的显示-->
+      <td *ngIf="tableService.isSortCol">
+        {{i + 1}}
+      </td>
       <!--控制每一个cell的显示-->
       <td *ngFor="let col of columns"
           [ngStyle]="tableService.getTdStyle(col)">
@@ -77,28 +68,6 @@
                              [tableId]="tableId"
                              [data]="data"
                              [col]="col"></app-table-cell>
-      </td>
-    </tr>
-    <!--是否有被收起的行-->
-    <tr *ngFor="let _data of data.subordinatelist; index as _i; last as la;" class="no-hover text-aux"
-        [class.border-bottom-none]="!la"
-        [hidden]="!(tableService.hasSpecialRows && data.isExpand)"
-    >
-      <td *ngIf="tableService.isCheckbox"></td>
-      <td *ngFor="let col of columns"
-          [ngStyle]="tableService.getTdStyle(col)">
-        <!--使用formatter函数渲染-->
-        <!--展开项的字段需要隐藏-->
-        <ng-container *ngIf="col.expandHide"></ng-container>
-        <ng-container *ngIf="!col.expandHide">
-          <ng-container *ngIf="col.formatter">
-            <span *ngIf="isFormatText(col)">{{getFormatText(col, _data)}}</span>
-          </ng-container>
-          <!--使用field渲染-->
-          <ng-container *ngIf="!col.formatter && col.field">
-            <span>{{_data[col.field]}}</span>
-          </ng-container>
-        </ng-container>
       </td>
     </tr>
   </ng-container>

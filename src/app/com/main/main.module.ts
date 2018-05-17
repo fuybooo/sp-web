@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { QuestionComponent } from './question/question.component';
 import { InformationComponent } from './information/information.component';
 import { EconomicComponent } from './economic/economic.component';
+import { QuestionFormComponent } from './question/question-form/question-form.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { EconomicComponent } from './economic/economic.component';
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}
   ],
-  declarations: [MainComponent, HomeComponent, QuestionComponent, InformationComponent, EconomicComponent]
+  declarations: [MainComponent, HomeComponent, QuestionComponent, InformationComponent, EconomicComponent, QuestionFormComponent]
 })
 export class MainModule { }
