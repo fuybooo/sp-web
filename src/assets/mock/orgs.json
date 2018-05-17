@@ -1,0 +1,22 @@
+{
+  "code": 200,
+  "msg": "",
+  "data": {
+    "id": "xxid2",
+    "code": "xieiw001",
+    "name": "景博",
+    "invohead": {
+      "id": "1abc3ef2c4a5ff2f",
+      "barcode": "uiweuiweuiwe",
+      "orgid": "122sxxdds",
+      "taxpayeridenum": "zdwexxxlsdjisew",
+      "bankaccount": "7372 3232 2332 234",
+      "telephone": "1783278723",
+      "bankdeposit": "招商银行望京支行",
+      "address": "北京海淀区中关村"
+    },
+    "dfaccname": "92382293820323",
+    "taxpaytype": "1",
+    "usernum": "38"
+  }
+}

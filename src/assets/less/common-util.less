@@ -1,0 +1,249 @@
+@import "vars";
+/* 通用的弹性盒布局样式抽取 */
+.flex-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  &.reverse {
+    flex-direction: row-reverse;
+  }
+}
+.jcfe {
+  justify-content: flex-end;
+}
+.jcfs {
+  justify-content: flex-start;
+}
+.flex-box-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.flex-box-end {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.common-box {
+  border: 1px solid @gray-11;
+  border-radius: @border-radius;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,.16);
+}
+.common-query-box {
+  padding: 5px;
+  border-left: 10px solid @main-1;
+}
+.common-content-box {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.common-info {
+  background-color: @gray-9;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 20px;
+}
+.common-header {
+  padding: 13px 10px;
+  border-bottom: 1px solid @gray-015;
+}
+.common-footer {
+  padding: 8px 10px;
+  border-top: 1px solid @gray-015;
+}
+.common-padding {
+  padding: 13px 10px;
+}
+.common-padding-2 {
+  padding: 11px 5px;
+}
+.common-bg {
+  background: @gray-013;
+}
+.common-modal-bg {
+  background: @gray-0131;
+}
+.common-container{
+  padding-top: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
+  height: 100%;
+  &.wider {
+    padding-left: 85px;
+    padding-right: 85px;
+  }
+}
+/* 通用的布局 common- 开头的 end */
+.text-enable {
+  color: @blue-2;
+}
+/* 添加按钮文字颜色 */
+.text-add, .text-primary {
+  color: @main-1;
+}
+/* 删除按钮文字颜色 */
+.text-minus, .text-disable {
+  color: @red-2;
+}
+.text-normal {
+  color: @gray-12;
+  &:before {
+    color: @gray-12;
+  }
+}
+.text-main {
+  color: @text-main;
+}
+.text-second {
+  color: @text-second;
+}
+.text-second-i {
+  &::before {
+    color: @text-second;
+  }
+}
+.text-aux {
+  color: @text-aux;
+}
+.text-aux-i {
+  &::before {
+    color: @text-aux;
+  }
+}
+.text-999 {
+  color: @gray-021 !important;
+}
+.ant-transfer-operation {
+  .ant-btn {
+    width: 50px;
+  }
+  .ant-btn + .ant-btn {
+    margin-left: auto;
+  }
+}
+.info-title {
+  color: @main-1;
+  padding-bottom: 30px;
+  .sign {
+    display: inline-block;
+    width: 2px;
+    height: 14px;
+    margin-right: 8px;
+    background-color: @main-1;
+  }
+}
+/* 三角形 */
+@triangle-size: 4px;
+.triangle {
+  width: 0;
+  height: 0;
+  display: inline-block;
+  position: absolute;
+}
+.triangle-none {
+  width: @triangle-size;
+}
+.triangle-left {
+  border-top: @triangle-size solid transparent;
+  border-bottom: @triangle-size solid transparent;
+  border-left: @triangle-size solid @gray-6;
+}
+.triangle-down {
+  border-top: @triangle-size solid @gray-6;
+  border-right: @triangle-size solid transparent;
+  border-left: @triangle-size solid transparent;
+}
+.button-box {
+  position: absolute;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.small-btn {
+  height: 20px;
+  padding: 0 20px;
+  font-size: 12px;
+}
+.small-tag, .tag-default {
+  display: inline-block;
+  padding: 0 10px;
+  border: 1px solid @gray-019;
+  border-radius: 4px;
+  color: @text-second;
+  font-size: 12px;
+}
+.tag-default {
+  color: @gray-11;
+  border: 1px solid @gray-11;
+}
+.common-tabs {
+  .ant-tabs-nav {
+    height: 44px;
+    width: 100%;
+  }
+  .ant-tabs-bar {
+    margin: 0;
+    border-bottom: none;
+  }
+  .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-nav-container {
+    height: 45px;
+  }
+  .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+    margin: 0;
+    background: #fff;
+    padding: 0 56px;
+    line-height: 43px;
+    position: absolute;
+    font-size: 16px;
+    color: @text-main;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    &.ant-tabs-tab-active {
+      color: @primary-color;
+      background: #fafafa;
+      z-index: 10!important;
+      &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 8px;
+        background-color: @primary-color;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border: 1px solid transparent;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+    }
+    &:nth-of-type(2) {
+      z-index: 9;
+      left: 0;
+    }
+    &:nth-of-type(3) {
+      z-index: 8;
+      left: 173px;
+    }
+    &:nth-of-type(4) {
+      z-index: 7;
+      left: 346px;
+    }
+    &:nth-of-type(5) {
+      z-index: 6;
+      left: 519px;
+    }
+  }
+}
+.border-top {
+  border-top: 1px solid @gray-015;
+}
+
+
+.common-page {
+  padding: 20px 15px;
+  .common-header-box {
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 2px solid rgb(242,242,242);
+  }
+}

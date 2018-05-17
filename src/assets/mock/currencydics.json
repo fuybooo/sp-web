@@ -1,0 +1,29 @@
+{
+  "code": 200,
+  "msg": "成功",
+  "data": {
+    "results": [
+      {
+        "id":"CO20180410012",
+        "code":"USD",
+        "name":"美元",
+        "suffix":"美元",
+        "symbol":"$",
+        "isbasecurr":1,
+        "sort":1,
+        "status":1
+      },
+      {
+        "id":"CO201804100122",
+        "code":"CYN",
+        "name":"人民币",
+        "suffix":"元",
+        "symbol":"￥",
+        "isbasecurr":1,
+        "sort":1,
+        "status":1
+      }
+    ],
+    "total": 1
+  }
+}

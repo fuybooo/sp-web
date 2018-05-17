@@ -1,0 +1,34 @@
+<div class="main">
+    <div class="main-box">
+      <!--第一层头部-->
+      <div nz-row class="main-header-box">
+        <div nz-col [nzSpan]="4">
+          <div class="flex-box">
+            <span>您所在的位置</span>
+          </div>
+        </div>
+        <div nz-col [nzOffset]="14" [nzSpan]="6" class="header-items flex-box jcfe">
+          <span>下载说明书</span>
+        </div>
+      </div>
+      <!--左侧菜单-->
+      <div class="menu-box">
+        <ul nz-menu class="menu-list">
+          <ng-container *ngFor="let item of menuList">
+            <li class="menu-first" *ngIf="!item.children" nz-menu-item [nzSelected]="item.isActive"
+                (click)="onClickItem(item)">
+                <span class="">
+                  <i class="menu-i anticon" [ngClass]="item.iconCls" [title]="item.label"></i>
+                  <span class="nav-text">{{item.label}}</span>
+                  <i class="anticon anticon-right main-icon-right" *ngIf="item.isActive"></i>
+                </span>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+      <!--内容部分-->
+      <div class="main-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+</div>

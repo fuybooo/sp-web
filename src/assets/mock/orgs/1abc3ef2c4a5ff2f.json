@@ -1,0 +1,23 @@
+{
+  "code":200,
+  "msg":"成功",
+  "data":
+  {
+    "id":"1abc3ef2c4a5ff2f",
+    "code":"xieiw001",
+    "name":"联合景博",
+    "invohead":{
+      "id":"6abc3ef2c234a5ff2f",
+      "barcode":"3a7bc3ef25c4a5ff2f",
+      "orgid":"4abc3ef22c4a5ff2f",
+      "taxpayeridenum":"zdwexxxlsdjisew",
+      "bankaccount":"737232322332234",
+      "telephone":"1783278723",
+      "bankdeposit":"招商银行望京支行",
+      "address":"北京海淀区中关村"
+    },
+    "dfaccname":"92382293820323",
+    "taxpaytype":1,
+    "usernum":38
+  }
+}

@@ -1,0 +1,6 @@
+<nz-input-group nzSearch [nzSuffix]="suffixIconButton">
+  <input type="text" nz-input [placeholder]="placeholder" [(ngModel)]="searchWord" (ngModelChange)="changeSearchWord($event)" (keydown.enter)="doSearch()">
+</nz-input-group>
+<ng-template #suffixIconButton>
+  <button nz-button nzSearch (click)="doSearch()"><i class="icon-uk-search"></i></button>
+</ng-template>

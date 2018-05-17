@@ -1,0 +1,40 @@
+@import "../../../../assets/less/vars";
+.position-center {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.summary-container {
+  height: 200px;
+  width: 100%;
+  position: relative;
+}
+.summary-box {
+  .position-center;
+  &.left {
+    left: 30%;
+  }
+  &.right {
+    right: 30%;
+  }
+  div {
+    position: absolute;
+  }
+  .title {
+    left: 14px;
+    color: #ddd;
+  }
+  .num {
+    top: 7px;
+    font-size: 52px;
+    color: @main-1;
+  }
+  .unit {
+    top: 48px;
+    left: 60px;
+    font-size: 12px;
+    color: #ddd;
+  }
+}

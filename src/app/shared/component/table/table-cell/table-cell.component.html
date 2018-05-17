@@ -1,0 +1,77 @@
+<span class="flex-box">
+  <!--使用formatter函数渲染-->
+  <ng-container *ngIf="col.formatter">
+    <span *ngIf="isFormatText(col)">{{getFormatText(col, data)}}</span>
+    <app-table-formatter *ngIf="!isFormatText(col)" [col]="col" [data]="data"></app-table-formatter>
+  </ng-container>
+<!--使用field渲染-->
+  <ng-container *ngIf="!col.formatter && col.field">
+    <span class="flex-box">
+      <ng-container *ngIf="!col.operateType">
+        {{data[col.field]}}
+      </ng-container>
+      <!--特殊操作-->
+      <ng-container *ngIf="col.operateType">
+        <!--查看更多-->
+        <ng-container *ngIf="col.operateType === 'showMorePost'">
+          <ng-container *ngIf="data[col.field] && data[col.field].length">
+            {{getNameByCode(data[col.field][0], 'POST')}}
+          </ng-container>
+          <ng-container *ngIf="data[col.field] && data[col.field].length > 1">
+            <nz-popover [nzTitle]="'更多岗位'" [nzTrigger]="'hover'">
+              <i nz-popover class="icon-uk-more ml6"><span class="path1"
+              ></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span
+                class="path5"></span></i>
+              <ng-template #nzTemplate>
+                <ul>
+                  <li class="popover-li" *ngFor="let option of getSortedList(data[col.field], 'POST')">{{option}}</li>
+                </ul>
+              </ng-template>
+            </nz-popover>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </span>
+  </ng-container>
+<!--使用specialHead渲染-->
+  <ng-container *ngIf="col.specialHead === 'expand'">
+    <a class="mr20 vh2" [class.vvi]="data.subordinatelist && data.subordinatelist.length"
+       (click)="tableService.handleClickExpand(data)">{{data.isExpand ? '收起' : '展开'}}</a>
+  </ng-container>
+<!--使用link渲染 1. 包含link但包含展开 2. 包含link,展开,但必须同时包含subordinatelist-->
+  <ng-container
+    *ngIf="(col.link && col.specialHead !== 'expand') || (col.link && col.specialHead === 'expand' && data.subordinatelist)">
+    <a (click)="emitEvent(col, data, 'link')" [title]="col.text">{{col.text}}</a>
+  </ng-container>
+<!--额外事件为设置默认-->
+  <ng-container *ngIf="col.operateType === 'configDefault'">
+    <span class="tag-default" *ngIf="data[col.defaultField || 'isdefault'] === 1">默认</span>
+    <a *ngIf="data[col.defaultField || 'isdefault'] === 0" (click)="emitEvent(col, data)">设为默认</a>
+  </ng-container>
+  <ng-container *ngIf="col.operateType === 'configBase'">
+    <span class="tag-default" *ngIf="data.isbasecurr === 1">本位币</span>
+    <a *ngIf="data.isbasecurr === 0" (click)="emitEvent(col, data)">设为本位币</a>
+  </ng-container>
+<!--字段后面直接添加编辑-->
+  <i *ngIf="col.extraEvent === 'edit'" (click)="emitEvent(col, data, 'edit')"
+     class="icon-uk-edit ml20 vh"></i>
+<!--使用气泡进行编辑-->
+  <ng-container *ngIf="col.extraEvent === 'editCell'">
+    <nz-popover [nzTitle]="'编辑默认汇率'" [nzTrigger]="'click'" [(nzVisible)]="rateVisible">
+        <i nz-popover class="icon-uk-edit ml20 vh" (click)="specialPropRate = data[col.field];"></i>
+        <ng-template #nzTemplate>
+          <div>
+            <!--数字输入框-->
+            <nz-input-number class="w" [nzSize]="'small'" nzPlaceholder="请输入"
+                             [(ngModel)]="specialPropRate" [nzMin]="0" [nzMax]="100000"
+                             [nzStep]="0.0001"></nz-input-number>
+          </div>
+          <div class="mt10">
+            <button class="small-btn" nz-button (click)="handleRateCancel()">取消</button>
+            <button class="small-btn ml20" nz-button [nzType]="'primary'"
+                    (click)="handleRateOk(col, data)">确定</button>
+          </div>
+        </ng-template>
+      </nz-popover>
+  </ng-container>
+</span>
