@@ -1,223 +1,55 @@
-
-/* 通用的布局 common- 开头的 */
-@media screen and (max-height: 541px) {
-  .common-left-content {
-    height: 400px;
-  }
-  .common-left-list {
-    height: e("calc(400px - 110px)");
-  }
-  .common-right-main {
-    height: e("calc(400px - 150px)");
-  }
+.wh {
+  width: 100%;
+  height: 100%;
 }
-@media screen and (min-height: 541px) {
-  .common-left-content {
-    height: e("calc(100vh - (60px + 36px + 41px + 33px))");
-  }
-  // 根据头部和底部的高度计算得到的 110px；150px；如果其他组件需要修改此高度可以在组件内定义特性样式
-  .common-left-list {
-    height: e("calc(100vh - (60px + 36px + 41px + 30px + 113px))");
-  }
-  .common-right-main {
-    height: e("calc(100vh - (60px + 36px + 41px + 30px + 150px))");
-  }
-}
-.common-left-list {
-  padding: 15px 0;
-  ul {
-    padding: 0;
-  }
-  li {
-    list-style: none;
-  }
-  .list-item {
-    height: 24px;
-    line-height: 24px;
-    color: @text-second;
-    position: relative;
-    cursor: default;
-    white-space: nowrap;
-    .flag {
-      display: inline-block;
-      height: 100%;
-      width: 5px;
-    }
-    &.active {
-      color: @text-main;
-      background: @blue-04;
-      .flag {
-        background-color: @main-1;
-      }
-    }
-    &.child-activated {
-      color: @text-main;
-    }
-    &:not(.active):hover {
-      color: @text-second;
-      background: @blue-05;
-      .flag {
-        background-color: @main-02;
-      }
-    }
-    .list-icon {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  }
-}
-.common-higher-list {
-  padding: 0;
-  .list-item {
-    height: 40px;
-    line-height: 40px;
-    border-bottom: 1px solid @gray-015;
-  }
-}
-/**
-  todo 此样式被js代码覆盖，在模块less中无法生效
- */
-/* header部分的红色提示标 */
-.main-mail-badge .ant-badge-count {
-  transform: translateX(90%) scale(.7) !important;
-}
-
-
-/*修饰tab页*/
-.card-container{
-  margin-top: 40px;
-}
-
-:host {
-  background: white;
-  overflow: hidden;
-  padding: 24px;
-  display: block;
-}
-
-.card-container .ant-tabs-card .ant-tabs-content {
-  height: 400px;
-  margin-top: -16px;
-}
-
-.card-container .ant-tabs-card .ant-tabs-content .ant-tabs-tabpane {
-  background:rgba(0, 0, 0, 0.02);
-  //padding: 16px;
-  height: 400px;
-  border:1px rgba(204, 204, 204, 1) solid;
-  border-top:0px rgba(204, 204, 204, 1) solid;
-  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.16);
-}
-
-.card-container .ant-tabs-card .ant-tabs-bar {
-  border-color:rgba(204, 204, 204, 1);
-}
-
-.card-container .ant-tabs-card .ant-tabs-bar .ant-tabs-tab {
-  border-color: transparent;
-  background: transparent;
-  border-right-color:rgba(0, 0, 0, 0.15) ;
-  border-left-color:rgba(0, 0, 0, 0.15) ;
-  border-top-color:rgba(0, 0, 0, 0.15) ;
-
-  border-top-left-radius: 0px;
-  margin-left: -2px;
-  border-left: 0px;
-
-  width: 130px;
-  text-align: center;
-}
-
-.card-container .ant-tabs-card .ant-tabs-bar .ant-tabs-tab-active {
-  //border: 1px solid #cccccc;
-  //border-top: 4px rgba(84, 136, 198, 1) solid;
-  background-color:#FAFAFA;
-
-  position: relative;
-}
-
-.card-container .ant-tabs-card .ant-tabs-bar .ant-tabs-tab-active:before{
-  content: '';
-  display: block;
-  width: 15px;
-  height: 40px;
+.content-base {
   position: absolute;
-  left: -6px;
-  top: -1px;
-  background-color: #FAFAFA;
-  border-top-left-radius: 6px;
-  transform: skewX(-8deg);
-  z-index:99999;
-  //border-bottom-left-radius:4px;
-  border-left:1px solid rgba(204, 204, 204, 1);
-  border-top:1px solid rgba(204, 204, 204, 1);
-  // background-color: red;
+  background-color: #fff;
 }
-
-.card-container .ant-tabs-card .ant-tabs-bar .ant-tabs-tab-active:after{
-  content: '';
-  display: block;
-  width: 15px;
-  height: 40px;
-  position: absolute;
-  right: -6px;
-  top: -1px;
-  background-color: #FAFAFA;
-  border-top-right-radius: 6px;
-  transform: skewX(8deg);
-  z-index:99999;
-  //border-bottom-right-radius:4px;
-  border-right:1px solid rgba(204, 204, 204, 1);
-  border-top:1px solid rgba(204, 204, 204, 1);
-  // background-color: red;
-}
-
-.card-container .ant-tabs-nav .ant-tabs-tab-active:last-child:after{
-  content: '';
-  width: 0px;
-  height: 0px;
-}
-
-.card-container .ant-tabs-nav .ant-tabs-tab-active:nth-child(2):before {
-  content: '';
-  width: 0px;
-  height: 0px;
-}
-
-.card-container .ant-tabs-nav .ant-tabs-tab:nth-child(2) {
-  border-top-left-radius: 4px;
-  margin-left: 0px;
-  border-left: 1px solid rgba(0, 0, 0, 0.15);
-}
-
-.card-container .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-nav-container {
-  height: 40px;
-}
-.common-blank {
-  height: 280px;
+.main {
+  .wh;
   position: relative;
-  .img {
-    position: absolute;
-    width: 134px;
-    height: 110px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: url("../images/blank.png") no-repeat 100%;
+  .main-box {
+    .wh;
+    background-color: @color-background;
+  }
+  .main-header-box {
+    height: 100px;
+    background-color: @color-main;
+  }
+  .menu-box {
+    border-right: 1px solid @color-main;
+    width: 200px;
+    .content-base;
+    left: 50px;
+    top: 50px;
+    li {
+      height: 50px;
+      line-height: 50px;
+    }
+  }
+  .main-content {
+    .content-base;
+    left: 250px;
+    top: 50px;
   }
 }
-.card-help{
-  .ant-tooltip-arrow {
-    border-top-color: @gray-1;
-    border-bottom-color: @gray-1;
+@media screen and (max-width: 1330px) {
+  .main-content {
+    width: e("calc(1330px - (200px + 100px))");
   }
-  .ant-tooltip-inner {
-    background-color: @gray-1;
-    max-width: 350px;
+}
+@media screen and (min-width: 1330px) {
+  .main-content {
+    width: e("calc(100vw - (200px + 100px))");
   }
-  .card-help-content p {
-    color: @text-second;
-    margin-bottom: 5px;
+}
+@media screen and (max-height: 500px){
+  .menu-box, .main-content {
+    height: e("calc(500px - (50px))");
+  }
+}@media screen and (min-height: 500px){
+  .menu-box, .main-content {
+    height: e("calc(100vh - (50px))");
   }
 }

@@ -1,99 +1,23 @@
-<div class="uk-main">
-  <nz-spin [(nzSpinning)]="this.coreService.spin" [nzDelay]="10" [nzSize]="'large'" [nzTip]="'正在加载...'">
-    <nz-layout>
-    <nz-layout>
-      <!--第一层头部-->
-      <nz-header class="main-header">
-        <div nz-row class="main-header-box">
-          <div nz-col [nzSpan]="4">
-            <div class="flex-box">
-              <span class="logo"></span>
-              <span class="project-name">{{projectName}}</span>
-            </div>
-          </div>
-          <div nz-col [nzOffset]="14" [nzSpan]="6" class="header-items flex-box jcfe">
-            <span class="avatar"></span>
-            <span class="ml20 f16 text-normal">{{loginInfo?.username}}</span>
-            <div class="ml20 user">
-              <i class="icon-uk-mine2 text-normal"></i>
-              <span class="dot"></span>
-            </div>
-            <!--<div class="logout" (click)="logout()">-->
-              <i class="icon-uk-logout ml20 mr30 text-normal" (click)="logout()"></i>
-            <!--</div>-->
-            <!--<div class="operate">-->
-              <!---->
-            <!--</div>-->
-          </div>
-        </div>
-      </nz-header>
-      <!--第二层头部-->
-      <nz-header class="main-nav-header">
-        <div nz-row>
-          <div nz-col [nzSpan]="24">
-            <ul class="main-nav">
-              <li *ngFor="let nav of navList" (click)="onClickNav(nav)" [class.active]="nav.isActive">
-                <a>{{nav.label}}</a>
-                <div class="li-bottom"></div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nz-header>
-    </nz-layout>
-    <nz-layout>
-      <!--左侧菜单-->
-      <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null" class="main-sider">
-        <ul nz-menu class="menu-list" [nzMode]="isCollapsed?'vertical':'inline'" [nzInlineCollapsed]="isCollapsed" appScrollbar>
-          <ng-container *ngFor="let item of menuList">
-            <li class="menu-first" *ngIf="item.children" nz-submenu [nzOpen]="item.isExpand">
-              <span title>
-                <i class="triangle"
-                   [class.triangle-down]="item.isExpand"
-                   [class.triangle-left]="!item.isExpand"></i>
-                <i class="menu-i f20" [ngClass]="item.iconCls" [title]="item.label"></i>
-                <span class="nav-text">{{item.label}}</span>
-              </span>
-              <ul>
-                <!--暂时只支持二级菜单，可以根据需要增加菜单级数-->
-                <ng-container *ngFor="let _item of item.children">
-                  <li class="menu-second" *ngIf="!_item.children" nz-menu-item [nzSelected]="_item.isActive" (click)="onClickItem(_item)">
-                  <span>
-                    <i class="main-icon-dot"></i>
-                    <span class="nav-text">{{_item.label}}</span>
-                    <i class="anticon anticon-right main-icon-right" *ngIf="_item.isActive"></i>
-                  </span>
-                  </li>
-                </ng-container>
-              </ul>
-            </li>
-            <li class="menu-first" *ngIf="!item.children" nz-menu-item [nzSelected]="item.isActive" (click)="onClickItem(item)">
-              <span class="">
-                <i class="menu-i f20" [ngClass]="item.iconCls" [title]="item.label"></i>
-                <span class="nav-text">{{item.label}}</span>
-                <i class="anticon anticon-right main-icon-right" *ngIf="item.isActive"></i>
-              </span>
-            </li>
-          </ng-container>
-        </ul>
-      </nz-sider>
-      <!--内容部分-->
-      <nz-content class="pr">
-        <!--<i class="anticon main-nav-trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed" (click)="isCollapsed=!isCollapsed"></i>-->
-        <!--面包片部分-->
-        <nz-breadcrumb class="p10_0i pl30i" *ngIf="!currentItem.hideBreadcrumb">
-          <nz-breadcrumb-item *ngFor="let bread of breadcrumbList">{{bread}}</nz-breadcrumb-item>
-        </nz-breadcrumb>
-        <!--路由内容部分-->
-        <!--使用appScrollbar在页面比较复杂时会有明显卡顿-->
-        <!--<div class="main-content" appScrollbar>-->
-        <div class="main-content">
-          <router-outlet></router-outlet>
-        </div>
-        <!--footer占高30px-->
-        <!--<nz-footer class="main-footer"></nz-footer>-->
-      </nz-content>
-    </nz-layout>
-  </nz-layout>
-  </nz-spin>
+<div class="main">
+  <div class="main-box">
+    <!--左侧菜单-->
+    <div class="menu-box">
+      <ul nz-menu class="menu-list">
+        <ng-container *ngFor="let item of menuList">
+          <li class="menu-first" *ngIf="!item.children" nz-menu-item [nzSelected]="item.isActive"
+              (click)="onClickItem(item)">
+                <span class="flex-box">
+                  <i class="menu-i anticon" [ngClass]="item.iconCls" [title]="item.label"></i>
+                  <span class="nav-text">{{item.label}}</span>
+                  <i class="anticon anticon-right main-icon-right" *ngIf="item.isActive"></i>
+                </span>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+    <!--内容部分-->
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

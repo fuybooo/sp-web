@@ -8,3 +8,7 @@
   2. npm v5.6.0
   3. ng v1.7.3
 ```
+## 打包需要更改的地方
+- 1. index.html中的title
+- 2. vars.less中的@primary-color
+- 3. environment中的project
