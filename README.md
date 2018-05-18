@@ -1,6 +1,11 @@
 # 企业服务平台基础环境搭建
-
-1. 启动： npm start
+```
+  git init
+  git add README.md
+  git commit -m "first commit"
+  git remote add origin git@github.com:fuybooo/sp-web.git
+  git push -u origin master
+```
 
 ## 初始开发环境
 ```
@@ -9,6 +14,6 @@
   3. ng v1.7.3
 ```
 ## 打包需要更改的地方
-- 1. index.html中的title
-- 2. vars.less中的@primary-color
-- 3. environment中的project
+-  index.html中的title
+-  vars.less中的@primary-color
+-  environment中的project

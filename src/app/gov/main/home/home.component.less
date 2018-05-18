@@ -1,0 +1,49 @@
+@import "../../../../assets/less/vars";
+.home-chart {
+  height: 150px;
+}
+.flex-col {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+}
+.home-divider {
+  position: absolute;
+  height: 40px;
+  width: 1px;
+  background-color: @color-border;
+  left: 50%;
+  top: 25px;
+  &.higher {
+    top: 60px;
+    height: 140px;
+  }
+}
+.chart-title {
+  position: absolute;
+}
+.chart-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 40%);
+  z-index: 2;
+  font-size: 16px;
+  color: @color-primary;
+}
+.home-block {
+  display: block;
+  width: 100px;
+  height: 60px;
+  line-height: 60px;
+  background: -webkit-gradient(linear, 0 0, right bottom, from(rgb(195,104,167)), to(rgb(212, 55, 74)));
+  font-size: 36px;
+  text-align: center;
+  margin: 40px 0 0 70px;
+  color: @gray-1;
+}
+.home-num {
+  font-size: 30px;
+  padding-right: 50px;
+}

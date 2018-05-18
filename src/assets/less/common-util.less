@@ -1,4 +1,5 @@
 @import "vars";
+@border-left: 1px solid @color-border;
 /* 通用的弹性盒布局样式抽取 */
 .flex-box {
   display: flex;
@@ -11,6 +12,12 @@
 .jcfs {
   justify-content: flex-start;
 }
+.jcc {
+  justify-content: center;
+}
+.jcsb {
+  justify-content: space-between;
+}
 .common-page {
   padding: 20px 15px;
   .common-header-box {
@@ -21,4 +28,11 @@
   .common-content-box {
 
   }
+}
+.common-panel {
+  border: 1px solid @color-border;
+  padding: 10px 15px;
+}
+.border-left {
+  border-left: @border-left;
 }
