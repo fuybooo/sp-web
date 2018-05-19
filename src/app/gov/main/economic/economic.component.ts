@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./economic.component.less']
 })
 export class EconomicComponent implements OnInit {
-
+  dateRange = [];
   constructor() { }
 
   ngOnInit() {
   }
-
+  onChange(event) {}
 }

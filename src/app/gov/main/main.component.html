@@ -4,12 +4,26 @@
     <div class="menu-box">
       <ul nz-menu class="menu-list">
         <ng-container *ngFor="let item of menuList">
+
+          <li class="menu-first" *ngIf="item.children" nz-submenu [nzOpen]="item.isExpand">
+              <span title>
+                <i class="menu-i anticon" [ngClass]="item.iconCls" [title]="item.label"></i>
+                <span class="nav-text">{{item.label}}</span>
+              </span>
+            <ul>
+              <!--暂时只支持二级菜单，可以根据需要增加菜单级数-->
+              <ng-container *ngFor="let _item of item.children">
+                <li class="menu-second" *ngIf="!_item.children" nz-menu-item [nzSelected]="_item.isActive" (click)="onClickItem(_item)">
+                  <span class="nav-text">{{_item.label}}</span>
+                </li>
+              </ng-container>
+            </ul>
+          </li>
           <li class="menu-first" *ngIf="!item.children" nz-menu-item [nzSelected]="item.isActive"
               (click)="onClickItem(item)">
                 <span class="flex-box">
                   <i class="menu-i anticon" [ngClass]="item.iconCls" [title]="item.label"></i>
                   <span class="nav-text">{{item.label}}</span>
-                  <i class="anticon anticon-right main-icon-right" *ngIf="item.isActive"></i>
                 </span>
           </li>
         </ng-container>
@@ -19,7 +33,7 @@
     <div class="main-content">
       <nz-breadcrumb class="main-breadcrumb" *ngIf="currentItem.code !== 'home'">
         <nz-breadcrumb-item>首页</nz-breadcrumb-item>
-        <nz-breadcrumb-item>{{currentItem.label}}</nz-breadcrumb-item>
+        <nz-breadcrumb-item *ngFor="let bread of breadcrumbList">{{bread}}</nz-breadcrumb-item>
       </nz-breadcrumb>
       <router-outlet></router-outlet>
     </div>

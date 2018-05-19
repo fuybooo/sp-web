@@ -14,12 +14,14 @@
   .main-box {
     .wh;
     background-color: @color-background;
+    //min-height: 650px;
   }
   .main-header-box {
     height: 100px;
     background-color: @color-main;
   }
   .menu-box {
+    //min-height: 600px;
     border-right: 1px solid @color-main;
     width: 200px;
     .content-base;
@@ -28,6 +30,23 @@
     li {
       height: 50px;
       line-height: 50px;
+      .main-icon-dot {
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+        border-radius: 100%;
+        margin-right: 6px;
+        margin-left: 24px;
+        vertical-align: 4%;
+        background-color: rgba(0,0,0,0.65);
+      }
+      .main-icon-right {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        font-size: 12px;
+      }
     }
   }
   .main-content {
@@ -35,6 +54,7 @@
     padding: 30px;
     left: 250px;
     top: 50px;
+    //min-height: 600px;
     .main-breadcrumb {
       margin-left: 15px;
     }
@@ -52,10 +72,35 @@
 }
 @media screen and (max-height: 500px){
   .menu-box, .main-content {
-    height: e("calc(500px - (50px))");
+    min-height: e("calc(500px - (50px))");
   }
 }@media screen and (min-height: 500px){
   .menu-box, .main-content {
-    height: e("calc(100vh - (50px))");
+    min-height: e("calc(100vh - (50px))");
+  }
+}
+
+.common-gov-tabs {
+  .ant-tabs-nav {
+    height: 44px;
+    width: 100%;
+  }
+  .ant-tabs-bar {
+    border-bottom: 1px solid @primary-color;
+  }
+  .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-nav-container {
+    height: 45px;
+  }
+  .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+    background: @color-background;
+    padding: 0 56px;
+    line-height: 43px;
+    font-size: 16px;
+    color: @text-main;
+    &.ant-tabs-tab-active {
+      color: #fff;
+      background: @primary-color;
+      z-index: 10!important;
+    }
   }
 }

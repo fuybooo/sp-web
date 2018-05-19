@@ -21,18 +21,18 @@
           <ng-container *ngIf="isNotString(col.text[evi])">
             <!--todo 此处visible的值是data中的某个field，需要根据该值进行判断，是否显示该行-->
             <ng-container *ngIf="col.text[evi].visible">
-              <a class="cell-event" (click)="emitEvent(col, data, ev[evi])">{{col.text[evi].value}}</a>
+              <a class="cell-event" (click)="emitEvent(col, data, ev)">{{col.text[evi].value}}</a>
             </ng-container>
           </ng-container>
           <!--是字符串，直接显示-->
           <ng-container *ngIf="!isNotString(col.text[evi])">
-            <a class="cell-event" (click)="emitEvent(col, data, ev[evi])">{{col.text[evi]}}</a>
+            <a class="cell-event" (click)="emitEvent(col, data, ev)">{{col.text[evi]}}</a>
           </ng-container>
         </ng-container>
       </ng-container>
       <!--单个事件-->
       <ng-container *ngIf="!isNotString(col.event)">
-        <a class="cell-event" (click)="emitEvent(col, data)">{{col.event}}</a>
+        <a class="cell-event" (click)="emitEvent(col, data)">{{col.text}}</a>
       </ng-container>
     </ng-container>
   </ng-container>

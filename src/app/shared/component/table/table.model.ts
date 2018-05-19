@@ -16,4 +16,5 @@ export interface Column {
   text?: string | string[] | Array<{value: string, visible?: boolean | string} | string>; // 需要显示的固定的文本
   event?: string | string[];
   textLimit?: number; // 文字长度限制
+  link?: string | string[]; // 文本链接
 }

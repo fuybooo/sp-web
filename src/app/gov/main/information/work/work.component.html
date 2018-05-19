@@ -1,9 +1,28 @@
 <div class="common-page">
-  <div class="f22">项目管理</div>
+  <div class="f22">工作动态</div>
   <div class="mt20" nz-row [nzGutter]="10">
-    <div nz-col [nzSpan]="5">
+    <div nz-col [nzSpan]="6">
+      <nz-range-picker class="w" [(ngModel)]="dateRange" (ngModelChange)="onChange($event)"></nz-range-picker>
+    </div>
+    <div nz-col [nzSpan]="3">
       <nz-dropdown class="w">
-        <button class="w" nz-button nz-dropdown><span>选择市</span> <i class="anticon anticon-down"></i></button>
+        <button class="w" nz-button nz-dropdown><span>发布状态</span> <i class="anticon anticon-down"></i></button>
+        <ul nz-menu>
+          <li nz-menu-item>
+            <a>状态1</a>
+          </li>
+          <li nz-menu-item>
+            <a>状态2</a>
+          </li>
+          <li nz-menu-item>
+            <a>状态3</a>
+          </li>
+        </ul>
+      </nz-dropdown>
+    </div>
+    <div nz-col [nzSpan]="3">
+      <nz-dropdown class="w">
+        <button class="w" nz-button nz-dropdown><span>信息分类</span> <i class="anticon anticon-down"></i></button>
         <ul nz-menu>
           <li nz-menu-item>
             <a>类型1</a>
@@ -17,27 +36,11 @@
         </ul>
       </nz-dropdown>
     </div>
-    <div nz-col [nzSpan]="5">
-      <nz-dropdown class="w">
-        <button class="w" nz-button nz-dropdown><span>选择区</span> <i class="anticon anticon-down"></i></button>
-        <ul nz-menu>
-          <li nz-menu-item>
-            <a>类型1</a>
-          </li>
-          <li nz-menu-item>
-            <a>类型2</a>
-          </li>
-          <li nz-menu-item>
-            <a>类型3</a>
-          </li>
-        </ul>
-      </nz-dropdown>
-    </div>
-    <div nz-col [nzOffset]="10" [nzSpan]="2">
+    <div nz-col [nzOffset]="7" [nzSpan]="2">
       <button class="w" nz-button [nzType]="'primary'">查询</button>
     </div>
-    <div nz-col [nzSpan]="2">
-      <button class="w" nz-button [nzType]="'primary'" (click)="switchRoute()">新建项目</button>
+    <div nz-col [nzSpan]="3">
+      <button class="w" nz-button [nzType]="'primary'">新建工作动态</button>
     </div>
   </div>
   <div class="mt20">
@@ -49,5 +52,6 @@
       [isCheckbox]="false"
       (eventChange)="eventChange($event)"
     ></app-table>
+
   </div>
 </div>
