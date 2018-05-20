@@ -1,0 +1,52 @@
+{
+  "data": {
+    "user": {
+      "id": "1020153",
+      "corpinfoid": "123",
+      "username": "徐淑红",
+      "lastname": null,
+      "firstname": null,
+      "language": null,
+      "mobile": null,
+      "positionlevel": "190095428676485138",
+      "sex": null,
+      "birthday": 619110000000,
+      "email": "xushuhong@ucfgroup.com",
+      "type": null,
+      "remark": "开发账号",
+      "isjob": 1,
+      "headimg": null,
+      "loginname": "2530951",
+      "password": "1488edffd627fe2ce77991f55a9ba05461b6df76",
+      "userpinyin": null,
+      "isofflogin": null,
+      "islock": null,
+      "lastloginip": null,
+      "lastlogintime": null,
+      "locktime": null,
+      "logincount": null,
+      "faillogincount": null,
+      "logoutstatus": null,
+      "appprivilege": null,
+      "pcprivilege": null,
+      "creater": null,
+      "createtime": null,
+      "status": 1,
+      "positionlevelname": null,
+      "token": "d1248b08d0aba152da70151022ba416c",
+      "stat_user": false,
+      "subordinatelist": [
+        {
+          "orgid": "SY2017062000000001",
+          "orgname": "测试新机构-20170620",
+          "orgcode": "UCF1233456789",
+          "deptid": "SY2017062100000005",
+          "deptname": "人力资源部",
+          "isdef": 0
+        }
+      ]
+    }
+  },
+  "msg": "Ok",
+  "code": 200
+}

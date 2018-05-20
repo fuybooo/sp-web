@@ -1,0 +1,39 @@
+@import "vars";
+@border-left: 1px solid @color-border;
+/* 通用的弹性盒布局样式抽取 */
+.flex-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.jcfe {
+  justify-content: flex-end;
+}
+.jcfs {
+  justify-content: flex-start;
+}
+.jcc {
+  justify-content: center;
+}
+.jcsb {
+  justify-content: space-between;
+}
+.common-page {
+  padding: 20px 15px;
+  .common-header-box {
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 2px solid rgb(242,242,242);
+  }
+  .common-content-box {
+
+  }
+}
+.common-panel {
+  border: 1px solid @color-border;
+  padding: 10px 15px;
+}
+
+.border-left {
+  border-left: @border-left;
+}

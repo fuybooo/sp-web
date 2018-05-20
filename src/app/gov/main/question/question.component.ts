@@ -98,7 +98,7 @@ export class QuestionComponent implements OnInit {
       f7: i % 4 ? '已完成' : '未完成',
     }));
   }
-  onChange() {}
+  onChange(event) {}
   eventChange(event) {}
   eventChange2(event) {
     if (event.tableId === this.tableId2) {

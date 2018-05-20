@@ -1,0 +1,146 @@
+{
+  "code": 200,
+  "msg": "",
+  "data": {
+    "results": [
+      {
+        "id": "1",
+        "pid": "2dcee3",
+        "code": "001",
+        "name": "北京联合景博咨询有限责任公司",
+        "invoheadid": "发票抬头xx",
+        "taxpaytype": "纳税人类型",
+        "status": "0",
+        "creater": "xx",
+        "createtime": "2017-04-12",
+        "depts": [
+          {
+            "id": "xx6x232x1x",
+            "name": "公关公关公关",
+            "code": "001001",
+            "property": "1",
+            "orgid": "1",
+            "creater": "xxxxx",
+            "createtime": "2018-10-8 00:00:00",
+            "status": "0",
+            "type": "1"
+          },
+          {
+            "id": "xx2x232x2x",
+            "name": "产品部",
+            "code": "001002",
+            "property": "1",
+            "orgid": "1",
+            "creater": "xxxxx",
+            "createtime": "2018-10-8 00:00:00",
+            "status": "0",
+            "type": "2"
+          },
+          {
+            "id": "xxx23222x3x",
+            "name": "研发部",
+            "code": "001003",
+            "property": "1",
+            "orgid": "1",
+            "creater": "xxxxx",
+            "createtime": "2018-10-8 00:00:00",
+            "status": "0",
+            "type": "1"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "pid": "2dcee3",
+        "code": "002",
+        "name": "看任公司",
+        "invoheadid": "发票抬头xx",
+        "taxpaytype": "纳税人类型",
+        "status": "0",
+        "creater": "xx",
+        "createtime": "2017-04-12",
+        "depts": [
+          {
+            "id": "xxx232x53x3",
+            "name": "公安安部",
+            "code": "002001",
+            "property": "1",
+            "orgid": "2",
+            "creater": "xxxxx",
+            "createtime": "2018-10-8 00:00:00",
+            "status": "0",
+            "type": "2"
+          },
+          {
+            "id": "xxx23234xx4",
+            "name": "市场部",
+            "code": "002002",
+            "property": "1",
+            "orgid": "2",
+            "creater": "xxxxx",
+            "createtime": "2018-10-8 00:00:00",
+            "status": "0",
+            "type": "1"
+          },
+          {
+            "id": "xxx232x23x5",
+            "name": "规划部",
+            "code": "002003",
+            "property": "1",
+            "orgid": "2",
+            "creater": "xxxxx",
+            "createtime": "2018-10-8 00:00:00",
+            "status": "0",
+            "type": "1"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "pid": "2dcee3",
+        "code": "003",
+        "name": "北京",
+        "invoheadid": "发票抬头xx",
+        "taxpaytype": "纳税人类型",
+        "status": "0",
+        "creater": "xx",
+        "createtime": "2017-04-12",
+        "depts": [
+          {
+            "id": "xxx232xx3",
+            "name": "测试",
+            "code": "003001",
+            "property": "1",
+            "orgid": "3",
+            "creater": "xxxxx",
+            "createtime": "2018-10-8 00:00:00",
+            "status": "0",
+            "type": "1"
+          },
+          {
+            "id": "xxx232xx4",
+            "name": "行政部",
+            "code": "003002",
+            "property": "1",
+            "orgid": "3",
+            "creater": "xxxxx",
+            "createtime": "2018-10-8 00:00:00",
+            "status": "0",
+            "type": "1"
+          },
+          {
+            "id": "xxx232xx5",
+            "name": "财务部",
+            "code": "003003",
+            "property": "1",
+            "orgid": "3",
+            "creater": "xxxxx",
+            "createtime": "2018-10-8 00:00:00",
+            "status": "0",
+            "type": "2"
+          }
+        ]
+      }
+    ]
+  }
+}

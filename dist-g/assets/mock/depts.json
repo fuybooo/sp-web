@@ -1,0 +1,16 @@
+{
+  "code": 200,
+  "msg": "",
+  "data": {
+    "id":"xxid2",
+    "code":"xieiw001",
+    "name":"财务部门",
+    "property":"1",
+    "org":{
+      "code":"uk002",
+      "name":"景博咨询"
+    },
+    "status":"1",
+    "usernum":"30"
+  }
+}

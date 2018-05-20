@@ -1,0 +1,39 @@
+{
+  "code": 200,
+  "msg": "成功",
+  "data": {
+    "results": [
+      {
+        "id": "2",
+        "typename": "一线城市",
+        "cityname": "北京",
+        "traffictoolsname": "飞机",
+        "levelname": "头等舱",
+        "orgname": "联合景博",
+        "deptname": "运维开发部",
+        "poslevelname": "董事长",
+        "username": "张三",
+        "loginname": "zhangsan",
+        "calctypename": "返回-出发",
+        "money": "500/晚",
+        "status": 1
+      },
+      {
+        "id": "3",
+        "typename": "一线城市",
+        "cityname": "北京",
+        "traffictoolsname": "飞机",
+        "levelname": "头等舱",
+        "orgname": "联合景博",
+        "deptname": "运维开发部",
+        "poslevelname": "董事长",
+        "username": "张三",
+        "loginname": "zhangsan",
+        "calctypename": "返回-出发",
+        "money": "500/晚",
+        "status": 1
+      }
+    ],
+    "total": 100
+  }
+}

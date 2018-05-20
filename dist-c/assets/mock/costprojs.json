@@ -1,0 +1,19 @@
+{
+  "code": 200,
+  "msg": "成功",
+  "data": {
+    "results": [
+      {
+        "id":"xxxx",
+        "code":"xxxx",
+        "name":"xxxx",
+        "type":"xxxx",
+        "typename":"xxxx",
+        "iconid":"xxxx",
+        "iconurl":"xxxx",
+        "status":1
+      }
+    ],
+    "total": 1
+  }
+}

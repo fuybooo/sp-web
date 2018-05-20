@@ -17,3 +17,4 @@
 -  index.html中的title
 -  vars.less中的@primary-color
 -  environment中的project
+-  必要时换favicon

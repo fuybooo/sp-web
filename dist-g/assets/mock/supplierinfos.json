@@ -1,0 +1,17 @@
+{
+  "code": 200,
+  "msg": "成功",
+  "data": {
+    "results": [
+      {
+        "id": "1",
+        "code": "xxxx",
+        "name": "xxxx",
+        "type": "xxxx",
+        "remark": "xxxx",
+        "status": 1
+      }
+    ],
+    "total": 1
+  }
+}
