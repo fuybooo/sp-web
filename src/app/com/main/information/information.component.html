@@ -7,58 +7,17 @@
       </div>
     </div>
   </div>
-  <div class="common-content-box">
-    <table>
-      <tr>
-        <td>组织机构代码</td>
-        <td>23654887454</td>
-        <td>社会信用证编号</td>
-        <td>KJ55432465422</td>
-      </tr>
-      <tr>
-        <td>法人代表</td>
-        <td>李四</td>
-        <td>控股情况</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>注册地址</td>
-        <td>河北省唐山市小圆县大兴村古城花园7-9号</td>
-        <td>注册资本</td>
-        <td>500万</td>
-      </tr>
-      <tr>
-        <td>经营地址</td>
-        <td>北京市朝阳区凤凰汇A座502室</td>
-        <td>主要业务活动</td>
-        <td>道路货物运输</td>
-      </tr>
-    </table>
-  </div>
 </div>
 <!--企业基本信息 录入-->
 <div>
-  <form nz-form [formGroup]="form">
-    <nz-form-item nzFlex>
-      <nz-form-label [nzSpan]="5">企业名称</nz-form-label>
-      <nz-form-control [nzSpan]="12">
-        <input nz-input placeholder="请输入" formControlName="f1">
-      </nz-form-control>
-    </nz-form-item>
+  <form nz-form [formGroup]="form" [class.view-table]="op === 'view'">
     <div nz-row [nzGutter]="30">
-      <div nz-col [nzSpan]="12">
+      <div nz-col [nzSpan]="24">
         <nz-form-item nzFlex>
-          <nz-form-label [nzSpan]="7" nzRequired>行业分类</nz-form-label>
-          <nz-form-control [nzSpan]="17">
-            <input nz-input placeholder="请输入" formControlName="f2">
-          </nz-form-control>
-        </nz-form-item>
-      </div>
-      <div nz-col [nzSpan]="12">
-        <nz-form-item nzFlex>
-          <nz-form-label [nzSpan]="7" nzRequired>行业代码</nz-form-label>
-          <nz-form-control [nzSpan]="17">
-            <input nz-input placeholder="请输入" formControlName="f3">
+          <nz-form-label [nzSpan]="4" nzRequired class="pri20i">企业名称</nz-form-label>
+          <nz-form-control [nzSpan]="20" class="pl10i">
+            <input [hidden]="op === 'view'" nz-input placeholder="请输入" formControlName="f1">
+            <span *ngIf="op === 'view'">{{$('f1')}}</span>
           </nz-form-control>
         </nz-form-item>
       </div>
@@ -66,17 +25,19 @@
     <div nz-row [nzGutter]="30">
       <div nz-col [nzSpan]="12">
         <nz-form-item nzFlex>
-          <nz-form-label [nzSpan]="7" nzRequired>社会信用编号</nz-form-label>
-          <nz-form-control [nzSpan]="17">
-            <input nz-input placeholder="请输入" formControlName="f2">
+          <nz-form-label [nzSpan]="8" nzRequired>行业分类</nz-form-label>
+          <nz-form-control [nzSpan]="16">
+            <input [hidden]="op === 'view'" nz-input placeholder="请输入" formControlName="f2">
+            <span *ngIf="op === 'view'">{{$('f2')}}</span>
           </nz-form-control>
         </nz-form-item>
       </div>
       <div nz-col [nzSpan]="12">
         <nz-form-item nzFlex>
-          <nz-form-label [nzSpan]="7" nzRequired>组织机构代码</nz-form-label>
-          <nz-form-control [nzSpan]="17">
-            <input nz-input placeholder="请输入" formControlName="f3">
+          <nz-form-label [nzSpan]="8" nzRequired>行业代码</nz-form-label>
+          <nz-form-control [nzSpan]="16">
+            <input [hidden]="op === 'view'" nz-input placeholder="请输入" formControlName="f3">
+            <span *ngIf="op === 'view'">{{$('f3')}}</span>
           </nz-form-control>
         </nz-form-item>
       </div>
@@ -84,41 +45,19 @@
     <div nz-row [nzGutter]="30">
       <div nz-col [nzSpan]="12">
         <nz-form-item nzFlex>
-          <nz-form-label [nzSpan]="7" nzRequired>工商登记注册号</nz-form-label>
-          <nz-form-control [nzSpan]="17">
-            <input nz-input placeholder="请输入" formControlName="f2">
+          <nz-form-label [nzSpan]="8" nzRequired>社会信用编号</nz-form-label>
+          <nz-form-control [nzSpan]="16">
+            <input [hidden]="op === 'view'" nz-input placeholder="请输入" formControlName="f4">
+            <span *ngIf="op === 'view'">{{$('f4')}}</span>
           </nz-form-control>
         </nz-form-item>
       </div>
       <div nz-col [nzSpan]="12">
         <nz-form-item nzFlex>
-          <nz-form-label [nzSpan]="7" nzRequired>税务登记注册号</nz-form-label>
-          <nz-form-control [nzSpan]="17">
-            <input nz-input placeholder="请输入" formControlName="f3">
-          </nz-form-control>
-        </nz-form-item>
-      </div>
-    </div>
-    <nz-form-item nzFlex>
-      <nz-form-label [nzSpan]="5">运营状态</nz-form-label>
-      <nz-form-control [nzSpan]="12">
-        <input nz-input placeholder="请输入" formControlName="f1">
-      </nz-form-control>
-    </nz-form-item>
-    <div nz-row [nzGutter]="30">
-      <div nz-col [nzSpan]="12">
-        <nz-form-item nzFlex>
-          <nz-form-label [nzSpan]="7" nzRequired>企业控股情况</nz-form-label>
-          <nz-form-control [nzSpan]="17">
-            <input nz-input placeholder="请输入" formControlName="f2">
-          </nz-form-control>
-        </nz-form-item>
-      </div>
-      <div nz-col [nzSpan]="12">
-        <nz-form-item nzFlex>
-          <nz-form-label [nzSpan]="7" nzRequired>注册资金</nz-form-label>
-          <nz-form-control [nzSpan]="17">
-            <input nz-input placeholder="请输入" formControlName="f3">
+          <nz-form-label [nzSpan]="8" nzRequired>组织机构代码</nz-form-label>
+          <nz-form-control [nzSpan]="16">
+            <input [hidden]="op === 'view'" nz-input placeholder="请输入" formControlName="f5">
+            <span *ngIf="op === 'view'">{{$('f5')}}</span>
           </nz-form-control>
         </nz-form-item>
       </div>
@@ -126,17 +65,30 @@
     <div nz-row [nzGutter]="30">
       <div nz-col [nzSpan]="12">
         <nz-form-item nzFlex>
-          <nz-form-label [nzSpan]="7" nzRequired>成立时间</nz-form-label>
-          <nz-form-control [nzSpan]="17">
-            <input nz-input placeholder="请输入" formControlName="f2">
+          <nz-form-label [nzSpan]="8" nzRequired>工商登记注册号</nz-form-label>
+          <nz-form-control [nzSpan]="16">
+            <input [hidden]="op === 'view'" nz-input placeholder="请输入" formControlName="f6">
+            <span *ngIf="op === 'view'">{{$('f6')}}</span>
           </nz-form-control>
         </nz-form-item>
       </div>
       <div nz-col [nzSpan]="12">
         <nz-form-item nzFlex>
-          <nz-form-label [nzSpan]="7" nzRequired>法人代表</nz-form-label>
-          <nz-form-control [nzSpan]="17">
-            <input nz-input placeholder="请输入" formControlName="f3">
+          <nz-form-label [nzSpan]="8" nzRequired>税务登记注册号</nz-form-label>
+          <nz-form-control [nzSpan]="16">
+            <input [hidden]="op === 'view'" nz-input placeholder="请输入" formControlName="f7">
+            <span *ngIf="op === 'view'">{{$('f7')}}</span>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+    <div nz-row [nzGutter]="30">
+      <div nz-col [nzSpan]="24">
+        <nz-form-item nzFlex>
+          <nz-form-label [nzSpan]="4" class="pri20i" nzRequired>运营状态</nz-form-label>
+          <nz-form-control [nzSpan]="20" class="pl10i">
+            <input [hidden]="op === 'view'" nz-input placeholder="请输入" formControlName="f8">
+            <span *ngIf="op === 'view'">{{$('f8')}}</span>
           </nz-form-control>
         </nz-form-item>
       </div>
@@ -144,32 +96,90 @@
     <div nz-row [nzGutter]="30">
       <div nz-col [nzSpan]="12">
         <nz-form-item nzFlex>
-          <nz-form-label [nzSpan]="7" nzRequired>登记注册类型</nz-form-label>
-          <nz-form-control [nzSpan]="17">
-            <input nz-input placeholder="请输入" formControlName="f2">
+          <nz-form-label [nzSpan]="8" nzRequired>企业控股情况</nz-form-label>
+          <nz-form-control [nzSpan]="16">
+            <input [hidden]="op === 'view'" nz-input placeholder="请输入" formControlName="f9">
+            <span *ngIf="op === 'view'">{{$('f9')}}</span>
           </nz-form-control>
         </nz-form-item>
       </div>
       <div nz-col [nzSpan]="12">
         <nz-form-item nzFlex>
-          <nz-form-label [nzSpan]="7" nzRequired>单位规模</nz-form-label>
-          <nz-form-control [nzSpan]="17">
-            <input nz-input placeholder="请输入" formControlName="f3">
+          <nz-form-label [nzSpan]="8" nzRequired>注册资金</nz-form-label>
+          <nz-form-control [nzSpan]="16">
+            <input [hidden]="op === 'view'" nz-input placeholder="请输入" formControlName="f10">
+            <span *ngIf="op === 'view'">{{$('f10')}}</span>
           </nz-form-control>
         </nz-form-item>
       </div>
     </div>
-    <nz-form-item nzFlex>
-      <nz-form-label [nzSpan]="5">隶属关系</nz-form-label>
-      <nz-form-control [nzSpan]="12">
-        <input nz-input placeholder="请输入" formControlName="f1">
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item nzFlex>
-      <nz-form-label [nzSpan]="5">主要业务活动</nz-form-label>
-      <nz-form-control [nzSpan]="12">
-        <input nz-input placeholder="请输入" formControlName="f1">
-      </nz-form-control>
-    </nz-form-item>
+    <div nz-row [nzGutter]="30">
+      <div nz-col [nzSpan]="12">
+        <nz-form-item nzFlex>
+          <nz-form-label [nzSpan]="8" nzRequired>成立时间</nz-form-label>
+          <nz-form-control [nzSpan]="16">
+            <input [hidden]="op === 'view'" nz-input placeholder="请输入" formControlName="f11">
+            <span *ngIf="op === 'view'">{{$('f11')}}</span>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="12">
+        <nz-form-item nzFlex>
+          <nz-form-label [nzSpan]="8" nzRequired>法人代表</nz-form-label>
+          <nz-form-control [nzSpan]="16">
+            <input [hidden]="op === 'view'" nz-input placeholder="请输入" formControlName="f12">
+            <span *ngIf="op === 'view'">{{$('f12')}}</span>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+    <div nz-row [nzGutter]="30">
+      <div nz-col [nzSpan]="12">
+        <nz-form-item nzFlex>
+          <nz-form-label [nzSpan]="8" nzRequired>登记注册类型</nz-form-label>
+          <nz-form-control [nzSpan]="16">
+            <input [hidden]="op === 'view'" nz-input placeholder="请输入" formControlName="f14">
+            <span *ngIf="op === 'view'">{{$('f14')}}</span>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="12">
+        <nz-form-item nzFlex>
+          <nz-form-label [nzSpan]="8" nzRequired>单位规模</nz-form-label>
+          <nz-form-control [nzSpan]="16">
+            <input [hidden]="op === 'view'" nz-input placeholder="请输入" formControlName="f15">
+            <span *ngIf="op === 'view'">{{$('f15')}}</span>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+    <div nz-row [nzGutter]="30">
+      <div nz-col [nzSpan]="24">
+        <nz-form-item nzFlex>
+          <nz-form-label [nzSpan]="4" class="pri20i" nzRequired>隶属关系</nz-form-label>
+          <nz-form-control [nzSpan]="20" class="pl10i">
+            <input [hidden]="op === 'view'" nz-input placeholder="请输入" formControlName="f6">
+            <span *ngIf="op === 'view'">{{$('f16')}}</span>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+    <div nz-row [nzGutter]="30">
+      <div nz-col [nzSpan]="24">
+        <nz-form-item nzFlex>
+          <nz-form-label [nzSpan]="4" class="pri20i" nzRequired>主要业务活动</nz-form-label>
+          <nz-form-control [nzSpan]="20" class="pl10i">
+            <input [hidden]="op === 'view'" nz-input placeholder="请输入" formControlName="f17">
+            <span *ngIf="op === 'view'">{{$('f17')}}</span>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col [nzSpan]="24" class="tac">
+        <button nz-button [nzType]="'primary'" (click)="op = op === 'view' ? 'edit' : 'view'">{{op === 'view' ? '编辑' : '保存'}}</button>
+        <button nz-button *ngIf="op==='edit'">取消</button>
+      </div>
+    </div>
   </form>
 </div>

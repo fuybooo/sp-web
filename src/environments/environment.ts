@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  project: 'gov', // com gov
+  project: 'com', // com gov
   isStatic: true,
   apiPath: 'http://172.16.10.8:8060/uk-bsc/v1', // 服务器
   apiPathChangeable: true,

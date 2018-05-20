@@ -1,0 +1,13 @@
+<div class="common-page">
+  <div class="f22">省职单位问题分类统计表</div>
+  <app-query></app-query>
+  <div class="mt20">
+    <app-table
+      [dataSet]="dataSet"
+      [columns]="columns"
+      [tableId]="tableId"
+      [isSortCol]="true"
+      [isCheckbox]="false"
+    ></app-table>
+  </div>
+</div>

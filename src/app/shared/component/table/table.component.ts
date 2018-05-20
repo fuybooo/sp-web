@@ -2,7 +2,6 @@ import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angula
 import {Column} from './table.model';
 import {TableService} from './table.service';
 import {CoreService} from '../../../core/core.service';
-import {UtilService} from '../../../core/util.service';
 
 /**
  * app-table组件，只适用于没有任何自定义事件的表格

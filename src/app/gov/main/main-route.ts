@@ -9,7 +9,7 @@ import {EconomicComponent} from './economic/economic.component';
 import {QuestionComponent} from './question/question.component';
 import {InformationComponent} from './information/information.component';
 import {SummaryComponent} from './summary/summary.component';
-import {AssessmentComponent} from './assessment/assessment.component';
+import {ReportComponent} from './report/report.component';
 import {ClassifyComponent} from './classify/classify.component';
 import {CompanyDetailComponent} from './roster/company-detail/company-detail.component';
 import {ProjectDetailComponent} from './project/project-detail/project-detail.component';
@@ -20,6 +20,21 @@ import {SuperviseProgressComponent} from './information/supervise-progress/super
 import {ProgressComponent} from './information/progress/progress.component';
 import {NotifyComponent} from './information/notify/notify.component';
 import {SupportComponent} from './information/support/support.component';
+import {OnTimeComponent} from './report/on-time/on-time.component';
+import {QuestionCollectionComponent} from './report/question-collection/question-collection.component';
+import {QuestionResolveComponent} from './report/question-resolve/question-resolve.component';
+import {QuestionSatisfyComponent} from './report/question-satisfy/question-satisfy.component';
+import {DeptOnTimeComponent} from './report/dept-on-time/dept-on-time.component';
+import {ProvinceQuestionResolveComponent} from './report/province-question-resolve/province-question-resolve.component';
+import {ProvinceQuestionSatisfyComponent} from './report/province-question-satisfy/province-question-satisfy.component';
+import {ThreeClassThreeStatisticalComponent} from './classify/three-class-three-statistical/three-class-three-statistical.component';
+import {ClassifyClsComponent} from './classify/cls/cls.component';
+import {SecondaryOpenRateComponent} from './classify/secondary-open-rate/secondary-open-rate.component';
+import {ProvinceQuestionClassifyComponent} from './classify/province-question-classify/province-question-classify.component';
+import {ClassAndQuestionDemandComponent} from './classify/class-and-question-demand/class-and-question-demand.component';
+import {ThreeClassThreeStatisticalClassifyComponent} from './classify/three-class-three-statistical-classify/three-class-three-statistical-classify.component';
+import {QuestionTimeoutComponent} from './classify/question-timeout/question-timeout.component';
+import {InvestigationComponent} from './classify/investigation/investigation.component';
 
 export const mainRoutes: Routes = [
   {
@@ -98,12 +113,76 @@ export const mainRoutes: Routes = [
         component: SummaryComponent
       },
       {
-        path: 'assessment',
-        component: AssessmentComponent
+        path: 'report',
+        component: ReportComponent,
+        children: [
+          {
+            path: 'onTime',
+            component: OnTimeComponent
+          },
+          {
+            path: 'questionCollection',
+            component: QuestionCollectionComponent
+          },
+          {
+            path: 'questionResolve',
+            component: QuestionResolveComponent
+          },
+          {
+            path: 'questionSatisfy',
+            component: QuestionSatisfyComponent
+          },
+          {
+            path: 'deptOnTime',
+            component: DeptOnTimeComponent
+          },
+          {
+            path: 'provinceQuestionResolve',
+            component: ProvinceQuestionResolveComponent
+          },
+          {
+            path: 'provinceQuestionSatisfy',
+            component: ProvinceQuestionSatisfyComponent
+          },
+        ]
       },
       {
         path: 'classify',
-        component: ClassifyComponent
+        component: ClassifyComponent,
+        children: [
+          {
+            path: 'threeClassThreeStatistical',
+            component: ThreeClassThreeStatisticalComponent
+          },
+          {
+            path: 'classify',
+            component: ClassifyClsComponent
+          },
+          {
+            path: 'secondaryOpenRate',
+            component: SecondaryOpenRateComponent
+          },
+          {
+            path: 'provinceQuestionClassify',
+            component: ProvinceQuestionClassifyComponent
+          },
+          {
+            path: 'classAndQuestionDemand',
+            component: ClassAndQuestionDemandComponent
+          },
+          {
+            path: 'threeClassThreeStatisticalClassify',
+            component: ThreeClassThreeStatisticalClassifyComponent
+          },
+          {
+            path: 'questionTimeout',
+            component: QuestionTimeoutComponent
+          },
+          {
+            path: 'investigation',
+            component: InvestigationComponent
+          },
+        ]
       },
     ]
   },

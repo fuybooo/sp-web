@@ -9,6 +9,7 @@ import { ScrollbarDirective } from './directive/scrollbar.directive';
 import {SearchComponent} from './component/search/search.component';
 import {TableFormatterComponent} from './component/table/table-formatter/table-formatter.component';
 import {TableCellComponent} from './component/table/table-cell/table-cell.component';
+import { QueryComponent } from './component/project/query/query.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import {TableCellComponent} from './component/table/table-cell/table-cell.compon
     TableFormatterComponent,
     TableCellComponent,
     SearchComponent,
+    QueryComponent,
   ],
   entryComponents: [
   ],
@@ -43,6 +45,7 @@ import {TableCellComponent} from './component/table/table-cell/table-cell.compon
     ScrollbarDirective,
     TableComponent,
     SearchComponent,
+    QueryComponent,
   ],
 })
 export class SharedModule { }

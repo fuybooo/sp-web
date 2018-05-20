@@ -1,4 +1,5 @@
 <nz-table #nzTable
+          nzBordered
           nzShowSizeChanger
           [nzFrontPagination]="!tableService.url"
           [nzData]="tableService.dataSet"
@@ -11,6 +12,7 @@
           [nzSize]="tableService.tableSize"
           [nzShowQuickJumper]="true"
           [nzPageSizeOptions]="[5, 10, 20]"
+          class="common-nz-table"
 >
   <!-- 切换页码 (nzCurrentPageDataChange)="tableService.currentPageDataChange($event)"-->
   <thead>

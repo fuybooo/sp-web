@@ -13,7 +13,6 @@ import { EconomicComponent } from './economic/economic.component';
 import { QuestionComponent } from './question/question.component';
 import { InformationComponent } from './information/information.component';
 import { SummaryComponent } from './summary/summary.component';
-import { AssessmentComponent } from './assessment/assessment.component';
 import { ClassifyComponent } from './classify/classify.component';
 import { RosterTableComponent } from './roster/roster-table/roster-table.component';
 import { CompanyDetailComponent } from './roster/company-detail/company-detail.component';
@@ -26,6 +25,23 @@ import { SupportComponent } from './information/support/support.component';
 import { NotifyComponent } from './information/notify/notify.component';
 import { ProgressComponent } from './information/progress/progress.component';
 import { SuperviseProgressComponent } from './information/supervise-progress/supervise-progress.component';
+import { ReportComponent } from './report/report.component';
+import { OnTimeComponent } from './report/on-time/on-time.component';
+import { QuestionCollectionComponent } from './report/question-collection/question-collection.component';
+import { QuestionResolveComponent } from './report/question-resolve/question-resolve.component';
+import { QuestionSatisfyComponent } from './report/question-satisfy/question-satisfy.component';
+import { DeptOnTimeComponent } from './report/dept-on-time/dept-on-time.component';
+import { ProvinceQuestionResolveComponent } from './report/province-question-resolve/province-question-resolve.component';
+import { ProvinceQuestionSatisfyComponent } from './report/province-question-satisfy/province-question-satisfy.component';
+import { ThreeClassThreeStatisticalComponent } from './classify/three-class-three-statistical/three-class-three-statistical.component';
+import { SecondaryOpenRateComponent } from './classify/secondary-open-rate/secondary-open-rate.component';
+import { ProvinceQuestionClassifyComponent } from './classify/province-question-classify/province-question-classify.component';
+import { ThreeClassThreeStatisticalClassifyComponent } from './classify/three-class-three-statistical-classify/three-class-three-statistical-classify.component';
+import { QuestionTimeoutComponent } from './classify/question-timeout/question-timeout.component';
+import { InvestigationComponent } from './classify/investigation/investigation.component';
+import {ClassifyClsComponent} from './classify/cls/cls.component';
+import { ClassAndQuestionDemandComponent } from './classify/class-and-question-demand/class-and-question-demand.component';
+import { ReportTableComponent } from './report/report-table/report-table.component';
 
 @NgModule({
   imports: [
@@ -35,6 +51,6 @@ import { SuperviseProgressComponent } from './information/supervise-progress/sup
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}
   ],
-  declarations: [MainComponent, HomeComponent, RosterComponent, SituationComponent, ProjectComponent, EconomicComponent, QuestionComponent, InformationComponent, SummaryComponent, AssessmentComponent, ClassifyComponent, RosterTableComponent, CompanyDetailComponent, ProjectDetailComponent, EconomicTableComponent, ProjectEconomicComponent, QuestionDetailComponent, WorkComponent, SupportComponent, NotifyComponent, ProgressComponent, SuperviseProgressComponent]
+  declarations: [MainComponent, HomeComponent, RosterComponent, SituationComponent, ProjectComponent, EconomicComponent, QuestionComponent, InformationComponent, SummaryComponent, ReportComponent, ClassifyComponent, RosterTableComponent, CompanyDetailComponent, ProjectDetailComponent, EconomicTableComponent, ProjectEconomicComponent, QuestionDetailComponent, WorkComponent, SupportComponent, NotifyComponent, ProgressComponent, SuperviseProgressComponent, ReportComponent, OnTimeComponent, QuestionCollectionComponent, QuestionResolveComponent, QuestionSatisfyComponent, DeptOnTimeComponent, ProvinceQuestionResolveComponent, ProvinceQuestionSatisfyComponent, ThreeClassThreeStatisticalComponent, SecondaryOpenRateComponent, ProvinceQuestionClassifyComponent, ThreeClassThreeStatisticalClassifyComponent, QuestionTimeoutComponent, InvestigationComponent, ClassifyClsComponent, ClassAndQuestionDemandComponent, ReportTableComponent]
 })
 export class MainModule { }

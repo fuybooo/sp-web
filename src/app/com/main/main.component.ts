@@ -11,10 +11,8 @@ declare let $: any;
   styleUrls: ['./main.component.less'],
 })
 export class MainComponent implements OnInit {
-  isCollapsed = false;
   currentItem;
   loginInfo;
-  navList = [];
   menuList = [];
   breadcrumbList = [];
 
@@ -28,8 +26,6 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.loginInfo = UtilService.getLoginInfo();
-    // 初始化字典
-    // this.utilService.getDictionaries();
     this.initMenuList();
     // 路由改变时,改变导航栏状态
     this.coreService.routeChangeEvent.subscribe(() => {
@@ -41,7 +37,7 @@ export class MainComponent implements OnInit {
     this.menuList = $.extend(true, [], menuList);
     const url = this.router.routerState.snapshot.url;
     this.menuList.forEach(item => {
-      if (url.indexOf(item.route) === 0) {
+      if (url === item.route) {
         item.isActive = true;
         this.currentItem = item;
         this.breadcrumbList = [this.currentItem.label];

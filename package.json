@@ -5,9 +5,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng s -o --port 4400",
-    "build": "ng b -e prod -aot --prod -w true -dop --buildOptimizer --preserveSymlinks --bh / --deploy-url /Unikingber-web/",
-    "b": "ng b -e prod -aot --prod -w true -dop --buildOptimizer --preserveSymlinks --deploy-url /uk-bsc-web/",
-    "l": "node_modules/lite-server/bin/lite-server --baseDir=\"uk-bsc-web\"",
+    "build": "ng b -e prod -aot --prod -dop --buildOptimizer --preserveSymlinks --bh / --deploy-url /",
+    "bc": "ng b -e prod -aot --prod -dop --buildOptimizer --preserveSymlinks --deploy-url /dist-c -op dist-c",
+    "bg": "ng b -e prod -aot --prod -dop --buildOptimizer --preserveSymlinks --deploy-url /dist-g -op dist-g",
     "test": "ng test",
     "lint": "ng l",
     "e2e": "ng e2e"

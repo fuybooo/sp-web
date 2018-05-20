@@ -1,8 +1,8 @@
-<div class="main">
+<div class="main js-main">
   <div class="main-box">
     <!--左侧菜单-->
-    <div class="menu-box">
-      <ul nz-menu class="menu-list">
+    <div class="menu-box" appScrollbar>
+      <ul nz-menu class="menu-list" [nzMode]="'inline'">
         <ng-container *ngFor="let item of menuList">
 
           <li class="menu-first" *ngIf="item.children" nz-submenu [nzOpen]="item.isExpand">

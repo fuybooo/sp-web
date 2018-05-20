@@ -43,7 +43,7 @@ export class ProjectComponent implements OnInit {
       title: '操作',
       text: ['查看', '修改'],
       event: ['view', 'edit'],
-      link: '/main/projDetail'
+      link: '/main/projCreate'
     }
   ];
   constructor(

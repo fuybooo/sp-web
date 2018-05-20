@@ -36,6 +36,23 @@ export class MainComponent implements OnInit {
       this.initMenuList();
     });
   }
+  // handleStyle() {
+  //   // 处理特殊页面的样式
+  //   if (this.router.routerState.snapshot.url.includes('/main/summary')) {
+  //     $('.js-main').addClass('summary-main-box');
+  //   } else {
+  //     $('.js-main').removeClass('summary-main-box');
+  //   }
+  //   setTimeout(() => {
+  //     const contentHeight = $('.main-content').height();
+  //     console.log(contentHeight);
+  //     const menuHeight = 600;
+  //     if (contentHeight + 60 > menuHeight) {
+  //       $('#js-summary-style').empty();
+  //       $('head').append($(`<style id="js-summary-style">.summary-main-box .menu-box {height: ${contentHeight + 60}px!important;}.summary-main-box .main-box {height: ${contentHeight + 50 + 60}px!important;}</style>`));
+  //     }
+  //   }, 100);
+  // }
   initMenuList() {
     this.menuList = $.extend(true, [], menuList);
     const url = this.router.routerState.snapshot.url;

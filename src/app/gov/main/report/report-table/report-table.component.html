@@ -1,0 +1,9 @@
+<app-table
+  *ngIf="columns.length"
+  [dataSet]="dataSet"
+  [columns]="columns"
+  [tableId]="tableId"
+  [isSortCol]="true"
+  [isCheckbox]="false"
+  (eventChange)="eventChange($event)"
+></app-table>

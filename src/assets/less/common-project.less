@@ -9,11 +9,11 @@
   background-color: #fff;
 }
 .main {
+  background-color: @color-background;
   .wh;
   position: relative;
   .main-box {
     .wh;
-    background-color: @color-background;
     //min-height: 650px;
   }
   .main-header-box {
@@ -21,25 +21,15 @@
     background-color: @color-main;
   }
   .menu-box {
-    //min-height: 600px;
+    max-height: 760px;
     border-right: 1px solid @color-main;
     width: 200px;
     .content-base;
     left: 50px;
     top: 50px;
     li {
-      height: 50px;
-      line-height: 50px;
-      .main-icon-dot {
-        display: inline-block;
-        width: 4px;
-        height: 4px;
-        border-radius: 100%;
-        margin-right: 6px;
-        margin-left: 24px;
-        vertical-align: 4%;
-        background-color: rgba(0,0,0,0.65);
-      }
+      //height: 50px;
+      //line-height: 50px;
       .main-icon-right {
         position: absolute;
         top: 50%;
@@ -54,6 +44,8 @@
     padding: 30px;
     left: 250px;
     top: 50px;
+    border-left: 1px solid @primary-color;
+    margin-left: -1px;
     //min-height: 600px;
     .main-breadcrumb {
       margin-left: 15px;
@@ -70,11 +62,11 @@
     width: e("calc(100vw - (200px + 100px))");
   }
 }
-@media screen and (max-height: 500px){
+@media screen and (max-height: 810px){
   .menu-box, .main-content {
-    min-height: e("calc(500px - (50px))");
+    min-height: e("calc(810px - (50px))");
   }
-}@media screen and (min-height: 500px){
+}@media screen and (min-height: 810px){
   .menu-box, .main-content {
     min-height: e("calc(100vh - (50px))");
   }

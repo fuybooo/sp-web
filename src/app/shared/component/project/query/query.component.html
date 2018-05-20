@@ -1,0 +1,43 @@
+<div class="mt20" nz-row [nzGutter]="10">
+  <div nz-col [nzSpan]="3">
+    <nz-dropdown class="w">
+      <button class="w" nz-button nz-dropdown><span>省级</span> <i class="anticon anticon-down"></i></button>
+      <ul nz-menu>
+        <li nz-menu-item>
+          <a>状态1</a>
+        </li>
+        <li nz-menu-item>
+          <a>状态2</a>
+        </li>
+        <li nz-menu-item>
+          <a>状态3</a>
+        </li>
+      </ul>
+    </nz-dropdown>
+  </div>
+  <div nz-col [nzSpan]="3">
+    <nz-dropdown class="w">
+      <button class="w" nz-button nz-dropdown><span>选择区县</span> <i class="anticon anticon-down"></i></button>
+      <ul nz-menu>
+        <li nz-menu-item>
+          <a>类型1</a>
+        </li>
+        <li nz-menu-item>
+          <a>类型2</a>
+        </li>
+        <li nz-menu-item>
+          <a>类型3</a>
+        </li>
+      </ul>
+    </nz-dropdown>
+  </div>
+  <div nz-col [nzSpan]="6">
+    <nz-range-picker class="w" [(ngModel)]="dateRange" (ngModelChange)="onChange($event)"></nz-range-picker>
+  </div>
+  <div nz-col [nzOffset]="8" [nzSpan]="2">
+    <button class="w" nz-button [nzType]="'primary'">查询</button>
+  </div>
+  <div nz-col [nzSpan]="2">
+    <button class="w" nz-button [nzType]="'primary'">导出</button>
+  </div>
+</div>

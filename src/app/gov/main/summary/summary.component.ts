@@ -1,22 +1,29 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import * as echart from 'echarts/lib/echarts';
 import 'echarts/lib/chart/bar';
 import 'echarts/lib/component/tooltip';
 import 'echarts/lib/component/title';
+
 declare let $: any;
+
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
   styleUrls: ['./summary.component.less']
 })
-export class SummaryComponent implements OnInit, AfterViewInit {
+export class SummaryComponent implements OnInit {
   chartList = [];
+  questionClassifyList = [];
   timer;
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
     this.initChart();
+    this.initQuestionClassifyList();
   }
+
   initChart() {
     const classifyList = ['人才用工', '用地需求', '环境保护', '安全生产', '资金保障', '公用设施', '行政审批', '公共服务', '其他'];
     this.chartList = classifyList;
@@ -107,7 +114,8 @@ export class SummaryComponent implements OnInit, AfterViewInit {
                   formatter: params => {
                     if (params.dataIndex === 0) {
                       return params.percent + '%';
-                    }}
+                    }
+                  }
                 },
               },
               labelLine: {
@@ -115,7 +123,7 @@ export class SummaryComponent implements OnInit, AfterViewInit {
                   show: false
                 }
               },
-              data: [ 25, 100 - 25]
+              data: [25, 100 - 25]
             }],
             color: ['#d2292c', '#eee'],
           });
@@ -124,11 +132,12 @@ export class SummaryComponent implements OnInit, AfterViewInit {
     });
     window.onresize = classify.resize;
   }
-  ngAfterViewInit() {
-    const contentHeight = $('.main-content').height() + 60;
-    // 设置左侧菜单高度
-    $('.menu-box').height(contentHeight);
-    // 设置内容高度
-    $('.main-box').height(contentHeight + 50);
+
+  initQuestionClassifyList() {
+    this.questionClassifyList = Array(20).fill(0).map(() => ({
+      name: '石家庄',
+      number: 2
+    }));
   }
+
 }

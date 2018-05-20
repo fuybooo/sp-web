@@ -15,25 +15,25 @@ export const menuList: Menu[] = [
     label: '首页',
     code: 'home',
     route: '/main',
-    iconCls: {'anticon-minus': true},
+    iconCls: {'anticon-home': true},
   },
   {
     label: '问题清单',
     code: 'question',
     route: '/main/question',
-    iconCls: {'anticon-minus': true},
+    iconCls: {'anticon-bars': true},
   },
   {
     label: '企业信息',
     code: 'information',
     route: '/main/information',
-    iconCls: {'anticon-minus': true},
+    iconCls: {'anticon-appstore-o': true},
   },
   {
     label: '企业经济数据',
     code: 'economic',
     route: '/main/economic',
-    iconCls: {'anticon-minus': true},
+    iconCls: {'anticon-api': true},
   },
 ];
 

@@ -11,8 +11,39 @@
       <div class="header">
         分类问题解决率
       </div>
-      <div class="chart">
-        <div class="item" *ngFor="let chart of chartList; index as i" id="{{'rate-' + i}}"></div>
+      <div nz-row [nzGutter]="20" class="chart">
+        <div nz-col [nzSpan]="8" *ngFor="let chart of chartList; index as i">
+          <div class="item" id="{{'rate-' + i}}"></div>
+        </div>
+      </div>
+    </div>
+    <div class="common-panel mt20">
+      <div class="header">
+        各市企业提出问题分类情况
+      </div>
+      <div class="mt20">
+        问题类型：
+        <nz-dropdown>
+          <button class="w" nz-button nz-dropdown><span>全部类型</span> <i class="anticon anticon-down"></i></button>
+          <ul nz-menu>
+            <li nz-menu-item>
+              <a>类型1</a>
+            </li>
+            <li nz-menu-item>
+              <a>类型2</a>
+            </li>
+            <li nz-menu-item>
+              <a>类型3</a>
+            </li>
+          </ul>
+        </nz-dropdown>
+      </div>
+      <div class="mt20 question-content" appScrollbar>
+        <div *ngFor="let c of questionClassifyList; index as i" class="question-box">
+          <span>{{('0' + (i + 1)).slice(-2)}}</span>
+          <span>{{c.name}}</span>
+          <span>{{c.number}}</span>
+        </div>
       </div>
     </div>
   </div>

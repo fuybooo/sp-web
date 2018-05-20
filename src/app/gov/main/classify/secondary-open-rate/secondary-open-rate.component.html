@@ -1,0 +1,36 @@
+<div class="common-page">
+  <div class="f22">各市企业开通率统计表</div>
+  <app-query></app-query>
+  <div class="mt20">
+    <nz-table
+      class="common-nz-group-table"
+      #groupingTable
+      [nzData]="displayData"
+      nzBordered
+      nzSize="small"
+    >
+      <thead>
+      <tr>
+        <th>序号</th>
+        <th>区划名称</th>
+        <th>企业总数（个）</th>
+        <th class="bg-green">开通数（个）</th>
+        <th class="bg-yellow">未开通数（个）</th>
+        <th>开通率（%）</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of groupingTable.data;index as i">
+        <td>{{i + 1}}</td>
+        <td>{{data.f1}}</td>
+        <td>{{data.f2}}</td>
+        <td class="bg-green">{{data.f3}}</td>
+        <td class="bg-yellow">{{data.f4}}</td>
+        <td>{{data.f5}}</td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>
+
+

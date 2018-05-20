@@ -1,0 +1,49 @@
+<div class="common-page">
+  <div class="f22">企业分类及问题需求统计表</div>
+  <app-query></app-query>
+  <div class="mt20">
+    <nz-table
+      class="common-nz-group-table"
+      #groupingTable
+      [nzData]="displayData"
+      nzBordered
+      nzSize="small"
+    >
+      <thead>
+      <tr>
+        <th rowspan="3">序号</th>
+        <th rowspan="3">总计</th>
+        <th colspan="6">分类企业</th>
+        <th rowspan="3">未分类</th>
+      </tr>
+      <tr>
+        <th rowspan="2">合计</th>
+        <th colspan="2" class="bg-green">绿表</th>
+        <th rowspan="2" class="bg-yellow">黄表</th>
+        <th colspan="2" class="bg-red table-border-right">红表</th>
+      </tr>
+      <tr>
+        <th class="bg-green">绿一</th>
+        <th class="bg-green">绿二</th>
+        <th class="bg-red">红一</th>
+        <th class="bg-red table-border-right">红二</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of groupingTable.data;index as i">
+        <td>{{i + 1}}</td>
+        <td>{{data.f1}}</td>
+        <td>{{data.f2}}</td>
+        <td class="bg-green">{{data.f3}}</td>
+        <td class="bg-green">{{data.f4}}</td>
+        <td class="bg-yellow">{{data.f5}}</td>
+        <td class="bg-red">{{data.f6}}</td>
+        <td class="bg-red">{{data.f7}}</td>
+        <td>{{data.f8}}</td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>
+
+
