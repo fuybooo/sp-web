@@ -1,0 +1,84 @@
+<div class="common-page">
+  <div class="common-header-box">
+    经济数据详情
+  </div>
+  <div class="mt20">
+    <form nz-form [formGroup]="form">
+      <div nz-row [nzGutter]="30">
+        <div nz-col [nzSpan]="18">
+          <nz-form-item nzFlex>
+            <nz-form-label [nzSpan]="7" nzRequired>数据时间</nz-form-label>
+            <nz-form-control [nzSpan]="17">
+              <input nz-input placeholder="请输入" formControlName="f2">
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row [nzGutter]="30">
+        <div nz-col [nzSpan]="18">
+          <nz-form-item nzFlex>
+            <nz-form-label [nzSpan]="7" nzRequired>总资产（万元）</nz-form-label>
+            <nz-form-control [nzSpan]="17">
+              <input nz-input placeholder="请输入" formControlName="f2">
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row [nzGutter]="30">
+        <div nz-col [nzSpan]="18">
+          <nz-form-item nzFlex>
+            <nz-form-label [nzSpan]="7" nzRequired>总人数（个）</nz-form-label>
+            <nz-form-control [nzSpan]="17">
+              <input nz-input placeholder="请输入" formControlName="f3">
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row [nzGutter]="30">
+        <div nz-col [nzSpan]="18">
+          <nz-form-item nzFlex>
+            <nz-form-label [nzSpan]="7" nzRequired>主营业务收入（万元）</nz-form-label>
+            <nz-form-control [nzSpan]="17">
+              <input nz-input placeholder="请输入" formControlName="f2">
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row [nzGutter]="30">
+        <div nz-col [nzSpan]="18">
+          <nz-form-item nzFlex>
+            <nz-form-label [nzSpan]="7" nzRequired>利润总额（万元）</nz-form-label>
+            <nz-form-control [nzSpan]="17">
+              <input nz-input placeholder="请输入" formControlName="f3">
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row [nzGutter]="30">
+        <div nz-col [nzSpan]="18">
+          <nz-form-item nzFlex>
+            <nz-form-label [nzSpan]="7" nzRequired>上缴税金（万元）</nz-form-label>
+            <nz-form-control [nzSpan]="17">
+              <input nz-input placeholder="请输入" formControlName="f2">
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row [nzGutter]="30">
+        <div nz-col [nzSpan]="18">
+          <nz-form-item nzFlex>
+            <nz-form-label [nzSpan]="7" nzRequired>负债（万元）</nz-form-label>
+            <nz-form-control [nzSpan]="17">
+              <input nz-input placeholder="请输入" formControlName="f3">
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row [nzGutter]="30" class="tac">
+        <button nz-button [nzType]="'primary'">返回</button>
+        <button nz-button [nzType]="'primary'">保存</button>
+        <button nz-button [nzType]="'primary'">提交</button>
+      </div>
+    </form>
+  </div>
+</div>

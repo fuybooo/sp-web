@@ -22,6 +22,18 @@ export const menuList: Menu[] = [
     code: 'question',
     route: '/main/question',
     iconCls: {'anticon-bars': true},
+    additionalRoutes: [
+      {
+        label: '我要提问',
+        code: 'ask',
+        route: '/main/ask',
+      },
+      {
+        label: '问题详情',
+        code: 'question-detail',
+        route: '/main/question/detail',
+      }
+    ]
   },
   {
     label: '企业信息',
@@ -34,6 +46,13 @@ export const menuList: Menu[] = [
     code: 'economic',
     route: '/main/economic',
     iconCls: {'anticon-api': true},
+    additionalRoutes: [
+      {
+        label: '增加企业经济数据',
+        code: 'add-economic-data',
+        route: '/main/economic/detail',
+      },
+    ]
   },
 ];
 

@@ -42,7 +42,7 @@
       <button class="w" nz-button [nzType]="'primary'">查询</button>
     </div>
     <div nz-col [nzSpan]="4">
-      <button class="w" nz-button [nzType]="'primary'">我要提问</button>
+      <button class="w" nz-button [nzType]="'primary'" (click)="toAsk()">我要提问</button>
     </div>
   </div>
   <div class="mt20">
@@ -52,6 +52,7 @@
       [tableId]="tableId"
       [isSortCol]="true"
       [isCheckbox]="false"
+      (eventChange)="eventChange($event)"
     ></app-table>
   </div>
 </div>

@@ -6,7 +6,7 @@
     </div>
   </div>
 </div>
-<div>
+<div class="mt20">
   <form nz-form [formGroup]="form">
     <nz-form-item>
       <nz-form-label [nzSpan]="5">填报人姓名</nz-form-label>
@@ -62,6 +62,18 @@
       <nz-form-label [nzSpan]="5">问题内容</nz-form-label>
       <nz-form-control [nzSpan]="12">
         <textarea formControlName="f8" nz-input placeholder="请输入" [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">问题附件</nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <nz-upload
+          nzAction="https://jsonplaceholder.typicode.com/posts/"
+          [nzFileList]="fileList">
+          <button nz-button>
+            <i class="anticon anticon-upload"></i><span>上传文件</span>
+          </button>
+        </nz-upload>
       </nz-form-control>
     </nz-form-item>
   </form>

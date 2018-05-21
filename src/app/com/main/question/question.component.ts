@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Column} from '../../../shared/component/table/table.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-question',
@@ -37,6 +38,7 @@ export class QuestionComponent implements OnInit {
   ];
   dataSet = [];
   constructor(
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -48,5 +50,16 @@ export class QuestionComponent implements OnInit {
       f5: '无',
     }));
   }
-  onChange(event) {}
+  onChange(event) {
+  }
+  eventChange(event) {
+    if (event.tableId === this.tableId) {
+      if (event.event === 'view') {
+        this.router.navigateByUrl('/main/question/detail');
+      }
+    }
+  }
+  toAsk() {
+    this.router.navigateByUrl('/main/ask');
+  }
 }

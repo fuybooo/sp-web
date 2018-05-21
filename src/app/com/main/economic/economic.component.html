@@ -1,58 +1,76 @@
-<div>
-  <form nz-form [formGroup]="form">
-    <div nz-row [nzGutter]="30">
-      <div nz-col [nzSpan]="12">
-        <nz-form-item nzFlex>
-          <nz-form-label [nzSpan]="7" nzRequired>总资产（万元）</nz-form-label>
-          <nz-form-control [nzSpan]="17">
-            <input nz-input placeholder="请输入" formControlName="f2">
-          </nz-form-control>
-        </nz-form-item>
-      </div>
-      <div nz-col [nzSpan]="12">
-        <nz-form-item nzFlex>
-          <nz-form-label [nzSpan]="7" nzRequired>总人数（个）</nz-form-label>
-          <nz-form-control [nzSpan]="17">
-            <input nz-input placeholder="请输入" formControlName="f3">
-          </nz-form-control>
-        </nz-form-item>
-      </div>
+<!--填报信息-->
+<div class="common-page">
+  <div class="common-header-box">
+     经济数据
+  </div>
+  <div nz-row [nzGutter]="10" class="mt20">
+    <div nz-col [nzSpan]="6">
+      <nz-range-picker class="w" [(ngModel)]="dateRange" (ngModelChange)="onChange($event)"></nz-range-picker>
     </div>
-    <div nz-row [nzGutter]="30">
-      <div nz-col [nzSpan]="12">
-        <nz-form-item nzFlex>
-          <nz-form-label [nzSpan]="7" nzRequired>主营业务收入（万元）</nz-form-label>
-          <nz-form-control [nzSpan]="17">
-            <input nz-input placeholder="请输入" formControlName="f2">
-          </nz-form-control>
-        </nz-form-item>
-      </div>
-      <div nz-col [nzSpan]="12">
-        <nz-form-item nzFlex>
-          <nz-form-label [nzSpan]="7" nzRequired>利润总额（万元）</nz-form-label>
-          <nz-form-control [nzSpan]="17">
-            <input nz-input placeholder="请输入" formControlName="f3">
-          </nz-form-control>
-        </nz-form-item>
-      </div>
+    <div nz-col [nzSpan]="4">
+      <nz-dropdown class="w">
+        <button class="w" nz-button nz-dropdown><span>总资产（万元）</span> <i class="anticon anticon-down"></i></button>
+        <ul nz-menu>
+          <li nz-menu-item>
+            <a>类型1</a>
+          </li>
+          <li nz-menu-item>
+            <a>类型2</a>
+          </li>
+          <li nz-menu-item>
+            <a>类型3</a>
+          </li>
+        </ul>
+      </nz-dropdown>
     </div>
-    <div nz-row [nzGutter]="30">
-      <div nz-col [nzSpan]="12">
-        <nz-form-item nzFlex>
-          <nz-form-label [nzSpan]="7" nzRequired>上缴税金（万元）</nz-form-label>
-          <nz-form-control [nzSpan]="17">
-            <input nz-input placeholder="请输入" formControlName="f2">
-          </nz-form-control>
-        </nz-form-item>
-      </div>
-      <div nz-col [nzSpan]="12">
-        <nz-form-item nzFlex>
-          <nz-form-label [nzSpan]="7" nzRequired>负债（万元）</nz-form-label>
-          <nz-form-control [nzSpan]="17">
-            <input nz-input placeholder="请输入" formControlName="f3">
-          </nz-form-control>
-        </nz-form-item>
-      </div>
+    <div nz-col [nzSpan]="4">
+      <nz-dropdown class="w">
+        <button class="w" nz-button nz-dropdown><span>总人数（人）</span> <i class="anticon anticon-down"></i></button>
+        <ul nz-menu>
+          <li nz-menu-item>
+            <a>类型1</a>
+          </li>
+          <li nz-menu-item>
+            <a>类型2</a>
+          </li>
+          <li nz-menu-item>
+            <a>类型3</a>
+          </li>
+        </ul>
+      </nz-dropdown>
     </div>
-  </form>
+    <div nz-col [nzSpan]="4">
+      <nz-dropdown class="w">
+        <button class="w" nz-button nz-dropdown><span>主营业务收入</span> <i class="anticon anticon-down"></i></button>
+        <ul nz-menu>
+          <li nz-menu-item>
+            <a>类型1</a>
+          </li>
+          <li nz-menu-item>
+            <a>类型2</a>
+          </li>
+          <li nz-menu-item>
+            <a>类型3</a>
+          </li>
+        </ul>
+      </nz-dropdown>
+    </div>
+    <div nz-col [nzSpan]="3">
+      <button class="w" nz-button [nzType]="'primary'">查询</button>
+    </div>
+    <div nz-col [nzSpan]="3">
+      <button class="w" nz-button [nzType]="'primary'">新增数据</button>
+    </div>
+  </div>
+  <div class="mt20">
+    <app-table
+      [dataSet]="dataSet"
+      [columns]="columns"
+      [tableId]="tableId"
+      [isSortCol]="true"
+      [isCheckbox]="false"
+      (eventChange)="eventChange($event)"
+    ></app-table>
+  </div>
+
 </div>

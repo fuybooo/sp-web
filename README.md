@@ -16,5 +16,4 @@
 ## 打包需要更改的地方
 -  index.html中的title
 -  vars.less中的@primary-color
--  environment中的project
 -  必要时换favicon

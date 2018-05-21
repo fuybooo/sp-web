@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "unikingber-web"
+    "name": "sp-web"
   },
   "apps": [
     {
       "root": "src",
-      "outDir": "uk-bsc-web",
+      "outDir": "dist",
       "assets": [
         "assets",
         "favicon.ico"
@@ -32,7 +32,9 @@
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
+        "prod": "environments/environment.prod.ts",
+        "com": "environments/environment.com.prod.ts",
+        "gov": "environments/environment.gov.prod.ts"
       }
     }
   ],
