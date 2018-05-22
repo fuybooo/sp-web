@@ -1,0 +1,81 @@
+<div class="common-page">
+  <div class="f22">企业账户列表</div>
+  <div nz-row class="mt20" [nzGutter]="10">
+    <div nz-col [nzSpan]="6">
+      选择区划：
+      <nz-select nzPlaceHolder="请选择区划" class="w110">
+        <ng-container *ngFor="let option of typeList1">
+          <nz-option [nzValue]="option.id" [nzLabel]="option.name"></nz-option>
+        </ng-container>
+      </nz-select>
+    </div>
+    <div nz-col [nzSpan]="6">
+      选择街道：
+      <nz-select nzPlaceHolder="请选择区划" class="w110">
+        <ng-container *ngFor="let option of typeList2">
+          <nz-option [nzValue]="option.id" [nzLabel]="option.name"></nz-option>
+        </ng-container>
+      </nz-select>
+    </div>
+    <div nz-col [nzSpan]="3">
+      <nz-dropdown class="w">
+        <button class="w" nz-button nz-dropdown><span>账户是否创建</span> <i class="anticon anticon-down"></i></button>
+        <ul nz-menu>
+          <li nz-menu-item>
+            <a>是</a>
+          </li>
+          <li nz-menu-item>
+            <a>否</a>
+          </li>
+        </ul>
+      </nz-dropdown>
+    </div>
+    <div nz-col [nzSpan]="3">
+      <nz-dropdown class="w">
+        <button class="w" nz-button nz-dropdown><span>信息是否确认</span> <i class="anticon anticon-down"></i></button>
+        <ul nz-menu>
+          <li nz-menu-item>
+            <a>是</a>
+          </li>
+          <li nz-menu-item>
+            <a>否</a>
+          </li>
+        </ul>
+      </nz-dropdown>
+    </div>
+    <div nz-col [nzSpan]="3">
+      <button class="w" nz-button [nzType]="'primary'">导出</button>
+    </div>
+    <div nz-col [nzSpan]="3">
+      <button class="w" nz-button (click)="switchRoute()">批量创建账号</button>
+    </div>
+  </div>
+  <div nz-row class="mt10" [nzGutter]="10">
+    <div nz-col [nzSpan]="6">
+      企业名称：
+      <input class="w110" nz-input type="text">
+    </div>
+    <div nz-col [nzSpan]="6">
+      组织机构代码：
+      <input class="w110" nz-input type="text">
+    </div>
+    <div nz-col [nzSpan]="6">
+      <nz-range-picker class="w240" [(ngModel)]="dateRange" (ngModelChange)="onChange($event)"></nz-range-picker>
+    </div>
+    <div nz-col [nzSpan]="3">
+      <button class="w" nz-button [nzType]="'primary'">查询</button>
+    </div>
+    <div nz-col [nzSpan]="3">
+      <button class="w" nz-button>清空</button>
+    </div>
+  </div>
+  <div class="mt20 x-small-table">
+    <app-table
+      [dataSet]="dataSet"
+      [columns]="columns"
+      [tableId]="tableId"
+      [isSortCol]="true"
+      (eventChange)="eventChange($event)"
+    ></app-table>
+  </div>
+</div>

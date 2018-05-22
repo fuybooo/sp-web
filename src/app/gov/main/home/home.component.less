@@ -21,6 +21,7 @@
   }
 }
 .chart-title {
+  font-size: 22px;
   position: absolute;
 }
 .chart-label {
@@ -46,4 +47,40 @@
 .home-num {
   font-size: 30px;
   padding-right: 50px;
+}
+.home-summary {
+  width: 80%;
+  margin: 0 auto;
+  justify-content: space-between;
+  .summary-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.home-area {
+  position: relative;
+  .query {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+  }
+  .area-content {
+    table {
+      width: 100%;
+      td {
+        border: 1px solid @color-table-border;
+        padding: 16px;
+      }
+      td:nth-of-type(odd) {
+        color: @color-secondary;
+        border-right: none;
+      }
+      td:nth-of-type(even) {
+        width: 10%;
+        border-left: none;
+      }
+    }
+  }
 }

@@ -35,6 +35,15 @@ import {ClassAndQuestionDemandComponent} from './classify/class-and-question-dem
 import {ThreeClassThreeStatisticalClassifyComponent} from './classify/three-class-three-statistical-classify/three-class-three-statistical-classify.component';
 import {QuestionTimeoutComponent} from './classify/question-timeout/question-timeout.component';
 import {InvestigationComponent} from './classify/investigation/investigation.component';
+import {QuestionListComponent} from './question/question-list/question-list.component';
+import {QuestionHandleComponent} from './question/question-handle/question-handle.component';
+import {OrgComponent} from './org/org.component';
+import {AccountComponent} from './account/account.component';
+import {SettingsComponent} from './settings/settings.component';
+import {SuperviseSettingsComponent} from './settings/supervise-settings/supervise-settings.component';
+import {QuestionHandleSettingsComponent} from './settings/question-handle-settings/question-handle-settings.component';
+import {OrgDetailComponent} from './org/org-detail/org-detail.component';
+import {DetailComponent as SuperviseSettingsDetailComponent} from './settings/supervise-settings/detail/detail.component';
 
 export const mainRoutes: Routes = [
   {
@@ -76,11 +85,21 @@ export const mainRoutes: Routes = [
       },
       {
         path: 'question',
-        component: QuestionComponent
-      },
-      {
-        path: 'quesDetail',
-        component: QuestionDetailComponent
+        component: QuestionComponent,
+        children: [
+          {
+            path: 'list',
+            component: QuestionListComponent,
+          },
+          {
+            path: 'handle',
+            component: QuestionHandleComponent,
+          },
+          {
+            path: 'quesDetail',
+            component: QuestionDetailComponent
+          },
+        ]
       },
       {
         path: 'information',
@@ -181,6 +200,36 @@ export const mainRoutes: Routes = [
           {
             path: 'investigation',
             component: InvestigationComponent
+          },
+        ]
+      },
+      {
+        path: 'org',
+        component: OrgComponent
+      },
+      {
+        path: 'org/orgDetail',
+        component: OrgDetailComponent
+      },
+      {
+        path: 'account',
+        component: AccountComponent
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent,
+        children: [
+          {
+            path: 'superviseSettings',
+            component: SuperviseSettingsComponent
+          },
+          {
+            path: 'superviseSettings/detail',
+            component: SuperviseSettingsDetailComponent
+          },
+          {
+            path: 'questionHandleSettings',
+            component: QuestionHandleSettingsComponent
           },
         ]
       },

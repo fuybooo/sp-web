@@ -21,7 +21,27 @@
           <ng-container *ngIf="isNotString(col.text[evi])">
             <!--todo 此处visible的值是data中的某个field，需要根据该值进行判断，是否显示该行-->
             <ng-container *ngIf="col.text[evi].visible">
-              <a class="cell-event" (click)="emitEvent(col, data, ev)">{{col.text[evi].value}}</a>
+              <!--根据type判断是否进行特殊处理-->
+              <ng-container *ngIf="col.text[evi].type">
+                <!--督办特殊处理-->
+                <ng-container *ngIf="col.text[evi].type === 'questionHandle'">
+                  <nz-popover [nzTitle]="'选择督办方式'" [nzTrigger]="'click'" [(nzVisible)]="rateVisible">
+                    <a nz-popover class="cell-event">督办</a>
+                    <ng-template #nzTemplate>
+                      <div class="w160">
+                        <nz-checkbox-group [(ngModel)]="checkQuestionHandleOptions">
+                        </nz-checkbox-group>
+                      </div>
+                      <div class="mt10">
+                        <button class="small-btn" nz-button (click)="handlePopoverValueCancel()">取消</button>
+                        <button class="small-btn ml20" nz-button [nzType]="'primary'"
+                                (click)="handlePopoverValueOk(col, data, ev)">确定</button>
+                      </div>
+                    </ng-template>
+                  </nz-popover>
+                </ng-container>
+              </ng-container>
+              <a *ngIf="!col.text[evi].type" class="cell-event" (click)="emitEvent(col, data, ev)">{{col.text[evi].value}}</a>
             </ng-container>
           </ng-container>
           <!--是字符串，直接显示-->

@@ -37,40 +37,52 @@ export const menuList: Menu[] = [
     route: '/main/situation',
     iconCls: {'anticon-credit-card': true},
   },
-  {
-    label: '项目管理',
-    code: 'project',
-    route: '/main/project',
-    iconCls: {'anticon-profile': true},
-    additionalRoutes: [
-      {
-        route: '/main/projCreate',
-        label: '新建项目'
-      }
-    ],
-  },
+  // {
+  //   label: '项目管理',
+  //   code: 'project',
+  //   route: '/main/project',
+  //   iconCls: {'anticon-profile': true},
+  //   additionalRoutes: [
+  //     {
+  //       route: '/main/projCreate',
+  //       label: '新建项目'
+  //     }
+  //   ],
+  // },
   {
     label: '企业经济数据',
     code: 'economic',
     route: '/main/economic',
     iconCls: {'anticon-api': true},
   },
-  {
-    label: '项目经济数据',
-    code: 'projEconomic',
-    route: '/main/projEconomic',
-    iconCls: {'anticon-api': true},
-  },
+  // {
+  //   label: '项目经济数据',
+  //   code: 'projEconomic',
+  //   route: '/main/projEconomic',
+  //   iconCls: {'anticon-api': true},
+  // },
   {
     label: '问题办理',
     code: 'question',
     route: '/main/question',
     iconCls: {'anticon-question-circle-o': true},
-    additionalRoutes: [
+    children: [
       {
-        route: '/main/quesDetail',
-        label: '问题督办'
-      }
+        label: '问题清单',
+        code: 'quesList',
+        route: '/main/question/list',
+      },
+      {
+        label: '问题督办',
+        code: 'quesHandle',
+        route: '/main/question/handle',
+        additionalRoutes: [
+          {
+            route: '/main/question/quesDetail',
+            label: '问题督办详情'
+          }
+        ],
+      },
     ],
   },
   {
@@ -200,6 +212,50 @@ export const menuList: Menu[] = [
         label: '双万双服企业创新调查情况汇总表',
         code: 'investigation',
         route: '/main/classify/investigation',
+      },
+    ]
+  },
+  {
+    label: '组织机构管理',
+    code: 'org',
+    route: '/main/org',
+    iconCls: {'anticon-team': true},
+    additionalRoutes: [
+      {
+        label: '组织机构详情',
+        code: 'orgDetail',
+        route: '/main/org/orgDetail'
+      }
+    ]
+  },
+  {
+    label: '企业账户管理',
+    code: 'account',
+    route: '/main/account',
+    iconCls: {'anticon-profile': true},
+  },
+  {
+    label: '系统设置',
+    code: 'settings',
+    route: '/main/settings',
+    iconCls: {'anticon-setting': true},
+    children: [
+      {
+        label: '督办机构设置',
+        code: 'superviseSettings',
+        route: '/main/settings/superviseSettings',
+        additionalRoutes: [
+          {
+            label: '督办机构详情',
+            code: 'superviseSettingsDetail',
+            route: '/main/settings/superviseSettings/detail'
+          }
+        ]
+      },
+      {
+        label: '问题处置设置',
+        code: 'questionHandleSettings',
+        route: '/main/settings/questionHandleSettings',
       },
     ]
   },

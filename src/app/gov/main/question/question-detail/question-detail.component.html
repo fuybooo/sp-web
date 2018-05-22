@@ -44,6 +44,21 @@
       </table>
     </div>
     <div class="title">答复</div>
-    <div></div>
+    <div class="mt20">
+      <nz-radio-group [(ngModel)]="handleType">
+        <label nz-radio [nzValue]="1">本级处理</label>
+        <label nz-radio [nzValue]="2">上级处理</label><span class="ml20 text-disable" *ngIf="handleType === 2">上级姓名：王建国</span>
+      </nz-radio-group>
+    </div>
+    <div class="mt20" nz-row>
+      <div nz-col [nzSpan]="1">说明：</div>
+      <div nz-col [nzSpan]="23">
+        <textarea nz-input placeholder="" [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>
+      </div>
+    </div>
+    <div class="mt20 tac">
+      <button nz-button [nzType]="'primary'">提交</button>
+      <button nz-button>返回</button>
+    </div>
   </div>
 </div>

@@ -1,0 +1,39 @@
+<div class="common-page">
+  <div class="f22">问题处置设置</div>
+  <div class="mt20">
+    <form class="mt40" nz-form [formGroup]="form">
+      <nz-form-item nzFlex>
+        <nz-form-label [nzSpan]="4" nzRequired>问题时效天数</nz-form-label>
+        <nz-form-control [nzSpan]="17">
+          <nz-input-number formControlName="f1" [nzMin]="1" [nzMax]="100" [nzStep]="1"></nz-input-number>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nzFlex>
+        <nz-form-label [nzSpan]="4" nzRequired>发送方式</nz-form-label>
+        <nz-form-control [nzSpan]="17">
+          <ng-container *ngFor="let item of nodeList">
+            <label nz-checkbox [(ngModel)]="item.checked" [ngModelOptions]="{standalone: true}">{{item.name}}</label>
+          </ng-container>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nzFlex>
+        <nz-form-label [nzSpan]="4" nzRequired>是否循环督办</nz-form-label>
+        <nz-form-control [nzSpan]="17">
+          <nz-radio-group formControlName="f2">
+            <label nz-radio [nzValue]="1">是</label>
+            <label nz-radio [nzValue]="2">否</label>
+          </nz-radio-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nzFlex>
+        <nz-form-label [nzSpan]="4" nzRequired>消息发送时间</nz-form-label>
+        <nz-form-control [nzSpan]="17">
+          <nz-time-picker [(ngModel)]="time" [ngModelOptions]="{standalone: true}" [nzDefaultOpenValue]="defaultOpenValue"></nz-time-picker>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+  <div class="mt20 tac">
+    <button nz-button [nzType]="'primary'">保存</button>
+  </div>
+</div>

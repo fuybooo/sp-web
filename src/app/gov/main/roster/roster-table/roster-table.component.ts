@@ -40,8 +40,8 @@ export class RosterTableComponent implements OnInit {
     },
     {
       title: '操作',
-      text: ['查看', '修改', '删除'],
-      event: ['view', 'edit', 'delete'],
+      text: '查看',
+      event: 'view',
       link: '/main/rosDetail'
     }
   ];
@@ -63,7 +63,7 @@ export class RosterTableComponent implements OnInit {
   }
   eventChange(event) {
     if (event.tableId === this.tableId) {
-      if (event.event === 'view') {
+      if (event.col.event === 'view') {
         this.router.navigate([event.col.link]);
       }
     }

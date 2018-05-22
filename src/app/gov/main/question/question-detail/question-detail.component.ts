@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./question-detail.component.less']
 })
 export class QuestionDetailComponent implements OnInit {
-
+  handleType = 1;
   constructor() { }
 
   ngOnInit() {

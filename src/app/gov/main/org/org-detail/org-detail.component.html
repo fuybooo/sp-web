@@ -1,0 +1,66 @@
+<div class="common-page">
+  <div class="f22">新建组织机构</div>
+  <div class="mt20">
+    <form class="mt40" nz-form [formGroup]="form">
+      <div nz-row [nzGutter]="30">
+        <div nz-col [nzSpan]="12">
+          <nz-form-item nzFlex>
+            <nz-form-label [nzSpan]="7" nzRequired>机构名称</nz-form-label>
+            <nz-form-control [nzSpan]="17">
+              <input nz-input placeholder="请输入" formControlName="f1">
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col [nzSpan]="12">
+          <nz-form-item nzFlex>
+            <nz-form-label [nzSpan]="7" nzRequired>流程类型</nz-form-label>
+            <nz-form-control [nzSpan]="17">
+              <input nz-input placeholder="请输入" formControlName="f2">
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row [nzGutter]="30">
+        <div nz-col [nzSpan]="12">
+          <nz-form-item nzFlex>
+            <nz-form-label [nzSpan]="7" nzRequired>类型</nz-form-label>
+            <nz-form-control [nzSpan]="17">
+              <input nz-input placeholder="请输入" formControlName="f3">
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col [nzSpan]="12">
+          <nz-form-item nzFlex>
+            <nz-form-label [nzSpan]="7" nzRequired>组织名称</nz-form-label>
+            <nz-form-control [nzSpan]="17">
+              <input nz-input placeholder="请输入" formControlName="f4">
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row [nzGutter]="30">
+        <div nz-col [nzSpan]="12">
+          <nz-form-item nzFlex>
+            <nz-form-label [nzSpan]="7" nzRequired>负责市</nz-form-label>
+            <nz-form-control [nzSpan]="17">
+              <input nz-input placeholder="请输入" formControlName="f5">
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col [nzSpan]="12">
+          <nz-form-item nzFlex>
+            <nz-form-label [nzSpan]="7" nzRequired>负责区</nz-form-label>
+            <nz-form-control [nzSpan]="17">
+              <input nz-input placeholder="请输入" formControlName="f6">
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="mt20 tac">
+    <button nz-button [nzType]="'primary'">保存</button>
+    <button nz-button [nzType]="'primary'">添加负责区域</button>
+    <button nz-button>返回</button>
+  </div>
+</div>

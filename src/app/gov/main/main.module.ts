@@ -42,6 +42,15 @@ import { InvestigationComponent } from './classify/investigation/investigation.c
 import {ClassifyClsComponent} from './classify/cls/cls.component';
 import { ClassAndQuestionDemandComponent } from './classify/class-and-question-demand/class-and-question-demand.component';
 import { ReportTableComponent } from './report/report-table/report-table.component';
+import { QuestionListComponent } from './question/question-list/question-list.component';
+import { QuestionHandleComponent } from './question/question-handle/question-handle.component';
+import { OrgComponent } from './org/org.component';
+import { AccountComponent } from './account/account.component';
+import { SettingsComponent } from './settings/settings.component';
+import { SuperviseSettingsComponent } from './settings/supervise-settings/supervise-settings.component';
+import { QuestionHandleSettingsComponent } from './settings/question-handle-settings/question-handle-settings.component';
+import { OrgDetailComponent } from './org/org-detail/org-detail.component';
+import { DetailComponent as SuperviseSettingsDetailComponent } from './settings/supervise-settings/detail/detail.component';
 
 @NgModule({
   imports: [
@@ -51,6 +60,6 @@ import { ReportTableComponent } from './report/report-table/report-table.compone
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}
   ],
-  declarations: [MainComponent, HomeComponent, RosterComponent, SituationComponent, ProjectComponent, EconomicComponent, QuestionComponent, InformationComponent, SummaryComponent, ReportComponent, ClassifyComponent, RosterTableComponent, CompanyDetailComponent, ProjectDetailComponent, EconomicTableComponent, ProjectEconomicComponent, QuestionDetailComponent, WorkComponent, SupportComponent, NotifyComponent, ProgressComponent, SuperviseProgressComponent, ReportComponent, OnTimeComponent, QuestionCollectionComponent, QuestionResolveComponent, QuestionSatisfyComponent, DeptOnTimeComponent, ProvinceQuestionResolveComponent, ProvinceQuestionSatisfyComponent, ThreeClassThreeStatisticalComponent, SecondaryOpenRateComponent, ProvinceQuestionClassifyComponent, ThreeClassThreeStatisticalClassifyComponent, QuestionTimeoutComponent, InvestigationComponent, ClassifyClsComponent, ClassAndQuestionDemandComponent, ReportTableComponent]
+  declarations: [MainComponent, HomeComponent, RosterComponent, SituationComponent, ProjectComponent, EconomicComponent, QuestionComponent, InformationComponent, SummaryComponent, ReportComponent, ClassifyComponent, RosterTableComponent, CompanyDetailComponent, ProjectDetailComponent, EconomicTableComponent, ProjectEconomicComponent, QuestionDetailComponent, WorkComponent, SupportComponent, NotifyComponent, ProgressComponent, SuperviseProgressComponent, ReportComponent, OnTimeComponent, QuestionCollectionComponent, QuestionResolveComponent, QuestionSatisfyComponent, DeptOnTimeComponent, ProvinceQuestionResolveComponent, ProvinceQuestionSatisfyComponent, ThreeClassThreeStatisticalComponent, SecondaryOpenRateComponent, ProvinceQuestionClassifyComponent, ThreeClassThreeStatisticalClassifyComponent, QuestionTimeoutComponent, InvestigationComponent, ClassifyClsComponent, ClassAndQuestionDemandComponent, ReportTableComponent, QuestionListComponent, QuestionHandleComponent, OrgComponent, AccountComponent, SettingsComponent, SuperviseSettingsComponent, QuestionHandleSettingsComponent, OrgDetailComponent, SuperviseSettingsDetailComponent]
 })
 export class MainModule { }

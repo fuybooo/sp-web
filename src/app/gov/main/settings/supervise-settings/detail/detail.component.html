@@ -1,0 +1,37 @@
+<div class="common-page">
+  <div class="f22">新建督办机构</div>
+  <div class="mt20">
+    <form class="mt40" nz-form [formGroup]="form">
+      <nz-form-item nzFlex>
+        <nz-form-label [nzSpan]="4" nzRequired>机构名称</nz-form-label>
+        <nz-form-control [nzSpan]="17">
+          <input nz-input placeholder="请输入" formControlName="f1">
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nzFlex>
+        <nz-form-label [nzSpan]="4" nzRequired>负责节点</nz-form-label>
+        <nz-form-control [nzSpan]="17">
+          <ng-container *ngFor="let item of nodeList">
+            <label nz-checkbox [(ngModel)]="item.checked" [ngModelOptions]="{standalone: true}">{{item.name}}</label>
+          </ng-container>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nzFlex>
+        <nz-form-label [nzSpan]="4" nzRequired>负责区</nz-form-label>
+        <nz-form-control [nzSpan]="17">
+          <input nz-input placeholder="请选择" formControlName="f2">
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nzFlex>
+        <nz-form-label [nzSpan]="4" nzRequired>负责街道</nz-form-label>
+        <nz-form-control [nzSpan]="17">
+          <input nz-input placeholder="请选择" formControlName="f3">
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+  <div class="mt20 tac">
+    <button nz-button [nzType]="'primary'">保存</button>
+    <button nz-button>返回</button>
+  </div>
+</div>

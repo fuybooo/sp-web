@@ -1,0 +1,32 @@
+<div class="common-page">
+  <div class="f22">督办机构设置</div>
+  <div nz-row class="mt20" [nzGutter]="10">
+    <div nz-col [nzSpan]="6">
+      机构名称：
+      <input class="w110" nz-input type="text">
+    </div>
+    <div nz-col [nzOffset]="12" [nzSpan]="6">
+      <div nz-row [nzGutter]="10">
+        <div nz-col [nzSpan]="6">
+          <button class="w" nz-button [nzType]="'primary'">查询</button>
+        </div>
+        <div nz-col [nzSpan]="6">
+          <button class="w" nz-button>清空</button>
+        </div>
+        <div nz-col [nzSpan]="12">
+          <button class="w" nz-button [nzType]="'primary'" (click)="switchRoute()">新建督办机构</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt20">
+    <app-table
+      [dataSet]="dataSet"
+      [columns]="columns"
+      [tableId]="tableId"
+      [isSortCol]="true"
+      [isCheckbox]="false"
+      (eventChange)="eventChange($event)"
+    ></app-table>
+  </div>
+</div>

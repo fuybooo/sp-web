@@ -1,0 +1,92 @@
+<div class="common-page">
+  <div class="f22">问题清单</div>
+  <div class="mt20" nz-row [nzGutter]="10">
+    <div nz-col [nzSpan]="3">
+      <nz-dropdown class="w">
+        <button class="w" nz-button nz-dropdown><span>全部</span> <i class="anticon anticon-down"></i></button>
+        <ul nz-menu>
+          <li nz-menu-item>
+            <a>状态1</a>
+          </li>
+          <li nz-menu-item>
+            <a>状态2</a>
+          </li>
+          <li nz-menu-item>
+            <a>状态3</a>
+          </li>
+        </ul>
+      </nz-dropdown>
+    </div>
+    <div nz-col [nzSpan]="3">
+      <nz-dropdown class="w">
+        <button class="w" nz-button nz-dropdown><span>区域</span> <i class="anticon anticon-down"></i></button>
+        <ul nz-menu>
+          <li nz-menu-item>
+            <a>类型1</a>
+          </li>
+          <li nz-menu-item>
+            <a>类型2</a>
+          </li>
+          <li nz-menu-item>
+            <a>类型3</a>
+          </li>
+        </ul>
+      </nz-dropdown>
+    </div>
+    <div nz-col [nzSpan]="6">
+      <nz-range-picker class="w" [(ngModel)]="dateRange" (ngModelChange)="onChange($event)"></nz-range-picker>
+    </div>
+    <div nz-col [nzSpan]="5">
+      <nz-dropdown class="w">
+        <button class="w" nz-button nz-dropdown><span>处理部门</span> <i class="anticon anticon-down"></i></button>
+        <ul nz-menu>
+          <li nz-menu-item>
+            <a>类型1</a>
+          </li>
+          <li nz-menu-item>
+            <a>类型2</a>
+          </li>
+          <li nz-menu-item>
+            <a>类型3</a>
+          </li>
+        </ul>
+      </nz-dropdown>
+    </div>
+    <div nz-col [nzSpan]="3">
+      <nz-dropdown class="w">
+        <button class="w" nz-button nz-dropdown><span>问题分类</span> <i class="anticon anticon-down"></i></button>
+        <ul nz-menu>
+          <li nz-menu-item>
+            <a>类型1</a>
+          </li>
+          <li nz-menu-item>
+            <a>类型2</a>
+          </li>
+          <li nz-menu-item>
+            <a>类型3</a>
+          </li>
+        </ul>
+      </nz-dropdown>
+    </div>
+    <div nz-col [nzSpan]="2">
+      <button class="w" nz-button [nzType]="'primary'">查询</button>
+    </div>
+    <div nz-col [nzSpan]="2">
+      <button class="w" nz-button [nzType]="'primary'">导出</button>
+    </div>
+  </div>
+  <div class="tar mt10">
+    <nz-badge nzStatus="warning" nzText="办理超过7天"></nz-badge>
+    <nz-badge class="ml20" nzStatus="error" nzText="办理超过15天"></nz-badge>
+  </div>
+  <div class="mt20">
+    <app-table
+      [dataSet]="dataSet"
+      [columns]="columns"
+      [tableId]="tableId"
+      [isSortCol]="true"
+      [isCheckbox]="false"
+      (eventChange)="eventChange($event)"
+    ></app-table>
+  </div>
+</div>

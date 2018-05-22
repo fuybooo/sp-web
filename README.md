@@ -17,3 +17,5 @@
 -  index.html中的title
 -  vars.less中的@primary-color
 -  必要时换favicon
+
+- 启动时 改变environment
