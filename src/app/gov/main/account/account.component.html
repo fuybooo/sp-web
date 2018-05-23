@@ -1,7 +1,7 @@
 <div class="common-page">
   <div class="f22">企业账户列表</div>
   <div nz-row class="mt20" [nzGutter]="10">
-    <div nz-col [nzSpan]="6">
+    <div nz-col [nzSpan]="5">
       选择区划：
       <nz-select nzPlaceHolder="请选择区划" class="w110">
         <ng-container *ngFor="let option of typeList1">
@@ -9,15 +9,15 @@
         </ng-container>
       </nz-select>
     </div>
-    <div nz-col [nzSpan]="6">
+    <div nz-col [nzSpan]="5">
       选择街道：
-      <nz-select nzPlaceHolder="请选择区划" class="w110">
+      <nz-select nzPlaceHolder="请选择区划" class="w110 ml28">
         <ng-container *ngFor="let option of typeList2">
           <nz-option [nzValue]="option.id" [nzLabel]="option.name"></nz-option>
         </ng-container>
       </nz-select>
     </div>
-    <div nz-col [nzSpan]="3">
+    <div nz-col [nzSpan]="4">
       <nz-dropdown class="w">
         <button class="w" nz-button nz-dropdown><span>账户是否创建</span> <i class="anticon anticon-down"></i></button>
         <ul nz-menu>
@@ -30,7 +30,7 @@
         </ul>
       </nz-dropdown>
     </div>
-    <div nz-col [nzSpan]="3">
+    <div nz-col [nzSpan]="4">
       <nz-dropdown class="w">
         <button class="w" nz-button nz-dropdown><span>信息是否确认</span> <i class="anticon anticon-down"></i></button>
         <ul nz-menu>
@@ -51,15 +51,15 @@
     </div>
   </div>
   <div nz-row class="mt10" [nzGutter]="10">
-    <div nz-col [nzSpan]="6">
+    <div nz-col [nzSpan]="5">
       企业名称：
       <input class="w110" nz-input type="text">
     </div>
-    <div nz-col [nzSpan]="6">
+    <div nz-col [nzSpan]="5">
       组织机构代码：
       <input class="w110" nz-input type="text">
     </div>
-    <div nz-col [nzSpan]="6">
+    <div nz-col [nzSpan]="8">
       <nz-range-picker class="w240" [(ngModel)]="dateRange" (ngModelChange)="onChange($event)"></nz-range-picker>
     </div>
     <div nz-col [nzSpan]="3">

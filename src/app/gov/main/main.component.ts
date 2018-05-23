@@ -54,7 +54,6 @@ export class MainComponent implements OnInit {
   //   }, 100);
   // }
   initMenuList() {
-    debugger
     this.menuList = $.extend(true, [], menuList);
     const url = this.router.routerState.snapshot.url;
     this.menuList.forEach(item => {
