@@ -26,7 +26,7 @@
                 <!--督办特殊处理-->
                 <ng-container *ngIf="col.text[evi].type === 'questionHandle'">
                   <nz-popover [nzTitle]="'选择督办方式'" [nzTrigger]="'click'" [(nzVisible)]="rateVisible">
-                    <a nz-popover class="cell-event">督办</a>
+                    <a nz-popover  [class.ml20]="evi !== 0">督办</a>
                     <ng-template #nzTemplate>
                       <div class="w160">
                         <nz-checkbox-group [(ngModel)]="checkQuestionHandleOptions">
@@ -41,18 +41,18 @@
                   </nz-popover>
                 </ng-container>
               </ng-container>
-              <a *ngIf="!col.text[evi].type" class="cell-event" (click)="emitEvent(col, data, ev)">{{col.text[evi].value}}</a>
+              <a *ngIf="!col.text[evi].type" [class.ml20]="evi !== 0" (click)="emitEvent(col, data, ev)">{{col.text[evi].value}}</a>
             </ng-container>
           </ng-container>
           <!--是字符串，直接显示-->
           <ng-container *ngIf="!isNotString(col.text[evi])">
-            <a class="cell-event" (click)="emitEvent(col, data, ev)">{{col.text[evi]}}</a>
+            <a [class.ml20]="evi !== 0" (click)="emitEvent(col, data, ev)">{{col.text[evi]}}</a>
           </ng-container>
         </ng-container>
       </ng-container>
       <!--单个事件-->
       <ng-container *ngIf="!isNotString(col.event)">
-        <a class="cell-event" (click)="emitEvent(col, data)">{{col.text}}</a>
+        <a (click)="emitEvent(col, data)">{{col.text}}</a>
       </ng-container>
     </ng-container>
   </ng-container>

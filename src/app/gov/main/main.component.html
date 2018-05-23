@@ -5,7 +5,7 @@
       <ul nz-menu class="menu-list" [nzMode]="'inline'">
         <ng-container *ngFor="let item of menuList">
 
-          <li class="menu-first" *ngIf="item.children" nz-submenu [nzOpen]="item.isExpand">
+          <li class="menu-first" *ngIf="item.children" nz-submenu [nzOpen]="item.isExpand" [title]="item.label">
               <span title>
                 <i class="menu-i anticon" [ngClass]="item.iconCls" [title]="item.label"></i>
                 <span class="nav-text">{{item.label}}</span>
@@ -13,14 +13,14 @@
             <ul>
               <!--暂时只支持二级菜单，可以根据需要增加菜单级数-->
               <ng-container *ngFor="let _item of item.children">
-                <li class="menu-second" *ngIf="!_item.children" nz-menu-item [nzSelected]="_item.isActive" (click)="onClickItem(_item)">
+                <li class="menu-second" [title]="_item.label" *ngIf="!_item.children" nz-menu-item [nzSelected]="_item.isActive" (click)="onClickItem(_item)">
                   <span class="nav-text">{{_item.label}}</span>
                 </li>
               </ng-container>
             </ul>
           </li>
           <li class="menu-first" *ngIf="!item.children" nz-menu-item [nzSelected]="item.isActive"
-              (click)="onClickItem(item)">
+              (click)="onClickItem(item)" [title]="item.label">
                 <span class="flex-box">
                   <i class="menu-i anticon" [ngClass]="item.iconCls" [title]="item.label"></i>
                   <span class="nav-text">{{item.label}}</span>
