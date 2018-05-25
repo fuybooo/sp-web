@@ -5,7 +5,14 @@ export const appRoutes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/login'
+    redirectTo: '/landing'
+  },
+  {
+    path: 'landing',
+    loadChildren: `app/${environment.project}/landing/landing.module#LandingModule`,
+    data: {
+      title: 'landing'
+    }
   },
   {
     path: 'login',

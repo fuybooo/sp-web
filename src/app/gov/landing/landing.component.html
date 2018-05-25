@@ -1,0 +1,47 @@
+<div class="landing-wrap">
+  <div class="header">
+    <div nz-row>
+      <div nz-col [nzSpan]="6" class="logo"><span class="ml40 f2m">临沂市政策服务平台</span></div>
+      <div nz-col [nzSpan]="18" class="nav-wrap">
+        <ul class="nav">
+          <li class="active">
+            首页
+          </li>
+          <li>
+            最新政策
+          </li>
+          <li>
+            政策解读
+          </li>
+          <li>
+            导航服务
+          </li>
+          <li>
+            政策包目录
+          </li>
+          <li>
+            行政许可事项目录
+          </li>
+          <li>
+            公共服务事项目录
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="cb body">
+    <div class="list">
+      <div class="f2m">最新政策</div>
+      <ul class="mt20">
+        <ng-container  *ngFor="let item of data">
+          <li>
+            <span>{{item.title}}</span>
+            <span>{{item.from}}</span>
+            <span>{{item.time}}</span>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+  <div class="footer"></div>
+</div>
