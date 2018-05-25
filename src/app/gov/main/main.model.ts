@@ -31,12 +31,12 @@ export const menuList: Menu[] = [
       }
     ],
   },
-  {
-    label: '企业综合情况卡',
-    code: 'situation',
-    route: '/main/situation',
-    iconCls: {'anticon-credit-card': true},
-  },
+  // {
+  //   label: '企业综合情况卡',
+  //   code: 'situation',
+  //   route: '/main/situation',
+  //   iconCls: {'anticon-credit-card': true},
+  // },
   // {
   //   label: '项目管理',
   //   code: 'project',
@@ -49,12 +49,12 @@ export const menuList: Menu[] = [
   //     }
   //   ],
   // },
-  {
-    label: '企业经济数据',
-    code: 'economic',
-    route: '/main/economic',
-    iconCls: {'anticon-api': true},
-  },
+  // {
+  //   label: '企业经济数据',
+  //   code: 'economic',
+  //   route: '/main/economic',
+  //   iconCls: {'anticon-api': true},
+  // },
   // {
   //   label: '项目经济数据',
   //   code: 'projEconomic',
@@ -64,59 +64,32 @@ export const menuList: Menu[] = [
   {
     label: '问题办理',
     code: 'question',
-    route: '/main/question',
+    route: '/main/question/list',
     iconCls: {'anticon-question-circle-o': true},
-    children: [
+    additionalRoutes: [
       {
-        label: '问题清单',
-        code: 'quesList',
-        route: '/main/question/list',
-      },
-      {
-        label: '问题督办',
-        code: 'quesHandle',
-        route: '/main/question/handle',
-        additionalRoutes: [
-          {
-            route: '/main/question/quesDetail',
-            label: '问题督办详情'
-          }
-        ],
-      },
+        route: '/main/question/quesDetail',
+        label: '问题督办详情'
+      }
     ],
-  },
-  {
-    label: '信息管理',
-    code: 'information',
-    route: '/main/information',
-    iconCls: {'anticon-appstore-o': true},
-    children: [
-      {
-        label: '工作状态',
-        code: 'work',
-        route: '/main/information',
-      },
-      {
-        label: '扶持政策',
-        code: 'support',
-        route: '/main/information/support',
-      },
-      {
-        label: '通知公告',
-        code: 'notify',
-        route: '/main/information/notify',
-      },
-      {
-        label: '工作进展',
-        code: 'progress',
-        route: '/main/information/progress',
-      },
-      {
-        label: '督办进展',
-        code: 'superviseProgress',
-        route: '/main/information/superviseProgress',
-      },
-    ],
+    // children: [
+    //   {
+    //     label: '问题清单',
+    //     code: 'quesList',
+    //     route: '/main/question/list',
+    //   },
+    //   {
+    //     label: '问题督办',
+    //     code: 'quesHandle',
+    //     route: '/main/question/handle',
+    //     additionalRoutes: [
+    //       {
+    //         route: '/main/question/quesDetail',
+    //         label: '问题督办详情'
+    //       }
+    //     ],
+    //   },
+    // ],
   },
   {
     label: '工作汇总',
@@ -173,47 +146,80 @@ export const menuList: Menu[] = [
     route: '/main/classify',
     iconCls: {'anticon-pie-chart': true},
     children: [
-      {
-        label: '各市企业三级三类统计表',
-        code: 'threeClassThreeStatistical',
-        route: '/main/classify/threeClassThreeStatistical',
-      },
-      {
-        label: '各市企业分类统计表',
-        code: 'classify',
-        route: '/main/classify/classify',
-      },
+      // {
+      //   label: '各市企业三级三类统计表',
+      //   code: 'threeClassThreeStatistical',
+      //   route: '/main/classify/threeClassThreeStatistical',
+      // },
+      // {
+      //   label: '各市企业分类统计表',
+      //   code: 'classify',
+      //   route: '/main/classify/classify',
+      // },
       {
         label: '各市企业开通率统计表',
         code: 'secondaryOpenRate',
         route: '/main/classify/secondaryOpenRate',
       },
-      {
-        label: '省职单位问题分类统计表',
-        code: 'provinceQuestionClassify',
-        route: '/main/classify/provinceQuestionClassify',
-      },
-      {
-        label: '企业分类及问题需求统计表',
-        code: 'classAndQuestionDemand',
-        route: '/main/classify/classAndQuestionDemand',
-      },
-      {
-        label: '企业三级三类分类统计表',
-        code: 'threeClassThreeStatisticalClassify',
-        route: '/main/classify/threeClassThreeStatisticalClassify',
-      },
+      // {
+      //   label: '省职单位问题分类统计表',
+      //   code: 'provinceQuestionClassify',
+      //   route: '/main/classify/provinceQuestionClassify',
+      // },
+      // {
+      //   label: '企业分类及问题需求统计表',
+      //   code: 'classAndQuestionDemand',
+      //   route: '/main/classify/classAndQuestionDemand',
+      // },
+      // {
+      //   label: '企业三级三类分类统计表',
+      //   code: 'threeClassThreeStatisticalClassify',
+      //   route: '/main/classify/threeClassThreeStatisticalClassify',
+      // },
       {
         label: '问题超时统计表',
         code: 'questionTimeout',
         route: '/main/classify/questionTimeout',
       },
-      {
-        label: '双万双服企业创新调查情况汇总表',
-        code: 'investigation',
-        route: '/main/classify/investigation',
-      },
+      // {
+      //   label: '双万双服企业创新调查情况汇总表',
+      //   code: 'investigation',
+      //   route: '/main/classify/investigation',
+      // },
     ]
+  },
+  {
+    label: '信息管理',
+    code: 'information',
+    route: '/main/information',
+    iconCls: {'anticon-appstore-o': true},
+    children: [
+      {
+        label: '工作状态',
+        code: 'work',
+        route: '/main/information',
+      },
+      {
+        label: '扶持政策',
+        code: 'support',
+        route: '/main/information/support',
+      },
+      {
+        label: '通知公告',
+        code: 'notify',
+        route: '/main/information/notify',
+      },
+      {
+        label: '工作进展',
+        code: 'progress',
+        route: '/main/information/progress',
+      },
+      {
+        label: '督办进展',
+        code: 'superviseProgress',
+        route: '/main/information/superviseProgress',
+      },
+    ],
   },
   {
     label: '组织机构管理',
@@ -240,23 +246,23 @@ export const menuList: Menu[] = [
     route: '/main/settings',
     iconCls: {'anticon-setting': true},
     children: [
-      {
-        label: '督办机构设置',
-        code: 'superviseSettings',
-        route: '/main/settings/superviseSettings',
-        additionalRoutes: [
-          {
-            label: '督办机构详情',
-            code: 'superviseSettingsDetail',
-            route: '/main/settings/superviseSettings/detail'
-          }
-        ]
-      },
-      {
-        label: '问题处置设置',
-        code: 'questionHandleSettings',
-        route: '/main/settings/questionHandleSettings',
-      },
+      // {
+      //   label: '督办机构设置',
+      //   code: 'superviseSettings',
+      //   route: '/main/settings/superviseSettings',
+      //   additionalRoutes: [
+      //     {
+      //       label: '督办机构详情',
+      //       code: 'superviseSettingsDetail',
+      //       route: '/main/settings/superviseSettings/detail'
+      //     }
+      //   ]
+      // },
+      // {
+      //   label: '问题处置设置',
+      //   code: 'questionHandleSettings',
+      //   route: '/main/settings/questionHandleSettings',
+      // },
     ]
   },
 ];

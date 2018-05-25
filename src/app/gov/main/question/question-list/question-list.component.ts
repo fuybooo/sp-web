@@ -35,9 +35,9 @@ export class QuestionListComponent implements OnInit {
     },
     {
       title: '操作',
-      text: ['查看', {value: '督办', visible: 'f5', type: 'questionHandle'}],
-      event: ['view', 'questionHandle'],
-      link: '/main/quesDetail'
+      text: '查看',
+      event: 'view',
+      link: '/main/question/quesDetail'
     }
   ];
   constructor(private router: Router) { }
@@ -53,10 +53,8 @@ export class QuestionListComponent implements OnInit {
   }
   onChange(event) {}
   eventChange(event) {
-    if (event.event === 'view') {
-
-    } else if (event.event.event === 'questionHandle') {
-      console.log(event.event.checkQuestionHandleOptions);
+    if (event.tableId === this.tableId && event.col.event === 'view') {
+      this.router.navigate([event.col.link]);
     }
   }
 }
