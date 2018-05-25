@@ -1,5 +1,5 @@
 @import "vars";
-
+@menu-width: 250px;
 .wh {
   width: 100%;
   height: 100%;
@@ -23,7 +23,7 @@
   .menu-box {
     max-height: 760px;
     border-right: 1px solid @color-main;
-    width: 200px;
+    width: @menu-width;
     .content-base;
     left: 50px;
     top: 50px;
@@ -43,7 +43,7 @@
   .main-content {
     .content-base;
     padding: 30px;
-    left: 250px;
+    left: e("calc(250px + 50px)"); // @menu-width
     top: 50px;
     border-left: 1px solid @primary-color;
     margin-left: -1px;
@@ -55,12 +55,12 @@
 }
 @media screen and (max-width: 1330px) {
   .main-content {
-    width: e("calc(1330px - (200px + 100px))");
+    width: e("calc(1330px - (250px + 100px))"); // @menu-width
   }
 }
 @media screen and (min-width: 1330px) {
   .main-content {
-    width: e("calc(100vw - (200px + 100px))");
+    width: e("calc(100vw - (250px + 100px))"); // @menu-width
   }
 }
 @media screen and (max-height: 810px){
