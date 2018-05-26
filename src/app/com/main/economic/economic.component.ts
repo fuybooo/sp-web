@@ -82,7 +82,7 @@ export class EconomicComponent implements OnInit {
   eventChange(event) {
     if (event.tableId === this.tableId) {
       if (event.col.event === 'view') {
-        this.router.navigateByUrl('/main/economic/detail');
+        this.router.navigateByUrl('/com/main/economic/detail');
       }
     }
   }

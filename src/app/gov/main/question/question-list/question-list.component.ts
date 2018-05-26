@@ -37,7 +37,7 @@ export class QuestionListComponent implements OnInit {
       title: '操作',
       text: '查看',
       event: 'view',
-      link: '/main/question/quesDetail'
+      link: '/gov/main/question/quesDetail'
     }
   ];
   constructor(private router: Router) { }

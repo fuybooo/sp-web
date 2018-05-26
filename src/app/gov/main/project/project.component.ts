@@ -43,7 +43,7 @@ export class ProjectComponent implements OnInit {
       title: '操作',
       text: ['查看', '修改'],
       event: ['view', 'edit'],
-      link: '/main/projCreate'
+      link: '/gov/main/projCreate'
     }
   ];
   constructor(
@@ -62,7 +62,7 @@ export class ProjectComponent implements OnInit {
     }));
   }
   switchRoute() {
-    this.router.navigate(['/main/project/create']);
+    this.router.navigate(['/gov/main/project/create']);
   }
   eventChange(event) {
     if (event.tableId === this.tableId) {

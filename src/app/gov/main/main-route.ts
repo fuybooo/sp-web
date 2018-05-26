@@ -44,6 +44,9 @@ import {SuperviseSettingsComponent} from './settings/supervise-settings/supervis
 import {QuestionHandleSettingsComponent} from './settings/question-handle-settings/question-handle-settings.component';
 import {OrgDetailComponent} from './org/org-detail/org-detail.component';
 import {DetailComponent as SuperviseSettingsDetailComponent} from './settings/supervise-settings/detail/detail.component';
+import {UserComponent} from './settings/user/user.component';
+import {AuthComponent} from './settings/auth/auth.component';
+import {UserDetailComponent} from './settings/user/user-detail/user-detail.component';
 
 export const mainRoutes: Routes = [
   {
@@ -219,6 +222,18 @@ export const mainRoutes: Routes = [
         path: 'settings',
         component: SettingsComponent,
         children: [
+          {
+            path: 'user',
+            component: UserComponent
+          },
+          {
+            path: 'user/detail',
+            component: UserDetailComponent
+          },
+          {
+            path: 'auth',
+            component: AuthComponent
+          },
           {
             path: 'superviseSettings',
             component: SuperviseSettingsComponent

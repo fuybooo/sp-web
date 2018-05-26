@@ -48,7 +48,7 @@ export class AccountComponent implements OnInit {
       title: '操作',
       text: ['查看', '重置密码', {value: '创建账号', visible: 'f5'}],
       event: ['view', 'reset', 'create'],
-      link: '/main/account/detail'
+      link: '/gov/main/account/detail'
     }
   ];
   typeList1 = [];
@@ -70,13 +70,13 @@ export class AccountComponent implements OnInit {
     }));
   }
   switchRoute() {
-    this.router.navigateByUrl('/main/org/orgDetail');
+    this.router.navigateByUrl('/gov/main/org/orgDetail');
   }
   onChange(event) {}
   eventChange(event) {
     if (event.tableId === this.tableId) {
       if (event.event === 'edit') {
-        this.router.navigateByUrl('/main/org/orgDetail');
+        this.router.navigateByUrl('/gov/main/org/orgDetail');
       }
     }
   }

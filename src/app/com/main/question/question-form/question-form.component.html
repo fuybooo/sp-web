@@ -43,16 +43,6 @@
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-label [nzSpan]="5">问题类型</nz-form-label>
-      <nz-form-control [nzSpan]="12">
-        <nz-select formControlName="f6" nzPlaceHolder="请选择">
-          <ng-container *ngFor="let option of list2">
-            <nz-option [nzValue]="option.id" [nzLabel]="option.name"></nz-option>
-          </ng-container>
-        </nz-select>
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
       <nz-form-label [nzSpan]="5">负责人已知晓</nz-form-label>
       <nz-form-control [nzSpan]="12">
         <nz-switch formControlName="f7"></nz-switch>

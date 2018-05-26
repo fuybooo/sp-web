@@ -1,0 +1,40 @@
+<div class="common-page">
+  <div class="f22">用户管理</div>
+  <div class="mt20" nz-row [nzGutter]="10">
+    <div nz-col [nzSpan]="5">
+      <nz-select nzPlaceHolder="请选择市" class="w">
+        <ng-container *ngFor="let option of typeList1">
+          <nz-option [nzValue]="option.id" [nzLabel]="option.name"></nz-option>
+        </ng-container>
+      </nz-select>
+    </div>
+    <div nz-col [nzSpan]="5">
+      <nz-select nzPlaceHolder="请选择区" class="w">
+        <ng-container *ngFor="let option of typeList1">
+          <nz-option [nzValue]="option.id" [nzLabel]="option.name"></nz-option>
+        </ng-container>
+      </nz-select>
+    </div>
+    <div nz-col [nzSpan]="5">
+      <nz-select nzPlaceHolder="请选择部门" class="w">
+        <ng-container *ngFor="let option of typeList1">
+          <nz-option [nzValue]="option.id" [nzLabel]="option.name"></nz-option>
+        </ng-container>
+      </nz-select>
+    </div>
+    <div nz-col [nzOffset]="5" [nzSpan]="2">
+      <button class="w" nz-button [nzType]="'primary'">查询</button>
+    </div>
+    <div nz-col [nzSpan]="2">
+      <button class="w" nz-button [nzType]="'primary'" (click)="switchRoute()">新增</button>
+    </div>
+  </div>
+  <div class="mt20">
+    <app-table
+      [dataSet]="dataSet"
+      [columns]="columns"
+      [tableId]="tableId"
+      (eventChange)="eventChange($event)"
+    ></app-table>
+  </div>
+</div>

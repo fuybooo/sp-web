@@ -55,11 +55,11 @@ export class QuestionComponent implements OnInit {
   eventChange(event) {
     if (event.tableId === this.tableId) {
       if (event.event === 'view') {
-        this.router.navigateByUrl('/main/question/detail');
+        this.router.navigateByUrl('/com/main/question/detail');
       }
     }
   }
   toAsk() {
-    this.router.navigateByUrl('/main/ask');
+    this.router.navigateByUrl('/com/main/question/ask');
   }
 }

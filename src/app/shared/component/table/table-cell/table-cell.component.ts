@@ -13,27 +13,9 @@ export class TableCellComponent implements OnInit {
   @Input() eventChange;
   @Input() tableId;
 
-  rateVisible = false;
+  popVisible = false;
+  delPopVisible = false;
 
-  checkQuestionHandleOptions = [
-    {
-      label: '邮件',
-      value: 1,
-      checked: true
-    },
-    {
-      label: 'APP消息',
-      value: 2,
-    },
-    {
-      label: '短信',
-      value: 3,
-    },
-    {
-      label: '在线消息',
-      value: 4,
-    },
-  ];
   ngOnInit() {
   }
   isNotString(value) {
@@ -46,10 +28,12 @@ export class TableCellComponent implements OnInit {
     this.eventChange.emit({tableId: this.tableId, col, data, event});
   }
   handlePopoverValueCancel() {
-    this.rateVisible = false;
+    this.popVisible = false;
+    this.delPopVisible = false;
   }
   handlePopoverValueOk(col, data, event) {
-    this.emitEvent(col, data, {event, checkQuestionHandleOptions: this.checkQuestionHandleOptions});
-    this.rateVisible = false;
+    this.emitEvent(col, data, event);
+    this.popVisible = false;
+    this.delPopVisible = false;
   }
 }

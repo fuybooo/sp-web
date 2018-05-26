@@ -42,7 +42,7 @@ export class RosterTableComponent implements OnInit {
       title: '操作',
       text: '查看',
       event: 'view',
-      link: '/main/rosDetail'
+      link: '/gov/main/rosDetail'
     }
   ];
   dataSet = [];

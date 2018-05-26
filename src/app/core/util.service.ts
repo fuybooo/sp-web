@@ -451,7 +451,12 @@ export class UtilService {
     const params = col.linkParam ? ('/' + col.linkParam.split(',').map(field => data[field]).join('/')) : '';
     return `${col.link}${params}`;
   }
-
+  static matchRoute(item, url) {
+    return UtilService.getGivenStr('/', item.params || '') === UtilService.getGivenStr('/', url.slice(item.route.length));
+  }
+  static matchAdditionalRoute(item, url) {
+    return item.additionalRoutes && item.additionalRoutes.find(val => url.indexOf(val.route) === 0);
+  }
   /**
    * 通过传入url，参数，类型调用请求
    * @param url

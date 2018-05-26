@@ -24,12 +24,12 @@ export const mainRoutes: Routes = [
         component: DetailComponent
       },
       {
-        path: 'question',
-        component: QuestionComponent
+        path: 'question/ask',
+        component: AskComponent
       },
       {
-        path: 'ask',
-        component: AskComponent
+        path: 'question',
+        component: QuestionComponent
       },
       {
         path: 'information',

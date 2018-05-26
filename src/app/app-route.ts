@@ -1,5 +1,4 @@
 import {Routes} from '@angular/router';
-import {environment} from '../environments/environment';
 
 export const appRoutes: Routes = [
   {
@@ -9,21 +8,25 @@ export const appRoutes: Routes = [
   },
   {
     path: 'landing',
-    loadChildren: `app/${environment.project}/landing/landing.module#LandingModule`,
+    loadChildren: `app/landing/landing.module#LandingModule`,
     data: {
       title: 'landing'
     }
   },
   {
     path: 'login',
-    loadChildren: `app/${environment.project}/login/login.module#LoginModule`,
+    loadChildren: `app/login/login.module#LoginModule`,
     data: {
       title: 'login'
     }
   },
   {
-    path: 'main',
-    loadChildren: `app/${environment.project}/main/main.module#MainModule`
+    path: 'gov/main',
+    loadChildren: `app/gov/main/main.module#MainModule`
+  },
+  {
+    path: 'com/main',
+    loadChildren: `app/com/main/main.module#MainModule`
   },
   {
     path: '**',

@@ -43,7 +43,7 @@ export class QuestionHandleComponent implements OnInit {
       title: '操作',
       text: '查看',
       event: 'view',
-      link: '/main/question/quesDetail'
+      link: '/gov/main/question/quesDetail'
     }
   ];
   tableId = 'question-list-table';

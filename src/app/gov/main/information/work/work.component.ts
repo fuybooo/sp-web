@@ -34,7 +34,7 @@ export class WorkComponent implements OnInit {
       title: '操作',
       text: ['查看', '修改', {value: '删除', visible: 'f4'}],
       event: ['view', 'edit'],
-      link: '/main/economic/detail'
+      link: '/gov/main/economic/detail'
     }
   ];
   tableId = 'work-list';

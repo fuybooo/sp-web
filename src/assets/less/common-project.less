@@ -12,6 +12,9 @@
   background-color: @color-background;
   .wh;
   position: relative;
+  .main-header-info {
+    line-height: 50px;
+  }
   .main-box {
     .wh;
     //min-height: 650px;
@@ -95,5 +98,18 @@
       background: @primary-color;
       z-index: 10!important;
     }
+  }
+}
+.login-page-body {
+  .login-box {
+    width: 330px;
+    position: absolute;
+    top: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid @color-border;
+    border-radius: @border-radius;
+    background-color: @gray-1;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,.06);
   }
 }

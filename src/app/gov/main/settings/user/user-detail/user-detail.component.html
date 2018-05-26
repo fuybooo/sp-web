@@ -1,0 +1,51 @@
+<div class="common-page">
+  <div class="f22">新增人员</div>
+  <form class="mt40" nz-form [formGroup]="form">
+    <div nz-row [nzGutter]="30">
+      <div nz-col [nzSpan]="12">
+        <nz-form-item nzFlex>
+          <nz-form-label [nzSpan]="7" nzRequired>姓名</nz-form-label>
+          <nz-form-control [nzSpan]="17">
+            <input nz-input placeholder="请输入" formControlName="f2">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="12">
+        <nz-form-item nzFlex>
+          <nz-form-label [nzSpan]="7" nzRequired>手机</nz-form-label>
+          <nz-form-control [nzSpan]="17">
+            <input nz-input placeholder="请输入" formControlName="f3">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+    <div nz-row [nzGutter]="30">
+      <div nz-col [nzSpan]="12">
+        <nz-form-item nzFlex>
+          <nz-form-label [nzSpan]="7" nzRequired>所属市</nz-form-label>
+          <nz-form-control [nzSpan]="17">
+            <input nz-input placeholder="请输入" formControlName="f2">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="12">
+        <nz-form-item nzFlex>
+          <nz-form-label [nzSpan]="7" nzRequired>所属区</nz-form-label>
+          <nz-form-control [nzSpan]="17">
+            <input nz-input placeholder="请输入" formControlName="f3">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+    <div nz-row [nzGutter]="30">
+      <div nz-col [nzSpan]="12">
+        <nz-form-item nzFlex>
+          <nz-form-label [nzSpan]="7" nzRequired>所属部门</nz-form-label>
+          <nz-form-control [nzSpan]="17">
+            <input nz-input placeholder="请输入" formControlName="f2">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+  </form>
+</div>

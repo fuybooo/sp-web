@@ -37,7 +37,8 @@ export class MainComponent implements OnInit {
     this.menuList = $.extend(true, [], menuList);
     const url = this.router.routerState.snapshot.url;
     this.menuList.forEach(item => {
-      if (url === item.route) {
+      const matchedRoute = UtilService.matchAdditionalRoute(item, url);
+      if (url === item.route || matchedRoute) {
         item.isActive = true;
         this.currentItem = item;
         this.breadcrumbList = [this.currentItem.label];

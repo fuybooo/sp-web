@@ -14,45 +14,45 @@ export const menuList: Menu[] = [
   {
     label: '首页',
     code: 'home',
-    route: '/main',
+    route: '/com/main',
     iconCls: {'anticon-home': true},
   },
   {
     label: '问题清单',
     code: 'question',
-    route: '/main/question',
+    route: '/com/main/question',
     iconCls: {'anticon-bars': true},
     additionalRoutes: [
       {
         label: '我要提问',
         code: 'ask',
-        route: '/main/ask',
+        route: '/com/main/question/ask',
       },
       {
         label: '问题详情',
         code: 'question-detail',
-        route: '/main/question/detail',
+        route: '/com/main/question/detail',
       }
     ]
   },
   {
     label: '企业信息',
     code: 'information',
-    route: '/main/information',
+    route: '/com/main/information',
     iconCls: {'anticon-appstore-o': true},
   },
-  {
-    label: '企业经济数据',
-    code: 'economic',
-    route: '/main/economic',
-    iconCls: {'anticon-api': true},
-    additionalRoutes: [
-      {
-        label: '增加企业经济数据',
-        code: 'add-economic-data',
-        route: '/main/economic/detail',
-      },
-    ]
-  },
+  // {
+  //   label: '企业经济数据',
+  //   code: 'economic',
+  //   route: '/com/main/economic',
+  //   iconCls: {'anticon-api': true},
+  //   additionalRoutes: [
+  //     {
+  //       label: '增加企业经济数据',
+  //       code: 'add-economic-data',
+  //       route: '/com/main/economic/detail',
+  //     },
+  //   ]
+  // },
 ];
 

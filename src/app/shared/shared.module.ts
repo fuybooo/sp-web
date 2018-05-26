@@ -10,6 +10,7 @@ import {SearchComponent} from './component/search/search.component';
 import {TableFormatterComponent} from './component/table/table-formatter/table-formatter.component';
 import {TableCellComponent} from './component/table/table-cell/table-cell.component';
 import { QueryComponent } from './component/project/query/query.component';
+import {LoginBoxComponent} from '../login/login-box/login-box.component';
 
 @NgModule({
   imports: [
@@ -29,8 +30,10 @@ import { QueryComponent } from './component/project/query/query.component';
     TableCellComponent,
     SearchComponent,
     QueryComponent,
+    LoginBoxComponent,
   ],
   entryComponents: [
+    LoginBoxComponent,
   ],
   exports: [
     // 官方模块
@@ -46,6 +49,7 @@ import { QueryComponent } from './component/project/query/query.component';
     TableComponent,
     SearchComponent,
     QueryComponent,
+    LoginBoxComponent,
   ],
 })
 export class SharedModule { }

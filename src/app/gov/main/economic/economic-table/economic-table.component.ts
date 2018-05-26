@@ -34,7 +34,7 @@ export class EconomicTableComponent implements OnInit {
       title: '操作',
       text: ['查看', '修改'],
       event: ['view', 'edit'],
-      link: '/main/economic/detail'
+      link: '/gov/main/economic/detail'
     }
   ];
   constructor() { }

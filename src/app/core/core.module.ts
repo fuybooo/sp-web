@@ -9,6 +9,7 @@ import {CoreService} from './core.service';
 import {UtilService} from './util.service';
 import {AuthGuardService} from '../shared/guard/auth-guard.service';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import {LoginService as GovLoginService} from '../login/login.service';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import {HashLocationStrategy, LocationStrategy} from '@angular/common';
     CoreService,
     UtilService,
     AuthGuardService,
+    GovLoginService,
   ]
 })
 export class CoreModule { }

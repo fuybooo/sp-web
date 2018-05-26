@@ -4,7 +4,6 @@ import {menuList} from './main.model';
 import {NzModalService} from 'ng-zorro-antd';
 import {UtilService} from '../../core/util.service';
 import {CoreService} from '../../core/core.service';
-import {MainService} from './main.service';
 declare let $: any;
 @Component({
   selector: 'app-main',
@@ -32,13 +31,12 @@ export class MainComponent implements OnInit {
     this.initMenuList();
     // 路由改变时,改变导航栏状态
     this.coreService.routeChangeEvent.subscribe(() => {
-      this.modalService.closeAll();
       this.initMenuList();
     });
   }
   // handleStyle() {
   //   // 处理特殊页面的样式
-  //   if (this.router.routerState.snapshot.url.includes('/main/summary')) {
+  //   if (this.router.routerState.snapshot.url.includes('/gov/main/summary')) {
   //     $('.js-main').addClass('summary-main-box');
   //   } else {
   //     $('.js-main').removeClass('summary-main-box');
@@ -59,7 +57,7 @@ export class MainComponent implements OnInit {
     this.menuList.forEach(item => {
       if (item.children) {
         item.children.forEach(child => {
-          const matchedRoute = MainService.matchAdditionalRoute(child, url);
+          const matchedRoute = UtilService.matchAdditionalRoute(child, url);
           // 根据URL确定当前应该激活那个菜单 (1.路由和参数都匹配；2.额外路由匹配)
           if (url === child.route || matchedRoute) {
             child.isActive = true;
@@ -74,7 +72,7 @@ export class MainComponent implements OnInit {
             child.isActive = false;
           }
         });
-      } else if (url === item.route || MainService.matchAdditionalRoute(item, url)) {
+      } else if (url === item.route || UtilService.matchAdditionalRoute(item, url)) {
         item.isActive = true;
         this.currentItem = item;
         this.breadcrumbList = [this.currentItem.label];

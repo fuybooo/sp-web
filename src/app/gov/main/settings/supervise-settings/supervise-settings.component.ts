@@ -42,12 +42,12 @@ export class SuperviseSettingsComponent implements OnInit {
     }));
   }
   switchRoute() {
-    this.router.navigateByUrl('/main/settings/superviseSettings/detail');
+    this.router.navigateByUrl('/gov/main/settings/superviseSettings/detail');
   }
   eventChange(event) {
     if (event.tableId === this.tableId) {
       if (event.col.event === 'edit') {
-        this.router.navigateByUrl('/main/settings/superviseSettings/detail');
+        this.router.navigateByUrl('/gov/main/settings/superviseSettings/detail');
       }
     }
   }

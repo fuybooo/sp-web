@@ -15,9 +15,9 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
   toQuestion() {
-    this.router.navigateByUrl('/main/question');
+    this.router.navigateByUrl('/com/main/question');
   }
   toAsk() {
-    this.router.navigateByUrl('/main/ask');
+    this.router.navigateByUrl('/com/main/ask');
   }
 }

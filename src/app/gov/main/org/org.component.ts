@@ -41,7 +41,7 @@ export class OrgComponent implements OnInit {
       title: '操作',
       text: ['修改', '删除'],
       event: ['edit', 'delete'],
-      link: '/main/economic/detail'
+      link: '/gov/main/economic/detail'
     }
   ];
   constructor(
@@ -56,12 +56,12 @@ export class OrgComponent implements OnInit {
     }));
   }
   switchRoute() {
-    this.router.navigateByUrl('/main/org/orgDetail');
+    this.router.navigateByUrl('/gov/main/org/orgDetail');
   }
   eventChange(event) {
     if (event.tableId === this.tableId) {
       if (event.event === 'edit') {
-        this.router.navigateByUrl('/main/org/orgDetail');
+        this.router.navigateByUrl('/gov/main/org/orgDetail');
       }
     }
   }
