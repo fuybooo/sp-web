@@ -47,6 +47,8 @@ import {DetailComponent as SuperviseSettingsDetailComponent} from './settings/su
 import {UserComponent} from './settings/user/user.component';
 import {AuthComponent} from './settings/auth/auth.component';
 import {UserDetailComponent} from './settings/user/user-detail/user-detail.component';
+import {InformationDetailComponent} from './information/information-detail/information-detail.component';
+import {AccountDetailComponent} from './account/account-detail/account-detail.component';
 
 export const mainRoutes: Routes = [
   {
@@ -63,7 +65,7 @@ export const mainRoutes: Routes = [
         component: RosterComponent
       },
       {
-        path: 'rosDetail',
+        path: 'rosDetail/:op/:id',
         component: CompanyDetailComponent
       },
       {
@@ -99,7 +101,7 @@ export const mainRoutes: Routes = [
             component: QuestionHandleComponent,
           },
           {
-            path: 'quesDetail',
+            path: 'quesDetail/:op/:id',
             component: QuestionDetailComponent
           },
         ]
@@ -129,6 +131,10 @@ export const mainRoutes: Routes = [
             component: SuperviseProgressComponent
           },
         ],
+      },
+      {
+        path: 'information/detail/:op/:id',
+        component: InformationDetailComponent
       },
       {
         path: 'summary',
@@ -211,12 +217,16 @@ export const mainRoutes: Routes = [
         component: OrgComponent
       },
       {
-        path: 'org/orgDetail',
+        path: 'org/orgDetail/:op/:id',
         component: OrgDetailComponent
       },
       {
         path: 'account',
         component: AccountComponent
+      },
+      {
+        path: 'account/detail/:op/:id',
+        component: AccountDetailComponent
       },
       {
         path: 'settings',
@@ -227,7 +237,7 @@ export const mainRoutes: Routes = [
             component: UserComponent
           },
           {
-            path: 'user/detail',
+            path: 'user/detail/:op/:id',
             component: UserDetailComponent
           },
           {

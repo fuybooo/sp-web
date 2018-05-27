@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UtilService} from '../../../../core/util.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-table-cell',
@@ -15,7 +16,7 @@ export class TableCellComponent implements OnInit {
 
   popVisible = false;
   delPopVisible = false;
-
+  constructor(private router: Router) {}
   ngOnInit() {
   }
   isNotString(value) {
@@ -24,8 +25,14 @@ export class TableCellComponent implements OnInit {
   getFormatText(col, data) {
     return col.formatter(data[col.field || data[col.key]], data);
   }
-  emitEvent(col, data, event?) {
-    this.eventChange.emit({tableId: this.tableId, col, data, event});
+  emitEvent(col, data, event) {
+    if (event === 'view' || event === 'edit') {
+      // 查看，编辑，等跳转路由等操作直接在此处理
+      this.router.navigateByUrl(UtilService.getHref(col, data, event));
+    } else {
+      // 执行删除等操作
+      this.eventChange.emit({tableId: this.tableId, col, data, event});
+    }
   }
   handlePopoverValueCancel() {
     this.popVisible = false;

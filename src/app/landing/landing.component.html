@@ -40,17 +40,20 @@
     <!--</div>-->
     <div class="list">
       <div class="f2m">最新政策</div>
-      <ul class="mt20">
-        <ng-container  *ngFor="let item of data">
-          <li>
+      <ul class="mt20" [hidden]="!showList">
+          <li *ngFor="let item of data">
             <div nz-row>
-              <div nz-col [nzSpan]="15"><a>{{item.title}}</a></div>
+              <div nz-col [nzSpan]="15"><span>{{item.title}}</span></div>
               <div nz-col [nzSpan]="6">{{item.from}}</div>
               <div nz-col [nzSpan]="3" class="tar">{{item.time}}</div>
             </div>
           </li>
-        </ng-container>
       </ul>
+      <ng-container *ngIf="!showList">
+        <div class="item-content">
+
+        </div>
+      </ng-container>
     </div>
   </div>
   <div class="footer"></div>

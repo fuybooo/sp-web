@@ -9,6 +9,7 @@ import {LoginBoxComponent} from '../login/login-box/login-box.component';
   styleUrls: ['./landing.component.less']
 })
 export class LandingComponent implements OnInit {
+  showList = true; // 默认显示所有的列表
   data = [
     {
       title: '市国土房管局关于优化我市营商环境进一步提高不动产登记效率的通知',

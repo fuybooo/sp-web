@@ -16,7 +16,7 @@ export const menuList: Menu[] = [
   {
     label: '首页',
     code: 'home',
-    route: '/main',
+    route: '/gov/main',
     iconCls: {'anticon-home': true},
   },
   {
@@ -27,7 +27,7 @@ export const menuList: Menu[] = [
     additionalRoutes: [
       {
         route: '/gov/main/rosDetail',
-        label: '企业详情'
+        label: '企业详情',
       }
     ],
   },
@@ -69,7 +69,7 @@ export const menuList: Menu[] = [
     additionalRoutes: [
       {
         route: '/gov/main/question/quesDetail',
-        label: '问题督办详情'
+        label: '问题详情'
       }
     ],
     // children: [
@@ -193,33 +193,40 @@ export const menuList: Menu[] = [
     code: 'information',
     route: '/gov/main/information',
     iconCls: {'anticon-appstore-o': true},
-    children: [
+    additionalRoutes: [
       {
-        label: '工作状态',
-        code: 'work',
-        route: '/gov/main/information',
-      },
-      {
-        label: '扶持政策',
-        code: 'support',
-        route: '/gov/main/information/support',
-      },
-      {
-        label: '通知公告',
-        code: 'notify',
-        route: '/gov/main/information/notify',
-      },
-      {
-        label: '工作进展',
-        code: 'progress',
-        route: '/gov/main/information/progress',
-      },
-      {
-        label: '督办进展',
-        code: 'superviseProgress',
-        route: '/gov/main/information/superviseProgress',
-      },
-    ],
+        label: '信息详情',
+        code: 'infoDetail',
+        route: '/gov/main/information/detail'
+      }
+    ]
+    // children: [
+    //   {
+    //     label: '工作状态',
+    //     code: 'work',
+    //     route: '/gov/main/information',
+    //   },
+    //   {
+    //     label: '扶持政策',
+    //     code: 'support',
+    //     route: '/gov/main/information/support',
+    //   },
+    //   {
+    //     label: '通知公告',
+    //     code: 'notify',
+    //     route: '/gov/main/information/notify',
+    //   },
+    //   {
+    //     label: '工作进展',
+    //     code: 'progress',
+    //     route: '/gov/main/information/progress',
+    //   },
+    //   {
+    //     label: '督办进展',
+    //     code: 'superviseProgress',
+    //     route: '/gov/main/information/superviseProgress',
+    //   },
+    // ],
   },
   {
     label: '组织机构管理',
@@ -239,6 +246,13 @@ export const menuList: Menu[] = [
     code: 'account',
     route: '/gov/main/account',
     iconCls: {'anticon-profile': true},
+    additionalRoutes: [
+      {
+        label: '企业详情',
+        code: 'accountDetail',
+        route: '/gov/main/account/detail'
+      }
+    ]
   },
   {
     label: '系统设置',
@@ -246,11 +260,11 @@ export const menuList: Menu[] = [
     route: '/gov/main/settings',
     iconCls: {'anticon-setting': true},
     children: [
-      {
-        label: '权限管理',
-        code: 'auth',
-        route: '/gov/main/settings/auth',
-      },
+      // {
+      //   label: '权限管理',
+      //   code: 'auth',
+      //   route: '/gov/main/settings/auth',
+      // },
       {
         label: '用户管理',
         code: 'user',

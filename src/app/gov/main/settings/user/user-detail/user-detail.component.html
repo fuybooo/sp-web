@@ -1,5 +1,5 @@
 <div class="common-page">
-  <div class="f22">新增人员</div>
+  <div class="f22">{{op === 'edit' ? '编辑' : '新增'}}人员</div>
   <form class="mt40" nz-form [formGroup]="form">
     <div nz-row [nzGutter]="30">
       <div nz-col [nzSpan]="12">
@@ -48,4 +48,8 @@
       </div>
     </div>
   </form>
+  <div class="mt20 tac">
+    <button nz-button [nzType]="'primary'" (click)="save()">保存</button>
+    <button nz-button (click)="back()">返回</button>
+  </div>
 </div>

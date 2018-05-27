@@ -1,7 +1,15 @@
 <div class="main">
     <div class="main-box">
+
       <!--第一层头部-->
-      <div nz-row class="main-header-box">
+      <div nz-row class="main-header-info">
+        <div nz-col [nzSpan]="12">
+          <div class="ml50">张三 您好，欢迎登录</div>
+        </div>
+        <div nz-col [nzSpan]="12" class="tar">
+          <a (click)="logout()">返回</a>
+          <a class="ml20 mr50" (click)="logout()">退出</a>
+        </div>
       </div>
       <!--左侧菜单-->
       <div class="menu-box">

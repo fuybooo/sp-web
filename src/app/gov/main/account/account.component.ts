@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {Column} from '../../../shared/component/table/table.model';
+import {NzMessageService, NzModalService} from 'ng-zorro-antd';
+import {ImportFileComponent} from '../../../shared/component/project/import-file/import-file.component';
+import {UtilService} from '../../../core/util.service';
 
 @Component({
   selector: 'app-account',
@@ -11,6 +14,7 @@ export class AccountComponent implements OnInit {
   dateRange = [];
   tableId = 'account-table';
   dataSet = [];
+  checkedList = [];
   columns: Column[] = [
     {
       field: 'f1',
@@ -46,19 +50,22 @@ export class AccountComponent implements OnInit {
     },
     {
       title: '操作',
-      text: ['查看', '重置密码', {value: '创建账号', visible: 'f5'}],
-      event: ['view', 'reset', 'create'],
+      text: ['查看', '重置密码'],
+      event: ['view', 'reset'],
       link: '/gov/main/account/detail'
     }
   ];
   typeList1 = [];
   typeList2 = [];
   constructor(
-    private router: Router
+    private router: Router,
+    private modalService: NzModalService,
+    private message: NzMessageService
   ) { }
 
   ngOnInit() {
     this.dataSet = Array(20).fill(0).map((item, i) => ({
+      id: i + 1,
       f1: '河北绿源再生资源开发有限公司',
       f2: '滨海新区',
       f3: '开发区',
@@ -69,15 +76,34 @@ export class AccountComponent implements OnInit {
       f8: '2018-05-19 09:30:21',
     }));
   }
-  switchRoute() {
-    this.router.navigateByUrl('/gov/main/org/orgDetail');
+  refreshStatusChange(event) {
+    if (event.tableId === this.tableId) {
+      this.checkedList = event.dataSet.filter(item => item.checked);
+    }
+  }
+  createAccount() {
+    if (!this.checkedList.length) {
+      this.message.error('请选择数据');
+      return;
+    }
   }
   onChange(event) {}
   eventChange(event) {
     if (event.tableId === this.tableId) {
-      if (event.event === 'edit') {
-        this.router.navigateByUrl('/gov/main/org/orgDetail');
-      }
     }
+  }
+  popImportFile() {
+    const modal = this.modalService.create({
+      nzTitle: '导入企业信息',
+      nzContent: ImportFileComponent,
+      nzFooter: UtilService.getModalFooter((_modal) => {
+        if (_modal.file) {
+          this.message.success('上传成功');
+          modal.destroy();
+        } else {
+          this.message.error('请选择文件');
+        }
+      }, () => modal.destroy())
+    });
   }
 }

@@ -68,7 +68,7 @@
       </ng-container>
       <!--单个事件-->
       <ng-container *ngIf="!isNotString(col.event)">
-        <a (click)="emitEvent(col, data)">{{col.text}}</a>
+        <a (click)="emitEvent(col, data, col.event)">{{col.text}}</a>
       </ng-container>
     </ng-container>
   </ng-container>

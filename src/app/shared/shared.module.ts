@@ -11,6 +11,7 @@ import {TableFormatterComponent} from './component/table/table-formatter/table-f
 import {TableCellComponent} from './component/table/table-cell/table-cell.component';
 import { QueryComponent } from './component/project/query/query.component';
 import {LoginBoxComponent} from '../login/login-box/login-box.component';
+import { ImportFileComponent } from './component/project/import-file/import-file.component';
 
 @NgModule({
   imports: [
@@ -30,10 +31,12 @@ import {LoginBoxComponent} from '../login/login-box/login-box.component';
     TableCellComponent,
     SearchComponent,
     QueryComponent,
+    ImportFileComponent,
     LoginBoxComponent,
   ],
   entryComponents: [
     LoginBoxComponent,
+    ImportFileComponent,
   ],
   exports: [
     // 官方模块
@@ -50,6 +53,7 @@ import {LoginBoxComponent} from '../login/login-box/login-box.component';
     SearchComponent,
     QueryComponent,
     LoginBoxComponent,
+    ImportFileComponent,
   ],
 })
 export class SharedModule { }

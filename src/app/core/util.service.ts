@@ -447,12 +447,11 @@ export class UtilService {
    * @param data
    * @returns {string}
    */
-  static getHref(col, data) {
-    const params = col.linkParam ? ('/' + col.linkParam.split(',').map(field => data[field]).join('/')) : '';
-    return `${col.link}${params}`;
+  static getHref(col, data, event) {
+    return col.link + '/' + event + '/' + data.id;
   }
   static matchRoute(item, url) {
-    return UtilService.getGivenStr('/', item.params || '') === UtilService.getGivenStr('/', url.slice(item.route.length));
+    return item.paramCount === UtilService.getGivenStr('/', url.slice(item.route.length)).length;
   }
   static matchAdditionalRoute(item, url) {
     return item.additionalRoutes && item.additionalRoutes.find(val => url.indexOf(val.route) === 0);

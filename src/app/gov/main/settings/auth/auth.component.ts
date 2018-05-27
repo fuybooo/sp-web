@@ -35,8 +35,8 @@ export class AuthComponent implements OnInit {
     },
     {
       title: '操作',
-      text: ['查看', '修改', '删除'],
-      event: ['view', 'edit', 'delete'],
+      text: ['编辑', '删除'],
+      event: ['edit', 'delete'],
       link: '/gov/main/user/detail'
     }
   ];

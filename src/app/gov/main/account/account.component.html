@@ -47,7 +47,7 @@
       <button class="w" nz-button [nzType]="'primary'">导出</button>
     </div>
     <div nz-col [nzSpan]="3">
-      <button class="w" nz-button (click)="switchRoute()">批量创建账号</button>
+      <button class="w" nz-button (click)="popImportFile()">导入</button>
     </div>
   </div>
   <div nz-row class="mt10" [nzGutter]="10">
@@ -66,7 +66,7 @@
       <button class="w" nz-button [nzType]="'primary'">查询</button>
     </div>
     <div nz-col [nzSpan]="3">
-      <button class="w" nz-button>清空</button>
+      <button class="w" nz-button (click)="createAccount()">创建账号</button>
     </div>
   </div>
   <div class="mt20 x-small-table">
@@ -75,6 +75,7 @@
       [columns]="columns"
       [tableId]="tableId"
       [isSortCol]="true"
+      (refreshStatusChange)="refreshStatusChange($event)"
       (eventChange)="eventChange($event)"
     ></app-table>
   </div>

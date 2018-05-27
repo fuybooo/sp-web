@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {Column} from '../../../../shared/component/table/table.model';
+import {UtilService} from '../../../../core/util.service';
 
 @Component({
   selector: 'app-user',
@@ -34,9 +35,9 @@ export class UserComponent implements OnInit {
     },
     {
       title: '操作',
-      text: ['查看', '修改', '删除'],
-      event: ['view', 'edit', 'delete'],
-      link: '/gov/main/user/detail'
+      text: ['编辑', '删除'],
+      event: ['edit', 'delete'],
+      link: '/gov/main/settings/user/detail'
     }
   ];
   constructor(
@@ -53,13 +54,11 @@ export class UserComponent implements OnInit {
     }));
   }
   switchRoute() {
-    this.router.navigate(['/gov/main/user/detail']);
+    this.router.navigateByUrl('/gov/main/settings/user/detail/add/0');
   }
   eventChange(event) {
     if (event.tableId === this.tableId) {
-      if (event.event === 'view') {
-        this.router.navigate(['/gov/main/user/detail']);
-      } else if (event.event === 'delete') {
+      if (event.event === 'delete') {
         console.log('直接调用删除的接口');
       }
     }

@@ -41,8 +41,8 @@ export class ProjectComponent implements OnInit {
     },
     {
       title: '操作',
-      text: ['查看', '修改'],
-      event: ['view', 'edit'],
+      text: ['编辑'],
+      event: ['edit'],
       link: '/gov/main/projCreate'
     }
   ];

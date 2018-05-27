@@ -39,9 +39,9 @@ export class OrgComponent implements OnInit {
     },
     {
       title: '操作',
-      text: ['修改', '删除'],
+      text: ['编辑', '删除'],
       event: ['edit', 'delete'],
-      link: '/gov/main/economic/detail'
+      link: '/gov/main/org/orgDetail'
     }
   ];
   constructor(
@@ -50,18 +50,18 @@ export class OrgComponent implements OnInit {
 
   ngOnInit() {
     this.dataSet = Array(20).fill(0).map((item, i) => ({
+      id: i + 1,
       f1: '河北绿源再生资源开发有限公司',
       f2: '发改委',
       f3:  '区',
     }));
   }
   switchRoute() {
-    this.router.navigateByUrl('/gov/main/org/orgDetail');
+    this.router.navigateByUrl('/gov/main/org/orgDetail/add/0');
   }
   eventChange(event) {
     if (event.tableId === this.tableId) {
-      if (event.event === 'edit') {
-        this.router.navigateByUrl('/gov/main/org/orgDetail');
+      if (event.event === 'delete') {
       }
     }
   }

@@ -26,7 +26,7 @@ export class SuperviseSettingsComponent implements OnInit {
     },
     {
       title: '操作',
-      text: '修改',
+      text: '编辑',
       event: 'edit',
     }
   ];

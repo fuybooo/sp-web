@@ -5,8 +5,6 @@ import {Title} from '@angular/platform-browser';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/map';
-import {dictionaryInfoKey, loginInfoKey} from '../shared/shared.model';
-import {environment} from '../../environments/environment';
 
 @Injectable()
 export class CoreService {
@@ -39,7 +37,7 @@ export class CoreService {
       }) as Observable<any>)
       .filter(route => route.outlet === 'primary') as Observable<any>)
       .subscribe((route) => {
-        this.titleService.setTitle(route.snapshot.data['title'] || environment.project === 'gov' ? '直通服务' : '企业服务');
+        this.titleService.setTitle(route.snapshot.data['title'] || '服务平台');
         this.routeChangeEvent.emit();
       });
   }

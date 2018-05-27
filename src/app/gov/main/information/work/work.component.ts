@@ -32,8 +32,8 @@ export class WorkComponent implements OnInit {
     },
     {
       title: '操作',
-      text: ['查看', '修改', {value: '删除', visible: 'f4'}],
-      event: ['view', 'edit'],
+      text: ['编辑', {value: '删除', visible: 'f4'}],
+      event: ['edit'],
       link: '/gov/main/economic/detail'
     }
   ];

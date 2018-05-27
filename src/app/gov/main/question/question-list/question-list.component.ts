@@ -44,6 +44,7 @@ export class QuestionListComponent implements OnInit {
 
   ngOnInit() {
     this.dataSet = Array(20).fill(0).map((item, i) => ({
+      id: i + 1,
       f1: '山东炼钢集团',
       f2: '资金保障',
       f3: '生产规模扩大，急需一笔5万资金',
@@ -53,8 +54,5 @@ export class QuestionListComponent implements OnInit {
   }
   onChange(event) {}
   eventChange(event) {
-    if (event.tableId === this.tableId && event.col.event === 'view') {
-      this.router.navigate([event.col.link]);
-    }
   }
 }

@@ -5,7 +5,9 @@ import {Router} from '@angular/router';
 import {NzMessageService} from 'ng-zorro-antd';
 import {UtilService} from '../../core/util.service';
 import {REGEXP} from '../../shared/shared.model';
+import {environment} from '../../../environments/environment';
 declare let $: any;
+
 @Component({
   selector: 'app-login-box',
   templateUrl: './login-box.component.html',
@@ -88,8 +90,12 @@ export class LoginBoxComponent implements OnInit {
   }
   login() {
     UtilService.saveLoginInfo({username: 'fuybooo', token: '1'});
-    // 用户是工作专班的还是企业的
-    this.router.navigate([`/com/main`]);
+    if (this.$('remember')) {
+      // 用户是工作专班的还是企业的
+      this.router.navigate([`/com/main`]);
+    } else {
+      this.router.navigate([`/gov/main`]);
+    }
   }
   forget() {
     this.resetSlider();

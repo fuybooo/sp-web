@@ -52,6 +52,7 @@ export class RosterTableComponent implements OnInit {
 
   ngOnInit() {
     this.dataSet = Array(20).fill(0).map((item, i) => ({
+      id: i + 1,
       f1: '山东炼钢集团',
       f2: '982039823',
       f3:  i % 4 ? '县级' : '市级',
@@ -62,11 +63,6 @@ export class RosterTableComponent implements OnInit {
     }));
   }
   eventChange(event) {
-    if (event.tableId === this.tableId) {
-      if (event.col.event === 'view') {
-        this.router.navigate([event.col.link]);
-      }
-    }
   }
 
 }
