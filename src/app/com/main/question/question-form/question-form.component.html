@@ -7,64 +7,12 @@
   </div>
 </div>
 <div class="mt20">
-  <form nz-form [formGroup]="form">
-    <nz-form-item>
-      <nz-form-label [nzSpan]="5">填报人姓名</nz-form-label>
-      <nz-form-control [nzSpan]="12">
-        <input nz-input placeholder="请输入" formControlName="f1">
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-label [nzSpan]="5">填报人职务</nz-form-label>
-      <nz-form-control [nzSpan]="12">
-        <input nz-input placeholder="请输入" formControlName="f2">
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-label [nzSpan]="5">填报人手机</nz-form-label>
-      <nz-form-control [nzSpan]="12">
-        <input nz-input placeholder="请输入" formControlName="f3">
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-label [nzSpan]="5">固定电话</nz-form-label>
-      <nz-form-control [nzSpan]="12">
-        <input nz-input placeholder="请输入" formControlName="f4">
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-label [nzSpan]="5">问题性质</nz-form-label>
-      <nz-form-control [nzSpan]="12">
-        <nz-select formControlName="f5" nzPlaceHolder="请选择">
-          <ng-container *ngFor="let option of list1">
-            <nz-option [nzValue]="option.id" [nzLabel]="option.name"></nz-option>
-          </ng-container>
-        </nz-select>
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-label [nzSpan]="5">负责人已知晓</nz-form-label>
-      <nz-form-control [nzSpan]="12">
-        <nz-switch formControlName="f7"></nz-switch>
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-label [nzSpan]="5">问题内容</nz-form-label>
-      <nz-form-control [nzSpan]="12">
-        <textarea formControlName="f8" nz-input placeholder="请输入" [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-label [nzSpan]="5">问题附件</nz-form-label>
-      <nz-form-control [nzSpan]="12">
-        <nz-upload
-          nzAction="https://jsonplaceholder.typicode.com/posts/"
-          [nzFileList]="fileList">
-          <button nz-button>
-            <i class="anticon anticon-upload"></i><span>上传文件</span>
-          </button>
-        </nz-upload>
-      </nz-form-control>
-    </nz-form-item>
-  </form>
+  <app-form
+    [formConfig]="formConfig"
+    [(form)]="form"
+    [formId]="formId"
+  ></app-form>
+</div>
+<div class="mt20 tac">
+  <button nz-button [nzType]="'primary'" (click)="handleOk()" [disabled]="form.pristine || form.invalid">提交</button>
 </div>

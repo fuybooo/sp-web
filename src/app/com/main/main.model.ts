@@ -55,4 +55,3 @@ export const menuList: Menu[] = [
   //   ]
   // },
 ];
-

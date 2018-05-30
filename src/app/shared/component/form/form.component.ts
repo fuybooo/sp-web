@@ -13,9 +13,11 @@ export class FormComponent implements OnInit, OnDestroy {
   @Input() formId; // 表单唯一id，必传切唯一
   @Input() nzGutter = 30; // 横向间距，默认为30，在一行显示两列时起作用
   @Input() formConfig: FormConfigItem[][]; // 主要配置项，必传
-  @Input() form: FormGroup;
-  @Input() isGlobalEvent;
-  @Output() formChange = new EventEmitter();
+  @Input() form: FormGroup; // form表单主体，必传
+  @Input() formType = ''; // form表单类型，默认为空，表示增改，可选为view，表示查看
+  @Input() isGlobalEvent; // 是否需要全局事件去发射form表单的变化 默认为false // todo 长时间无用的话将会删掉
+  @Output() formChange = new EventEmitter(); // 表单变化事件
+  // formDimension = 2; // 表单的维度
   subscript;
   constructor(
     private fb: FormBuilder,
@@ -65,6 +67,9 @@ export class FormComponent implements OnInit, OnDestroy {
   $control(name) {
     return this.form.controls[name];
   }
+  $(name) {
+    return this.$control(name).value;
+  }
   isRequired(col) {
     return col.validators ? col.validators.some(v => v.type === 'required') : false;
   }
@@ -79,6 +84,11 @@ export class FormComponent implements OnInit, OnDestroy {
       case 'mistake':
         return '输入不合规范';
     }
+  }
+  fileChange(file, col) {
+    this.$control(col.field).setValue(file.files);
+    this.form.markAsDirty();
+    this.changeControl();
   }
 
 }

@@ -12,6 +12,7 @@ import {
   REGEXP,
 } from '../shared/shared.model';
 import {NzTreeNode} from 'ng-zorro-antd';
+import {FormConfigItem} from '../shared/component/form/form.model';
 declare let $: any;
 /**'
  * 工具接口
@@ -379,6 +380,15 @@ export class UtilService {
       let r = Math.random() * 16 | 0, v = c === 'x' ? r : ( r & 0x3 | 0x8);
       return v.toString(16);
     });
+  }
+  static findFormItem(formConfig, field): FormConfigItem {
+    for (const row of formConfig) {
+      for (const col of row) {
+        if (col.field === field) {
+          return col;
+        }
+      }
+    }
   }
   /**
    * 深度trim

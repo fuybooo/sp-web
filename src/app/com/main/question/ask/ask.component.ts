@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder} from '@angular/forms';
+import {FormGroup} from '@angular/forms';
+import {FormConfigItem} from '../../../../shared/component/form/form.model';
+import {UtilService} from '../../../../core/util.service';
 
 @Component({
   selector: 'app-ask',
@@ -7,28 +9,50 @@ import {FormBuilder} from '@angular/forms';
   styleUrls: ['./ask.component.less']
 })
 export class AskComponent implements OnInit {
-  op = 'view';
-  form;
+  form: FormGroup = new FormGroup({});
+  formId = UtilService.guid();
+  formConfig: FormConfigItem[][] = [
+    [
+      {
+        label: '社会信用编号',
+        field: 'social_credit_number',
+      },
+      {
+        label: '组织机构代码',
+        field: 'organization_code',
+      },
+    ],
+    [
+      {
+        label: '法人代表',
+        field: 'law_person',
+      },
+      {
+        label: '企业性质',
+        field: 'business_type',
+      },
+    ],
+    [
+      {
+        label: '注册地址',
+        field: 'address',
+      },
+      {
+        label: '注册资本',
+        field: 'registered_capital',
+      },
+    ],
+    [
+      {
+        label: '主要业务活动',
+        field: 'major_activities',
+      },
+    ],
+  ];
   constructor(
-    private fb: FormBuilder
   ) { }
 
   ngOnInit() {
-    this.form = this.fb.group({
-      f1: ['23422344'],
-      f2: ['3464243'],
-      f3: ['张三'],
-      f4: ['国营'],
-      f5: ['北京市朝阳区凤凰汇A座502'],
-      f6: ['500万'],
-      f7: ['制药'],
-    });
-  }
-  $control(name) {
-    return this.form.controls[name];
-  }
-  $(name) {
-    return this.$control(name).value;
   }
 
 }
