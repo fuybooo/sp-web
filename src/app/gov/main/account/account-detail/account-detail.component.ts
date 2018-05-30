@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {FormConfigItem} from '../../../../shared/component/form/form.model';
+import {UtilService} from '../../../../core/util.service';
 
 @Component({
   selector: 'app-account-detail',
@@ -9,7 +10,7 @@ import {FormConfigItem} from '../../../../shared/component/form/form.model';
 })
 export class AccountDetailComponent implements OnInit {
   form: FormGroup = new FormGroup({});
-  formId = 'account-detail-form';
+  formId = UtilService.guid();
   formConfig: FormConfigItem[][] = [
       [
         {

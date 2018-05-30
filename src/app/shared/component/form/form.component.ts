@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angula
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UtilService} from '../../../core/util.service';
 import {CoreService} from '../../../core/core.service';
+import {FormConfigItem} from './form.model';
 
 @Component({
   selector: 'app-form',
@@ -9,10 +10,10 @@ import {CoreService} from '../../../core/core.service';
   styleUrls: ['./form.component.less']
 })
 export class FormComponent implements OnInit, OnDestroy {
-  @Input() nzGutter = 30;
-  @Input() formConfig;
+  @Input() formId; // 表单唯一id，必传切唯一
+  @Input() nzGutter = 30; // 横向间距，默认为30，在一行显示两列时起作用
+  @Input() formConfig: FormConfigItem[][]; // 主要配置项，必传
   @Input() form: FormGroup;
-  @Input() formId;
   @Input() isGlobalEvent;
   @Output() formChange = new EventEmitter();
   subscript;
