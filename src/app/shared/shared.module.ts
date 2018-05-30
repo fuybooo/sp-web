@@ -12,6 +12,7 @@ import {TableCellComponent} from './component/table/table-cell/table-cell.compon
 import { QueryComponent } from './component/project/query/query.component';
 import {LoginBoxComponent} from '../login/login-box/login-box.component';
 import { ImportFileComponent } from './component/project/import-file/import-file.component';
+import { FormComponent } from './component/form/form.component';
 
 @NgModule({
   imports: [
@@ -32,10 +33,12 @@ import { ImportFileComponent } from './component/project/import-file/import-file
     SearchComponent,
     QueryComponent,
     ImportFileComponent,
+    FormComponent,
     LoginBoxComponent,
   ],
   entryComponents: [
     LoginBoxComponent,
+    FormComponent,
     ImportFileComponent,
   ],
   exports: [
@@ -53,6 +56,7 @@ import { ImportFileComponent } from './component/project/import-file/import-file
     SearchComponent,
     QueryComponent,
     LoginBoxComponent,
+    FormComponent,
     ImportFileComponent,
   ],
 })

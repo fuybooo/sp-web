@@ -13,6 +13,8 @@ export class CoreService {
   routeChangeEvent = new EventEmitter();
   // 全局列表
   globalTableEvent = new EventEmitter();
+  // 全局表单
+  globalFormEvent = new EventEmitter();
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,

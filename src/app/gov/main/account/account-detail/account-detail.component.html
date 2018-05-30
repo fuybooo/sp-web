@@ -1,3 +1,6 @@
-<p>
-  account-detail works!
-</p>
+<app-form
+  [formConfig]="formConfig"
+  [(form)]="form"
+  [formId]="formId"
+></app-form>
+<button nz-button [nzType]="'primary'" (click)="add()" [disabled]="form.pristine || form.invalid">测试</button>

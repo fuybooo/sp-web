@@ -6,12 +6,7 @@
     "ng": "ng",
     "start": "ng s -o --port 4400",
     "build": "ng b -e prod -aot --prod -dop --buildOptimizer --preserveSymlinks --bh / --deploy-url /dist -op dist",
-    "bc": "ng b -e com -aot --prod -dop --buildOptimizer --preserveSymlinks --deploy-url /dist-c -op dist-c",
-    "bg": "ng b -e gov -aot --prod -dop --buildOptimizer --preserveSymlinks --deploy-url /dist-g -op dist-g",
-    "bc-lite": "ng b -e prod -aot --prod -dop --buildOptimizer --preserveSymlinks --deploy-url / -op dist-c",
-    "bg-lite": "ng b -e prod -aot --prod -dop --buildOptimizer --preserveSymlinks --deploy-url / -op dist-g",
-    "lite-g": "lite-server --baseDir=\"dist-g\"",
-    "lite-c": "lite-server --baseDir=\"dist-c\"",
+    "lite": "lite-server --baseDir=\"dist\"",
     "test": "ng test",
     "lint": "ng l",
     "e2e": "ng e2e"

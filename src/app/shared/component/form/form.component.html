@@ -1,0 +1,28 @@
+<form nz-form [formGroup]="form">
+  <div *ngFor="let row of formConfig" nz-row [nzGutter]="nzGutter">
+    <div *ngFor="let col of row" nz-col [nzSpan]="24 / row.length">
+      <nz-form-item nzFlex>
+        <nz-form-label [nzSpan]="7" [nzRequired]="isRequired(col)">{{col.label}}</nz-form-label>
+        <nz-form-control [nzSpan]="17">
+          <ng-container [ngSwitch]="col.type">
+            <ng-container *ngSwitchCase="undefined || 'text'">
+              <input nz-input [placeholder]="col.placeholder || '请输入'" [formControlName]="col.field" (ngModelChange)="changeControl()">
+            </ng-container>
+            <ng-container *ngSwitchCase="'select'">
+              <nz-select [nzPlaceHolder]="col.placeholder || '请选择'" [formControlName]="col.field" (ngModelChange)="changeControl()">
+                <nz-option *ngFor="let option of col.list" [nzValue]="option[col.nzValueField]" [nzLabel]="option[col.nzLabelField]"></nz-option>
+              </nz-select>
+            </ng-container>
+          </ng-container>
+          <ng-container *ngIf="col.validators">
+            <ng-container *ngFor="let v of col.validators">
+              <nz-form-explain *ngIf="$control(col.field).dirty && $control(col.field).hasError(v.type)">
+                {{v.text || getValidatorText(v)}}
+              </nz-form-explain>
+            </ng-container>
+          </ng-container>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+</form>

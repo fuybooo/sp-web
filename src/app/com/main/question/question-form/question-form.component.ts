@@ -62,20 +62,6 @@ export class QuestionFormComponent implements OnInit {
       name: '其他服务类'
     },
   ];
-  list2 = [
-    {
-      id: '1',
-      name: '问题类型1'
-    },
-    {
-      id: '2',
-      name: '问题类型2'
-    },
-    {
-      id: '3',
-      name: '问题类型3'
-    },
-  ];
   fileList = [];
   constructor(
     private fb: FormBuilder

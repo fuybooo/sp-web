@@ -1,13 +1,6 @@
 <div class="common-page">
-  <div class="f22">用户管理</div>
+  <div class="f22">权限管理</div>
   <div class="mt20" nz-row [nzGutter]="10">
-    <div nz-col [nzSpan]="5">
-      <nz-select nzPlaceHolder="请选择市" class="w">
-        <ng-container *ngFor="let option of typeList1">
-          <nz-option [nzValue]="option.id" [nzLabel]="option.name"></nz-option>
-        </ng-container>
-      </nz-select>
-    </div>
     <div nz-col [nzSpan]="5">
       <nz-select nzPlaceHolder="请选择区" class="w">
         <ng-container *ngFor="let option of typeList1">

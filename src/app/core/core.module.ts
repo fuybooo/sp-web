@@ -10,6 +10,7 @@ import {UtilService} from './util.service';
 import {AuthGuardService} from '../shared/guard/auth-guard.service';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {LoginService as GovLoginService} from '../login/login.service';
+import {PageNotFoundComponent} from '../page-not-found/page-not-found.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import {LoginService as GovLoginService} from '../login/login.service';
     HttpClientModule,
     NgZorroAntdModule.forRoot(),
   ],
-  declarations: [],
+  declarations: [PageNotFoundComponent],
+  exports: [PageNotFoundComponent],
   providers: [
     // ng-zorro的全局设置
     {provide: NZ_MESSAGE_CONFIG, useValue: {nzMaxStack: 1} },

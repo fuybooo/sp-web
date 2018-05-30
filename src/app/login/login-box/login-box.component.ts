@@ -4,8 +4,9 @@ import {LoginService} from '../login.service';
 import {Router} from '@angular/router';
 import {NzMessageService} from 'ng-zorro-antd';
 import {UtilService} from '../../core/util.service';
-import {REGEXP} from '../../shared/shared.model';
+import {HttpRes, REGEXP} from '../../shared/shared.model';
 import {environment} from '../../../environments/environment';
+import {urls} from '../../core/urls.model';
 declare let $: any;
 
 @Component({
@@ -89,13 +90,17 @@ export class LoginBoxComponent implements OnInit {
     return this.$control(name).value;
   }
   login() {
-    UtilService.saveLoginInfo({username: 'fuybooo', token: '1'});
-    if (this.$('remember')) {
-      // 用户是工作专班的还是企业的
-      this.router.navigate([`/com/main`]);
-    } else {
-      this.router.navigate([`/gov/main`]);
-    }
+    this.utilService.get(urls.login).subscribe((res: HttpRes) => {
+      if (res.code === 200) {
+        UtilService.saveLoginInfo({username: 'fuybooo', token: '1'});
+        if (this.$('remember')) {
+          // 用户是工作专班的还是企业的
+          this.router.navigate([`/com/main`]);
+        } else {
+          this.router.navigate([`/gov/main`]);
+        }
+      }
+    });
   }
   forget() {
     this.resetSlider();

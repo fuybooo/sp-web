@@ -2,7 +2,7 @@
  * 返回结果接口
  */
 export interface HttpRes {
-  code: number;
+  code: number | string;
   msg: string;
   data: any | {
     results?: Array<any> | {

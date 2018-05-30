@@ -25,14 +25,14 @@ export class UtilService {
 
   /**
    * 获取请求的url
-   * @param urlKey
+   * @param mainUrl
    * @param paramsId
    * @returns {string}
    */
   static getUrl(mainUrl, paramsId?) {
     const getSafeStr = (str: string) => {
       if (str.slice(-1) === '/') {
-        return str.slice(0, str.length - 2);
+        return str.slice(0, str.length - 1);
       } else {
         return str;
       }
