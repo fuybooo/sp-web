@@ -4,6 +4,7 @@ import {Column} from '../../../shared/component/table/table.model';
 import {NzMessageService, NzModalService} from 'ng-zorro-antd';
 import {ImportFileComponent} from '../../../shared/component/project/import-file/import-file.component';
 import {UtilService} from '../../../core/util.service';
+import {CoreService} from '../../../core/core.service';
 
 @Component({
   selector: 'app-account',
@@ -60,7 +61,8 @@ export class AccountComponent implements OnInit {
   constructor(
     private router: Router,
     private modalService: NzModalService,
-    private message: NzMessageService
+    private message: NzMessageService,
+    private coreService: CoreService,
   ) { }
 
   ngOnInit() {
@@ -76,6 +78,13 @@ export class AccountComponent implements OnInit {
       f8: '2018-05-19 09:30:21',
     }));
   }
+  search(doNotFetch = false) {
+    this.coreService.globalTableEvent.emit({
+      tableId: this.tableId,
+      dataSet: this.dataSet,
+      doNotFetch
+    });
+  }
   refreshStatusChange(event) {
     if (event.tableId === this.tableId) {
       this.checkedList = event.dataSet.filter(item => item.checked);
@@ -90,6 +99,10 @@ export class AccountComponent implements OnInit {
   onChange(event) {}
   eventChange(event) {
     if (event.tableId === this.tableId) {
+      if (event.event === 'reset') {
+        this.dataSet.find(d => d.id === event.data.id).f7 = '123456';
+        this.search(true);
+      }
     }
   }
   popImportFile() {

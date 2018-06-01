@@ -18,6 +18,6 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('/com/main/question');
   }
   toAsk() {
-    this.router.navigateByUrl('/com/main/ask');
+    this.router.navigateByUrl('/com/main/question/ask');
   }
 }

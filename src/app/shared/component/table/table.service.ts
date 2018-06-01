@@ -35,6 +35,7 @@ export class TableService {
   refreshStatusChange;
   afterSearch;
   resultKey = 'results';
+  doNotFetch = false;
 
   constructor(private utilService: UtilService) {
   }
@@ -59,7 +60,9 @@ export class TableService {
       }
     }
     if (this.url) {
-      this.search(true);
+      if (!this.doNotFetch) {
+        this.search(true);
+      }
     } else {
       this.staticDataSet = $.extend(true, [], this.dataSet);
       this.refreshStatus();

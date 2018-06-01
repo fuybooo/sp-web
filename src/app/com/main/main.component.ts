@@ -42,6 +42,9 @@ export class MainComponent implements OnInit {
         item.isActive = true;
         this.currentItem = item;
         this.breadcrumbList = [this.currentItem.label];
+        if (matchedRoute) {
+          this.breadcrumbList = [...this.breadcrumbList, matchedRoute.label];
+        }
       } else {
         item.isActive = false;
       }

@@ -27,7 +27,8 @@
         "../node_modules/jquery-mousewheel/jquery.mousewheel.js",
         "../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js",
         "assets/vendor/qrcode/jquery.qrcode.min.js",
-        "assets/vendor/slider/jquery.slider.min.js"
+        "assets/vendor/slider/jquery.slider.min.js",
+        "assets/vendor/oss/aliyun-oss-sdk-4.4.4.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

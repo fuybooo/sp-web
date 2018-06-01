@@ -39,7 +39,7 @@ export class FormComponent implements OnInit, OnDestroy {
     let group: any = {};
     this.formConfig.forEach((row: any[]) => row.forEach((col: any) => {
       group[col.field] = [
-        col.defaultValue,
+        {value: col.defaultValue, disabled: col.disabled || this.formType === 'disable'},
         [...(col.validators ? col.validators.map(validator => {
           switch (validator.type) {
             case 'required':
@@ -89,6 +89,15 @@ export class FormComponent implements OnInit, OnDestroy {
     this.$control(col.field).setValue(file.files);
     this.form.markAsDirty();
     this.changeControl();
+  }
+  getViewValue(col) {
+    let defaultValueField = 'value';
+    let defaultLabelField = 'label';
+    if (col.type === 'select') {
+      defaultValueField = 'id';
+      defaultLabelField = 'name';
+    }
+    return UtilService.getPropValue(col.list, this.$(col.field), col.nzValueField || defaultValueField, col.nzLabelField || defaultLabelField);
   }
 
 }

@@ -33,7 +33,8 @@ export class QuestionComponent implements OnInit {
     },
     {
       text: ['查看', {value: '申请返回', visible: 'f4'}],
-      event: ['view', 'apply']
+      event: ['view', 'apply'],
+      link: '/com/main/question/detail'
     }
   ];
   dataSet = [];
@@ -54,9 +55,6 @@ export class QuestionComponent implements OnInit {
   }
   eventChange(event) {
     if (event.tableId === this.tableId) {
-      if (event.event === 'view') {
-        this.router.navigateByUrl('/com/main/question/detail');
-      }
     }
   }
   toAsk() {

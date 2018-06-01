@@ -76,18 +76,48 @@ export class UtilService {
   // }
 
   /**
-   * 去空格后判断是否为空
+   * 去前后空格后判断是否为空
    * @param {FormControl} control
    * @returns {any}
    */
   static required(control: FormControl) {
     if (typeof control.value === 'string') {
-      return control.value.trim().length === 0 ? {required: true} : null;
+      return control.value.trim().length === 0 ? {required: true, error: true} : null;
     } else if (control.value instanceof Array) {
-      return control.value.length === 0 ? {required: true} : null;
+      return control.value.length === 0 ? {required: true, error: true} : null;
+    } else if (control.value !== 0) {
+      return control.value ? null : {required: true, error: true};
     } else {
       return null;
     }
+  }
+
+  /**
+   * 去前后空格后判断长度上限
+   */
+  static maxLength(maxLength: number) {
+    return function (control: FormControl) {
+      const value = control.value;
+      if (value && value.trim) {
+        if (value.trim().length > maxLength) {
+          return {maxlength: true};
+        }
+      }
+    };
+  }
+
+  /**
+   * 去前后空格后判断长度下限
+   */
+  static minLength(minLength: number) {
+    return function (control: FormControl) {
+      const value = control.value;
+      if (value && value.trim) {
+        if (value.trim().length < minLength) {
+          return {minlength: true};
+        }
+      }
+    };
   }
 
   /**
@@ -216,25 +246,29 @@ export class UtilService {
    * 根据一个值获取数组中该值对应的对象的其他属性的值
    * 只传list value时表示根据value取label
    * @param list 数组
-   * @param value 值
+   * @param value 值 或值数组
    * @param {string} valueKey 值对应的key 默认为value
    * @param {string} otherKey 要获取的值的key 默认为label 如果传入的值时'' 或者false，则返回该对象
    * @returns {string}
    */
   static getPropValue(list, value, valueKey = 'value', otherKey = 'label') {
-    if (!list) {
+    if (!list || value === '') {
       return '';
     }
-    const item = list.find(_item => _item[valueKey] === value);
-    if (item) {
-      if (otherKey) {
-        return item[otherKey];
-      } else {
-        return item;
-      }
-    } else {
-      return '';
+    if (typeof value !== 'object') {
+      value = [value];
     }
+    return list.filter(_item => value.some(v => v === _item[valueKey])).map(i => i[otherKey]).join('、');
+    // const item = list.find(_item => _item[valueKey] === value);
+    // if (item) {
+    //   if (otherKey) {
+    //     return item[otherKey];
+    //   } else {
+    //     return item;
+    //   }
+    // } else {
+    //   return '';
+    // }
   }
 
   /**
@@ -409,8 +443,12 @@ export class UtilService {
           if (typeof objValue === 'string') {
             objValue = objValue.trim();
           }
-          if (objValue === undefined) {
+          if (objValue === undefined || objValue === null) {
             objValue = '';
+          }
+          // 过滤为空的参数
+          if (objValue === '') {
+            continue;
           }
           newObj[i] = typeof objValue === 'object' ? UtilService.deepTrim(objValue) : objValue;
         }

@@ -20,7 +20,7 @@ export const mainRoutes: Routes = [
         component: HomeComponent
       },
       {
-        path: 'question/detail',
+        path: 'question/detail/:op/:id',
         component: DetailComponent
       },
       {
