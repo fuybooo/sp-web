@@ -1,0 +1,33 @@
+{
+  "code": 200,
+  "msg": "",
+  "data": {
+    "results": [
+      {
+        "id": "1",
+        "title": "这是标题",
+        "date": 1527865058155,
+        "username": "张三",
+        "status": "1",
+        "infotype": "1"
+      },
+      {
+        "id": "2",
+        "title": "这是标题",
+        "date": 1527865058155,
+        "username": "张三",
+        "status": "1",
+        "infotype": "1"
+      },
+      {
+        "id": "3",
+        "title": "这是标题",
+        "date": 1527865058155,
+        "username": "张三",
+        "status": "1",
+        "infotype": "1"
+      }
+    ],
+    "total": 3
+  }
+}

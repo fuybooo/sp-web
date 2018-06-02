@@ -35,7 +35,7 @@ export class TableService {
   refreshStatusChange;
   afterSearch;
   resultKey = 'results';
-  doNotFetch = false;
+  notFetchConfig; // 不进行远程加载时的配置项
 
   constructor(private utilService: UtilService) {
   }
@@ -46,6 +46,10 @@ export class TableService {
       if (props.hasOwnProperty(i)) {
         if (i === 'params') {
           Object.assign(this.params, props[i]);
+        } else if (i === 'total') {
+          if (props[i] !== undefined) {
+            this.total = props[i];
+          }
         } else {
           this[i] = props[i];
         }
@@ -60,8 +64,10 @@ export class TableService {
       }
     }
     if (this.url) {
-      if (!this.doNotFetch) {
+      if (!this.notFetchConfig) {
         this.search(true);
+      } else {
+        this.updateDataSet();
       }
     } else {
       this.staticDataSet = $.extend(true, [], this.dataSet);
@@ -69,6 +75,93 @@ export class TableService {
     }
   }
 
+  /**
+   * 对数据进行增补操作，无需请求后台
+   * notFetchConfig的格式为：
+   * 可以为数组也可以为单个数据如：
+   * 数组时：
+   * {
+   * update: [
+   *    {
+   *      id: event.data.id,
+   *      password: '123456'
+   *    }
+   *  ],
+   *    add: [
+   *    {
+   *      id: 'a',
+   *      password: 'b'
+   *    }
+   *  ],
+   *    del: ['']
+   * }
+   * 单个数据时
+   * {
+   *   update: {id: '1', password: '123456'},
+   *   add: {id: '1', password: '123456'},
+   *   del: '1'
+   * }
+   * 后台逻辑变化
+   * add: 后台需要返回新增的数据的id，如果前台需要显示的内容有些是后台创建的，则需要返回整个对象
+   * update：一般情况不需要后台特殊处理
+   * del：删除一般发生在第一页，此时后台需要返回与删除等量下一页的数据，如果下一页没有数据，则不需要返回
+   *      特别注意的是：如果当前页的数据被删除完了，则前台页面可能会出现bug
+   */
+  updateDataSet() {
+    const getList = (list) => {
+      if (!(list instanceof Array)) {
+        list = [list];
+      }
+      return list;
+    };
+    // 删除
+    if (this.notFetchConfig.del) {
+      let list = getList(this.notFetchConfig.del);
+      this.dataSet = [...this.dataSet.filter(d => !list.some(l => l === d[this.key]))];
+    }
+    // 修改
+    if (this.notFetchConfig.update) {
+      let list = getList(this.notFetchConfig.update);
+      this.dataSet.forEach(d => {
+        const obj = list.find(l => l[this.key] === d[this.key]);
+        if (obj) {
+          obj.checked = false;
+          for (const p in obj) {
+            if (p !== this.key) {
+              d[p] = obj[p];
+            }
+          }
+        }
+      });
+      this.dataSet = [...this.dataSet];
+    }
+    // 添加
+    if (this.notFetchConfig.add) {
+      // 如果是删除之后补齐数据，则在最后添加，否则就是在最前面增加
+      let list = getList(this.notFetchConfig.add);
+      if (this.notFetchConfig.del) {
+        this.dataSet = [...this.dataSet, ...list].slice(0, this.pageSize);
+      } else {
+        this.dataSet = [...list, ...this.dataSet].slice(0, this.pageSize);
+      }
+    }
+    // 更新总数 如果 this.notFetchConfig.total 有意义，则说明total的变化无规律，是后台传递过来的
+    if (this.notFetchConfig.total === 0 || this.notFetchConfig.total) {
+      this.total = this.notFetchConfig.total;
+    } else {
+      // 按照正常情况修改total
+      // 如果进行了删除，则直接将total - 删除条数
+      if (this.notFetchConfig.del) {
+        let list = getList(this.notFetchConfig.del);
+        this.total = this.total - list.length;
+      } else if (this.notFetchConfig.add) {
+        // 如果没有进行删除，只进行修改，则将total + 增加的条数
+        let list = getList(this.notFetchConfig.add);
+        this.total = this.total + list.length;
+      }
+    }
+    this.refreshStatus();
+  }
   refreshStatus() {
     let allChecked;
     if (!this.dataSet.length) {

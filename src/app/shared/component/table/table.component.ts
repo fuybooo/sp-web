@@ -29,7 +29,8 @@ export class TableComponent implements OnInit, OnDestroy {
   @Output() refreshStatusChange = new EventEmitter(); // 改变选中状态时发射事件
   @Output() afterSearch = new EventEmitter(); // 完成查询时发射事件
   @Output() eventChange = new EventEmitter(); // 自定义事件
-  doNotFetch; // 在使用url的情况下不加载远程数据 默认值为false
+  notFetchConfig; // 在使用url的情况下不加载远程数据 使用该config对数据进行更新 默认值为undefined
+  total;
   subscript;
   constructor(
     public tableService: TableService,
@@ -50,8 +51,15 @@ export class TableComponent implements OnInit, OnDestroy {
         if (event.url) {
           this.url = event.url;
         }
-        // 是否不加载远程数据， 默认值为false，传入true的话表示不进行远程加载，例如在修改了某行数据的某个属性等情况下不再加载远程数据
-        this.doNotFetch = !!event.doNotFetch;
+        if (event.notFetchConfig) {
+          // 此时需要在本地配置表格数据
+          this.notFetchConfig = event.notFetchConfig;
+          this.dataSet = this.tableService.dataSet;
+          this.total = this.tableService.total;
+        } else {
+          this.notFetchConfig = undefined;
+          this.total = undefined;
+        }
         if (event.columns) {
           this.columns = event.columns;
         }
@@ -80,8 +88,9 @@ export class TableComponent implements OnInit, OnDestroy {
       resultKey: this.resultKey,
       tableSize: this.tableSize,
       tableId: this.tableId,
+      total: this.total,
       selectDefault: this.selectDefault,
-      doNotFetch: this.doNotFetch,
+      notFetchConfig: this.notFetchConfig,
       refreshStatusChange: this.refreshStatusChange,
       afterSearch: this.afterSearch,
       eventChange: this.eventChange,

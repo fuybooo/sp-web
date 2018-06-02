@@ -1,8 +1,14 @@
-<!--显示状态-->
-<ng-container *ngIf="col.formatter === 'status'">
+<ng-container *ngIf="type">
+
+</ng-container>
+<ng-container *ngIf="!type">
+  <!--显示状态-->
+  <ng-container *ngIf="col.formatter === 'status'">
   <span class="uk-dot"
         [class.dot-enable]="data[col.field || col.key] === 1"
         [class.dot-disable]="data[col.field || col.key] === 0"
   ></span><span class="ml6">{{data[col.field || col.key] === 1 ? '启用' : '停用'}}</span>
+  </ng-container>
 </ng-container>
+
 

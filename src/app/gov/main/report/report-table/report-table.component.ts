@@ -12,7 +12,7 @@ import {CoreService} from '../../../../core/core.service';
 })
 export class ReportTableComponent implements OnInit {
   @Input() colKeys = [];
-  url = urls.report;
+  // url = urls.report;
   tableId = 'report-table';
   columns: Column[] = [];
   params = {};

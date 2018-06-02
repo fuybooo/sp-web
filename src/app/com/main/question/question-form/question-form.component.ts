@@ -74,32 +74,32 @@ export class QuestionFormComponent implements OnInit {
     [
       {
         label: '填报人姓名',
-        field: 'applicant_name',
+        field: 'applicantname',
       },
     ],
     [
       {
         label: '填报人职务',
-        field: 'applicant_position',
+        field: 'applicantposition',
       },
     ],
     [
       {
         label: '填报人手机',
-        field: 'applicant_phone',
+        field: 'applicantphone',
         type: 'number'
       },
     ],
     [
       {
         label: '固定电话',
-        field: 'fixed_phone',
+        field: 'fixedphone',
       },
     ],
     [
       {
         label: '问题性质',
-        field: 'question_type_id',
+        field: 'questiontypeid',
         type: 'select',
       },
     ],

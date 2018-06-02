@@ -1,0 +1,21 @@
+{
+  "code": 200,
+  "msg": "",
+  "data": {
+    "results": [
+      {
+        "id": "1",
+        "groupname": "组织机构1",
+        "orgname": "机构1",
+        "node": "节点1"
+      },
+      {
+        "id": "2",
+        "groupname": "组织机构2",
+        "orgname": "机构2",
+        "node": "节点2"
+      }
+    ],
+    "total": 2
+  }
+}

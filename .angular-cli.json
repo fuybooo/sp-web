@@ -26,6 +26,7 @@
         "../node_modules/jquery.cookie/jquery.cookie.js",
         "../node_modules/jquery-mousewheel/jquery.mousewheel.js",
         "../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js",
+        "../node_modules/wangeditor/release/wangEditor.js",
         "assets/vendor/qrcode/jquery.qrcode.min.js",
         "assets/vendor/slider/jquery.slider.min.js",
         "assets/vendor/oss/aliyun-oss-sdk-4.4.4.min.js"

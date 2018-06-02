@@ -1,0 +1,31 @@
+{
+  "code": 200,
+  "msg": "",
+  "data": {
+    "results": [
+      {
+        "id": "1",
+        "district": "1",
+        "street": "1",
+        "orgcode": "1",
+        "name": "1",
+        "time": "1",
+        "isaccountcreated": "0",
+        "isinfoconfirmed": "1",
+        "password": "1"
+      },
+      {
+        "id": "2",
+        "district": "1",
+        "street": "1",
+        "orgcode": "1",
+        "name": "1",
+        "time": "1",
+        "isaccountcreated": "0",
+        "isinfoconfirmed": "1",
+        "password": "1"
+      }
+    ],
+    "total": 2
+  }
+}

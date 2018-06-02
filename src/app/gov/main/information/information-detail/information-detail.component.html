@@ -1,3 +1,19 @@
-<p>
-  information-detail works!
-</p>
+<div class="mt20 f22">标题</div>
+<div class="mt20">
+  <input nz-input type="text" class="w" [(ngModel)]="data.title">
+</div>
+<div class="mt20 f22">信息分类</div>
+<div class="mt20">
+  <nz-select nzPlaceHolder="请选择" class="w" [(ngModel)]="data.infotype">
+    <ng-container *ngFor="let option of typeList">
+      <nz-option [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+    </ng-container>
+  </nz-select>
+</div>
+<div class="mt20 f22">信息内容</div>
+<div class="mt20">
+  <div id="js-info-content-area"></div>
+</div>
+<div class="mt20 tac">
+  <button nz-button [nzType]="'primary'" (click)="submit()">提交</button>
+</div>

@@ -1,0 +1,22 @@
+{
+  "code": 200,
+  "msg": "",
+  "data": {
+    "results": [
+      {
+        "district": "",
+        "fiftyresolvedrate": "",
+        "severnresolvedrate ": "",
+        "overfiftyresolvedrate ": "",
+        "effectivequestionnum": "",
+        "districtcompanynum": "",
+        "collectionrate": "",
+        "resolvedquestionnum": "",
+        "unsolvedquestionnum": "",
+        "totalquestionnum": "",
+        "resolvedquestionrate": ""
+
+      }
+    ]
+  }
+}

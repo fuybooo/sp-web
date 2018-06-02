@@ -8,5 +8,6 @@ import {Component, Input, OnInit} from '@angular/core';
 export class TableFormatterComponent implements OnInit{
   @Input() col;
   @Input() data;
+  @Input() type;
   ngOnInit() {}
 }

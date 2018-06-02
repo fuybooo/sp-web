@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Column} from '../../../shared/component/table/table.model';
 import {Router} from '@angular/router';
+import {dateFormatter, infoStatusList, infoTypeList} from '../../../app.model';
+import {CoreService} from '../../../core/core.service';
+import {urls} from '../../../core/urls.model';
+import {NzMessageService} from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-information',
@@ -8,56 +12,67 @@ import {Router} from '@angular/router';
   styleUrls: ['./information.component.less']
 })
 export class InformationComponent implements OnInit {
+  url = urls.infos;
+  statusList = infoStatusList;
+  infoTypeList = infoTypeList;
   dateRange = [];
-  dataSet = [];
   columns: Column[] = [
     {
-      field: 'f1',
+      field: 'title',
       title: '标题'
     },
     {
-      field: 'f2',
-      title: '编辑时间'
+      field: 'date',
+      title: '编辑时间',
+      formatter: dateFormatter
     },
     {
-      field: 'f3',
+      field: 'username',
       title: '编辑人'
     },
     {
-      field: 'f4',
+      field: 'status',
       title: '状态'
     },
     {
-      field: 'f5',
+      field: 'infotype',
       title: '信息分类'
     },
     {
       title: '操作',
-      text: ['编辑', {value: '删除', visible: 'f4'}],
+      text: ['编辑', {value: '删除', visible: 'status'}],
       event: ['edit', 'delete'],
       link: '/gov/main/information/detail'
     }
   ];
   tableId = 'work-list';
+  params = {
+    status: '',
+    indextype: ''
+  };
   constructor(
-    private router: Router
+    private router: Router,
+    private coreService: CoreService,
+    private message: NzMessageService
   ) { }
 
   ngOnInit() {
-    this.dataSet = Array(20).fill(0).map((item, i) => ({
-      id: i + 1,
-      f1: '今年将着力实施20项民心工程',
-      f2: '2018-05-18 09:40:03',
-      f3:  'admin',
-      f4: i % 4 ? '已发布' : '未发布',
-      f5: '综合',
-    }));
   }
-  onChange(event) {}
+  search(notFetchConfig?) {
+    this.coreService.globalTableEvent.emit({
+      tableId: this.tableId,
+      params: this.params,
+      notFetchConfig
+    });
+  }
   eventChange(event) {
     if (event.tableId === this.tableId) {
       if (event.event === 'delete') {
         // 执行删除
+        this.search({
+          del: event.data.id
+        });
+        this.message.success('删除成功');
       }
     }
   }

@@ -92,7 +92,7 @@ export class LoginBoxComponent implements OnInit {
   login() {
     this.utilService.get(urls.login).subscribe((res: HttpRes) => {
       if (res.code === 200) {
-        UtilService.saveLoginInfo({username: 'fuybooo', token: '1'});
+        UtilService.saveLoginInfo(res.data);
         if (this.$('remember')) {
           // 用户是工作专班的还是企业的
           this.router.navigate([`/com/main`]);

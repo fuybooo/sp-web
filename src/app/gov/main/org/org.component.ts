@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Column} from '../../../shared/component/table/table.model';
 import {Router} from '@angular/router';
+import {urls} from '../../../core/urls.model';
+import {CoreService} from '../../../core/core.service';
+import {UtilService} from '../../../core/util.service';
 
 @Component({
   selector: 'app-org',
@@ -8,7 +11,13 @@ import {Router} from '@angular/router';
   styleUrls: ['./org.component.less']
 })
 export class OrgComponent implements OnInit {
+  url = urls.organizations;
   tableId = 'org-table';
+  params: any = {
+    groupname: '',
+    orgname: '',
+    type: '',
+  };
   typeList = [
     {
       id: '1',
@@ -23,18 +32,17 @@ export class OrgComponent implements OnInit {
       name: '类型3'
     },
   ];
-  dataSet = [];
   columns: Column[] = [
     {
-      field: 'f1',
+      field: 'groupname',
       title: '组织名称'
     },
     {
-      field: 'f2',
+      field: 'orgname',
       title: '机构名称'
     },
     {
-      field: 'f3',
+      field: 'node',
       title: '节点'
     },
     {
@@ -45,16 +53,22 @@ export class OrgComponent implements OnInit {
     }
   ];
   constructor(
-    private router: Router
+    private router: Router,
+    private coreService: CoreService
   ) { }
 
   ngOnInit() {
-    this.dataSet = Array(20).fill(0).map((item, i) => ({
-      id: i + 1,
-      f1: '河北绿源再生资源开发有限公司',
-      f2: '发改委',
-      f3:  '区',
-    }));
+  }
+  reset() {
+    UtilService.clearObj(this.params);
+    this.search();
+  }
+  search(notFetchConfig?) {
+    this.coreService.globalTableEvent.emit({
+      tableId: this.tableId,
+      params: this.params,
+      notFetchConfig
+    });
   }
   switchRoute() {
     this.router.navigateByUrl('/gov/main/org/orgDetail/add/0');
@@ -62,6 +76,9 @@ export class OrgComponent implements OnInit {
   eventChange(event) {
     if (event.tableId === this.tableId) {
       if (event.event === 'delete') {
+        this.search({
+          del: event.data.id
+        });
       }
     }
   }

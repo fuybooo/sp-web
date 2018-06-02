@@ -1,47 +1,37 @@
 <div class="common-page">
   <div class="f22">企业账户列表</div>
   <div nz-row class="mt20" [nzGutter]="10">
-    <div nz-col [nzSpan]="5">
-      选择区划：
-      <nz-select nzPlaceHolder="请选择区划" class="w110">
+    <div nz-col [nzSpan]="5" class="flex-box">
+      <span class="fb100">选择区划：</span>
+      <nz-select nzPlaceHolder="请选择区划" class="w" [(ngModel)]="params.district">
         <ng-container *ngFor="let option of typeList1">
           <nz-option [nzValue]="option.id" [nzLabel]="option.name"></nz-option>
         </ng-container>
       </nz-select>
     </div>
-    <div nz-col [nzSpan]="5">
-      选择街道：
-      <nz-select nzPlaceHolder="请选择区划" class="w110 ml28">
+    <div nz-col [nzSpan]="5" class="flex-box">
+      <span class="fb150"><span class="cti">选择</span>选择街道：</span>
+      <nz-select nzPlaceHolder="请选择街道" class="w" [(ngModel)]="params.street">
         <ng-container *ngFor="let option of typeList2">
           <nz-option [nzValue]="option.id" [nzLabel]="option.name"></nz-option>
         </ng-container>
       </nz-select>
     </div>
-    <div nz-col [nzSpan]="4">
-      <nz-dropdown class="w">
-        <button class="w" nz-button nz-dropdown><span>账户是否创建</span> <i class="anticon anticon-down"></i></button>
-        <ul nz-menu>
-          <li nz-menu-item>
-            <a>是</a>
-          </li>
-          <li nz-menu-item>
-            <a>否</a>
-          </li>
-        </ul>
-      </nz-dropdown>
+    <div nz-col [nzSpan]="4" class="flex-box">
+      <span class="fb150">账户是否创建：</span>
+      <nz-select nzPlaceHolder="请选择" class="w" [(ngModel)]="params.isaccountcreated">
+        <ng-container *ngFor="let option of baseList">
+          <nz-option [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+        </ng-container>
+      </nz-select>
     </div>
-    <div nz-col [nzSpan]="4">
-      <nz-dropdown class="w">
-        <button class="w" nz-button nz-dropdown><span>信息是否确认</span> <i class="anticon anticon-down"></i></button>
-        <ul nz-menu>
-          <li nz-menu-item>
-            <a>是</a>
-          </li>
-          <li nz-menu-item>
-            <a>否</a>
-          </li>
-        </ul>
-      </nz-dropdown>
+    <div nz-col [nzSpan]="4" class="flex-box">
+      <span class="fb150">信息是否确认：</span>
+      <nz-select nzPlaceHolder="请选择" class="w" [(ngModel)]="params.isinfoconfirmed">
+        <ng-container *ngFor="let option of baseList">
+          <nz-option [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+        </ng-container>
+      </nz-select>
     </div>
     <div nz-col [nzSpan]="3">
       <button class="w" nz-button [nzType]="'primary'">导出</button>
@@ -51,19 +41,19 @@
     </div>
   </div>
   <div nz-row class="mt10" [nzGutter]="10">
-    <div nz-col [nzSpan]="5">
-      企业名称：
-      <input class="w110" nz-input type="text">
+    <div nz-col [nzSpan]="5" class="flex-box">
+      <span class="fb100">企业名称：</span>
+      <input class="w" nz-input type="text" [(ngModel)]="params.name">
     </div>
-    <div nz-col [nzSpan]="5">
-      组织机构代码：
-      <input class="w110" nz-input type="text">
+    <div nz-col [nzSpan]="5" class="flex-box">
+      <span class="fb150">组织机构代码：</span>
+      <input class="w" nz-input type="text" [(ngModel)]="params.orgcode">
     </div>
     <div nz-col [nzSpan]="8">
-      <nz-range-picker class="w240" [(ngModel)]="dateRange" (ngModelChange)="onChange($event)"></nz-range-picker>
+      <nz-range-picker class="w240" [(ngModel)]="dateRange"></nz-range-picker>
     </div>
     <div nz-col [nzSpan]="3">
-      <button class="w" nz-button [nzType]="'primary'">查询</button>
+      <button class="w" nz-button [nzType]="'primary'" (click)="search()">查询</button>
     </div>
     <div nz-col [nzSpan]="3">
       <button class="w" nz-button (click)="createAccount()">创建账号</button>
@@ -71,7 +61,7 @@
   </div>
   <div class="mt20 x-small-table">
     <app-table
-      [dataSet]="dataSet"
+      [url]="url"
       [columns]="columns"
       [tableId]="tableId"
       [isSortCol]="true"

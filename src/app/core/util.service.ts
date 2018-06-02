@@ -511,6 +511,13 @@ export class UtilService {
   static matchAdditionalRoute(item, url) {
     return item.additionalRoutes && item.additionalRoutes.find(val => url.indexOf(val.route) === 0);
   }
+  static clearObj(obj) {
+    if (obj) {
+      for (let p in obj) {
+        obj[p] = '';
+      }
+    }
+  }
   /**
    * 通过传入url，参数，类型调用请求
    * @param url
