@@ -8,4 +8,5 @@ export const urls = {
   infos: '/infos', // 信息管理
   organizations: '/organizations', // 组织机构
   accounts: '/accounts', // 企业账户
+  users: '/users', // 企业账户
 };

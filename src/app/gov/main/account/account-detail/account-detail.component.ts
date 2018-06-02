@@ -39,18 +39,13 @@ export class AccountDetailComponent implements OnInit {
           ]
         },
         {
+          label: '企业类型',
+          field: 'type',
+          defaultValue: '',
           type: 'select', // 选择时无需远程查询
           list: [],
           nzValueField: 'id',
           nzLabelField: 'name',
-          label: '企业类型',
-          field: 'type',
-          defaultValue: '',
-          // validators: [
-          //   {
-          //     type: 'required'
-          //   }
-          // ]
         },
       ],
     [

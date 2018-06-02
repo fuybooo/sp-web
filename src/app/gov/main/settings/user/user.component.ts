@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {Column} from '../../../../shared/component/table/table.model';
 import {UtilService} from '../../../../core/util.service';
+import {CoreService} from '../../../../core/core.service';
+import {urls} from '../../../../core/urls.model';
+import {HttpRes} from '../../../../shared/shared.model';
+import {NzMessageService} from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-user',
@@ -9,28 +13,35 @@ import {UtilService} from '../../../../core/util.service';
   styleUrls: ['./user.component.less']
 })
 export class UserComponent implements OnInit {
+  url = urls.users;
   tableId = 'user-table';
-  typeList1 = [];
-  dataSet = [];
+  typeList1 = [{id: '1', name: '区1'}];
+  typeList2 = [{id: '1', name: '镇1'}];
+  typeList3 = [{id: '1', name: '部门1'}];
+  params: any = {
+    district: '',
+    street: '',
+    dept: '',
+  };
   columns: Column[] = [
     {
-      field: 'f1',
+      field: 'username',
       title: '姓名'
     },
     {
-      field: 'f2',
+      field: 'loginname',
       title: '账号'
     },
     {
-      field: 'f3',
+      field: 'mobile',
       title: '手机'
     },
     {
-      field: 'f4',
+      field: 'district',
       title: '区县'
     },
     {
-      field: 'f5',
+      field: 'groupname',
       title: '组织机构'
     },
     {
@@ -41,17 +52,20 @@ export class UserComponent implements OnInit {
     }
   ];
   constructor(
-    private router: Router
+    private router: Router,
+    private utilService: UtilService,
+    private coreService: CoreService,
+    private message: NzMessageService
   ) { }
 
   ngOnInit() {
-    this.dataSet = Array(20).fill(0).map(item => ({
-      f1: '张三',
-      f2: 'zhangsan',
-      f3: 13522222222,
-      f4: '兰陵',
-      f5: '县政府',
-    }));
+  }
+  search(notFetchConfig?) {
+    this.coreService.globalTableEvent.emit({
+      tableId: this.tableId,
+      params: this.params,
+      notFetchConfig
+    });
   }
   switchRoute() {
     this.router.navigateByUrl('/gov/main/settings/user/detail/add/0');
@@ -59,7 +73,14 @@ export class UserComponent implements OnInit {
   eventChange(event) {
     if (event.tableId === this.tableId) {
       if (event.event === 'delete') {
-        console.log('直接调用删除的接口');
+        this.utilService.delete(this.url, {id: event.data.id}).subscribe((res: HttpRes) => {
+          if (res.code === 200) {
+            this.message.success('删除成功');
+            this.search({
+              del: event.data.id
+            });
+          }
+        });
       }
     }
   }

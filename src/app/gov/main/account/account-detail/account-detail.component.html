@@ -1,6 +1,13 @@
-<app-form
-  [formConfig]="formConfig"
-  [(form)]="form"
-  [formId]="formId"
-></app-form>
-<button nz-button [nzType]="'primary'" (click)="add()" [disabled]="form.pristine || form.invalid">测试</button>
+<div class="mt20 f22">企业详情</div>
+<div class="mt20">
+  <app-form
+    [formConfig]="formConfig"
+    [(form)]="form"
+    [formId]="formId"
+    [formType]="'view'"
+  ></app-form>
+</div>
+<!--<div class="mt20">-->
+  <!--<button nz-button [nzType]="'primary'" (click)="add()" [disabled]="form.pristine || form.invalid">测试</button>  -->
+<!--</div>-->
+

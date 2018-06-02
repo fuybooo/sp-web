@@ -1,0 +1,39 @@
+{
+  "code": 200,
+  "msg": "",
+  "data": {
+    "results": [
+      {
+        "id": "1",
+        "username": "张三",
+        "loginname": "zhangsan",
+        "mobile": "13522211121",
+        "district": "区1",
+        "groupname": "组织名称1",
+        "orgname": "机构名称1",
+        "deptname": "部门名称1"
+      },
+      {
+        "id": "2",
+        "username": "张四",
+        "loginname": "zhangsan1",
+        "mobile": "13522211121",
+        "district": "区1",
+        "groupname": "组织名称1",
+        "orgname": "机构名称1",
+        "deptname": "部门名称1"
+      },
+      {
+        "id": "3",
+        "username": "张五",
+        "loginname": "zhangsan2",
+        "mobile": "13522211121",
+        "district": "区1",
+        "groupname": "组织名称1",
+        "orgname": "机构名称1",
+        "deptname": "部门名称1"
+      }
+    ],
+    "total": 3
+  }
+}

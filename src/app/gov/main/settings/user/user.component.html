@@ -1,29 +1,32 @@
 <div class="common-page">
   <div class="f22">用户管理</div>
   <div class="mt20" nz-row [nzGutter]="10">
-    <div nz-col [nzSpan]="5">
-      <nz-select nzPlaceHolder="请选择市" class="w">
+    <div nz-col [nzSpan]="6" class="flex-box">
+      <span class="fb100">选择区划：</span>
+      <nz-select nzPlaceHolder="请选择区划" class="w" [(ngModel)]="params.district">
         <ng-container *ngFor="let option of typeList1">
           <nz-option [nzValue]="option.id" [nzLabel]="option.name"></nz-option>
         </ng-container>
       </nz-select>
     </div>
-    <div nz-col [nzSpan]="5">
-      <nz-select nzPlaceHolder="请选择区" class="w">
-        <ng-container *ngFor="let option of typeList1">
+    <div nz-col [nzSpan]="6" class="flex-box">
+      <span class="fb100">选择街道：</span>
+      <nz-select nzPlaceHolder="请选择街道" class="w" [(ngModel)]="params.street">
+        <ng-container *ngFor="let option of typeList2">
           <nz-option [nzValue]="option.id" [nzLabel]="option.name"></nz-option>
         </ng-container>
       </nz-select>
     </div>
-    <div nz-col [nzSpan]="5">
-      <nz-select nzPlaceHolder="请选择部门" class="w">
-        <ng-container *ngFor="let option of typeList1">
+    <div nz-col [nzSpan]="6" class="flex-box">
+      <span class="fb100">部门：</span>
+      <nz-select nzPlaceHolder="请选择" class="w" [(ngModel)]="params.dept">
+        <ng-container *ngFor="let option of typeList3">
           <nz-option [nzValue]="option.id" [nzLabel]="option.name"></nz-option>
         </ng-container>
       </nz-select>
     </div>
-    <div nz-col [nzOffset]="5" [nzSpan]="2">
-      <button class="w" nz-button [nzType]="'primary'">查询</button>
+    <div nz-col [nzOffset]="2" [nzSpan]="2">
+      <button class="w" nz-button [nzType]="'primary'" (click)="search()">查询</button>
     </div>
     <div nz-col [nzSpan]="2">
       <button class="w" nz-button [nzType]="'primary'" (click)="switchRoute()">新增</button>
@@ -31,7 +34,7 @@
   </div>
   <div class="mt20">
     <app-table
-      [dataSet]="dataSet"
+      [url]="url"
       [columns]="columns"
       [tableId]="tableId"
       [isCheckbox]="false"

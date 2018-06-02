@@ -66,8 +66,8 @@ export class AccountComponent implements OnInit {
     },
     {
       title: '操作',
-      text: ['查看', '重置密码'],
-      event: ['view', 'reset'],
+      text: ['重置密码'],
+      event: ['reset'],
       link: '/gov/main/account/detail'
     }
   ];
@@ -83,17 +83,6 @@ export class AccountComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.dataSet = Array(20).fill(0).map((item, i) => ({
-    //   id: i + 1,
-    //   f1: '河北绿源再生资源开发有限公司',
-    //   f2: '滨海新区',
-    //   f3: '开发区',
-    //   f4: '899sdd233',
-    //   f5: '已创建',
-    //   f6: '已确认',
-    //   f7: '112233',
-    //   f8: '2018-05-19 09:30:21',
-    // }));
   }
   search(notFetchConfig?) {
     this.coreService.globalTableEvent.emit({

@@ -71,7 +71,7 @@ export class FormComponent implements OnInit, OnDestroy {
     return this.$control(name).value;
   }
   isRequired(col) {
-    return col.validators ? col.validators.some(v => v.type === 'required') : false;
+    return this.formType === 'view' ? false : (col.validators ? col.validators.some(v => v.type === 'required') : false);
   }
   getValidatorText(v) {
     switch (v.type) {
