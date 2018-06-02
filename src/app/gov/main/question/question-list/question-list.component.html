@@ -2,74 +2,38 @@
   <div class="f22">问题清单</div>
   <div class="mt20" nz-row [nzGutter]="10">
     <div nz-col [nzSpan]="3">
-      <nz-dropdown class="w">
-        <button class="w" nz-button nz-dropdown><span>全部</span> <i class="anticon anticon-down"></i></button>
-        <ul nz-menu>
-          <li nz-menu-item>
-            <a>状态1</a>
-          </li>
-          <li nz-menu-item>
-            <a>状态2</a>
-          </li>
-          <li nz-menu-item>
-            <a>状态3</a>
-          </li>
-        </ul>
-      </nz-dropdown>
+      <nz-select nzPlaceHolder="问题分类" class="w" [(ngModel)]="params.type">
+        <ng-container *ngFor="let option of typeList">
+          <nz-option [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+        </ng-container>
+      </nz-select>
     </div>
     <div nz-col [nzSpan]="3">
-      <nz-dropdown class="w">
-        <button class="w" nz-button nz-dropdown><span>区域</span> <i class="anticon anticon-down"></i></button>
-        <ul nz-menu>
-          <li nz-menu-item>
-            <a>类型1</a>
-          </li>
-          <li nz-menu-item>
-            <a>类型2</a>
-          </li>
-          <li nz-menu-item>
-            <a>类型3</a>
-          </li>
-        </ul>
-      </nz-dropdown>
+      <nz-select nzPlaceHolder="状态" class="w" [(ngModel)]="params.status">
+        <ng-container *ngFor="let option of statusList">
+          <nz-option [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+        </ng-container>
+      </nz-select>
     </div>
-    <div nz-col [nzSpan]="6">
-      <nz-range-picker class="w" [(ngModel)]="dateRange" (ngModelChange)="onChange($event)"></nz-range-picker>
+    <div nz-col [nzSpan]="3">
+      <nz-select nzPlaceHolder="区" class="w" [(ngModel)]="params.district">
+        <ng-container *ngFor="let option of districtList">
+          <nz-option [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+        </ng-container>
+      </nz-select>
     </div>
     <div nz-col [nzSpan]="5">
-      <nz-dropdown class="w">
-        <button class="w" nz-button nz-dropdown><span>处理部门</span> <i class="anticon anticon-down"></i></button>
-        <ul nz-menu>
-          <li nz-menu-item>
-            <a>类型1</a>
-          </li>
-          <li nz-menu-item>
-            <a>类型2</a>
-          </li>
-          <li nz-menu-item>
-            <a>类型3</a>
-          </li>
-        </ul>
-      </nz-dropdown>
+      <nz-select nzPlaceHolder="处理部门" class="w" [(ngModel)]="params.dept">
+        <ng-container *ngFor="let option of deptList">
+          <nz-option [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+        </ng-container>
+      </nz-select>
     </div>
-    <div nz-col [nzSpan]="3">
-      <nz-dropdown class="w">
-        <button class="w" nz-button nz-dropdown><span>问题分类</span> <i class="anticon anticon-down"></i></button>
-        <ul nz-menu>
-          <li nz-menu-item>
-            <a>类型1</a>
-          </li>
-          <li nz-menu-item>
-            <a>类型2</a>
-          </li>
-          <li nz-menu-item>
-            <a>类型3</a>
-          </li>
-        </ul>
-      </nz-dropdown>
+    <div nz-col [nzSpan]="6">
+      <nz-range-picker class="w" [(ngModel)]="dateRange"></nz-range-picker>
     </div>
     <div nz-col [nzSpan]="2">
-      <button class="w" nz-button [nzType]="'primary'">查询</button>
+      <button class="w" nz-button [nzType]="'primary'" (click)="search()">查询</button>
     </div>
     <div nz-col [nzSpan]="2">
       <button class="w" nz-button [nzType]="'primary'">导出</button>
@@ -81,7 +45,8 @@
   </div>
   <div class="mt20">
     <app-table
-      [dataSet]="dataSet"
+      [url]="url"
+      [params]="params"
       [columns]="columns"
       [tableId]="tableId"
       [isSortCol]="true"

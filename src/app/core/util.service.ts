@@ -490,9 +490,7 @@ export class UtilService {
     const data = UtilService.getLoginInfo();
     return {
       data: JSON.stringify(UtilService.deepTrim(params)),
-      req_type: '10',
       token: data ? data.token : '',
-      bodyparams: '',
       method,
       action: params.action || ''
     };

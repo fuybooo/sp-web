@@ -1,8 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 import {Column} from '../../../../shared/component/table/table.model';
 import {UtilService} from '../../../../core/util.service';
 import {reportColumns} from '../../main.model';
+import {urls} from '../../../../core/urls.model';
+import {CoreService} from '../../../../core/core.service';
 
 @Component({
   selector: 'app-report-table',
@@ -11,11 +12,13 @@ import {reportColumns} from '../../main.model';
 })
 export class ReportTableComponent implements OnInit {
   @Input() colKeys = [];
+  url = urls.report;
   tableId = 'report-table';
   columns: Column[] = [];
+  params = {};
   dataSet = [];
   constructor(
-    private router: Router
+    private coreService: CoreService
   ) { }
 
   ngOnInit() {
@@ -41,11 +44,11 @@ export class ReportTableComponent implements OnInit {
       f18: '29',
     }));
   }
+  search() {
+    this.coreService.globalTableEvent.emit();
+  }
   eventChange(event) {
     if (event.tableId === this.tableId) {
-      if (event.event === 'view') {
-        this.router.navigate([event.col.link]);
-      }
     }
   }
 

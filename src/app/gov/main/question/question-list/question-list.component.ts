@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {Column} from '../../../../shared/component/table/table.model';
+import {UtilService} from '../../../../core/util.service';
+import {HttpRes} from '../../../../shared/shared.model';
+import {CoreService} from '../../../../core/core.service';
+import {dateFormatter, statusList} from '../../../../app.model';
+import * as format from 'date-fns/format';
+import {urls} from '../../../../core/urls.model';
 
 @Component({
   selector: 'app-question-list',
@@ -8,29 +14,40 @@ import {Column} from '../../../../shared/component/table/table.model';
   styleUrls: ['./question-list.component.less']
 })
 export class QuestionListComponent implements OnInit {
-
+  statusList = statusList;
+  typeList = [{value: '', label: '问题类型'}];
+  districtList = [{value: '', label: '区县'}];
+  deptList = [{value: '', label: '处理部门'}];
+  url = urls.question;
+  params: any = {
+    type: '',
+    status: '',
+    district: '',
+    dept: '',
+  };
   tableId = 'question-table';
   dateRange = [];
   dataSet = [];
   columns: Column[] = [
     {
-      field: 'f1',
+      field: 'componayname',
       title: '企业名称'
     },
     {
-      field: 'f2',
+      field: 'typename',
       title: '问题类型'
     },
     {
-      field: 'f3',
+      field: 'content',
       title: '具体问题'
     },
     {
-      field: 'f4',
-      title: '提交时间'
+      field: 'date',
+      title: '提交时间',
+      formatter: dateFormatter
     },
     {
-      field: 'f5',
+      field: 'status',
       title: '状态'
     },
     {
@@ -40,19 +57,25 @@ export class QuestionListComponent implements OnInit {
       link: '/gov/main/question/quesDetail'
     }
   ];
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private utilService: UtilService,
+    private coreService: CoreService
+    ) { }
 
   ngOnInit() {
-    this.dataSet = Array(20).fill(0).map((item, i) => ({
-      id: i + 1,
-      f1: '山东炼钢集团',
-      f2: '资金保障',
-      f3: '生产规模扩大，急需一笔5万资金',
-      f4: '2018-05-16 08:30:45',
-      f5: i % 4 ? '已督办' : '未督办',
-    }));
   }
-  onChange(event) {}
+  search() {
+    this.coreService.globalTableEvent.emit({
+      tableId: this.tableId,
+      params: this.getParams()
+    });
+  }
+  getParams() {
+    this.params.startdate = this.dateRange[0] ? format(this.dateRange[0], 'YYYY-MM-DD') : '';
+    this.params.enddate = this.dateRange[1] ? format(this.dateRange[1], 'YYYY-MM-DD') : '';
+    return this.params;
+  }
   eventChange(event) {
   }
 }

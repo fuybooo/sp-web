@@ -24,7 +24,7 @@ export class HttpInterceptorService implements HttpInterceptor {
         {setHeaders: {'Content-Type': 'application/json; charset=UTF-8'}}
       );
     }
-    console.log('请求路径和参数', req.url, req.body);
+    console.log('请求路径和参数', req.url, JSON.stringify(req.body));
     // 在静态环境中,需要将post请求转化为get请求
     if (environment.isStatic) {
       if (req.method === 'POST') {
