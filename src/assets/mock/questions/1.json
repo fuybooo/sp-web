@@ -1,0 +1,37 @@
+{
+  "code": 200,
+  "msg": "",
+  "data": {
+    "company": {
+      "organizationcode": "",
+      "socialcreditnumber": "",
+      "lawperson": "",
+      "enterpriseholding": "",
+      "registeredadress": "",
+      "registeredcapital": "",
+      "businessaddress": "",
+      "majoractivities": "",
+      "questionstatus": ""
+    },
+    "question": {
+      "content": "",
+      "questionattatchid": "",
+      "status": "1"
+    },
+    "attachmentlist": [
+      {
+        "questionattatchid": "",
+        "questionattatchname": "",
+        "questionattatchpath": ""
+      }
+    ],
+    "replylist": [
+      {
+        "replycomment": "",
+        "replydate": "",
+        "replydept": "",
+        "replyperson": ""
+      }
+    ]
+  }
+}

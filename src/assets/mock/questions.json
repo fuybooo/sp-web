@@ -4,7 +4,7 @@
   "data": {
     "results": [
       {
-        "id": "abc",
+        "id": "1",
         "componayname": "abc",
         "typename": "abc",
         "content": "abc",
@@ -12,7 +12,7 @@
         "status": "1"
       },
       {
-        "id": "abc2",
+        "id": "2",
         "componayname": "abc",
         "typename": "abc",
         "content": "abc",
@@ -20,7 +20,7 @@
         "status": "1"
       },
       {
-        "id": "abc3",
+        "id": "3",
         "componayname": "abc",
         "typename": "abc",
         "content": "abc",
@@ -28,7 +28,7 @@
         "status": "1"
       },
       {
-        "id": "abc4",
+        "id": "4",
         "componayname": "abc",
         "typename": "abc",
         "content": "abc",
@@ -36,7 +36,7 @@
         "status": "1"
       },
       {
-        "id": "abc5",
+        "id": "5",
         "componayname": "abc",
         "typename": "abc",
         "content": "abc",
@@ -44,7 +44,7 @@
         "status": "1"
       },
       {
-        "id": "abc6",
+        "id": "6",
         "componayname": "abc",
         "typename": "abc",
         "content": "abc",

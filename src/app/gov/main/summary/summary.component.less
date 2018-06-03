@@ -24,10 +24,13 @@
       width: 50%;
       float: left;
       display: flex;
-      border: 1px solid @color-border;
-      &:not(:nth-of-type(1)):not(:nth-of-type(2)) {
+      border: 1px solid @color-table-border;
+      //&:not(:nth-of-type(1)):not(:nth-of-type(2)) {
         margin-right: -1px;
         margin-top: -1px;
+      //}
+      &:nth-of-type(1), &:nth-of-type(2) {
+        margin-top: 0;
       }
       //&:nth-last-of-type(1), &:nth-last-of-type(2) {
       //  border-bottom: none;

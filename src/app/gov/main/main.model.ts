@@ -104,22 +104,22 @@ export const menuList: Menu[] = [
     iconCls: {'anticon-bar-chart': true},
     children: [
       {
-        label: '各市按时接办率',
+        label: '各县按时接办率',
         code: 'onTime',
         route: '/gov/main/report/onTime',
       },
       {
-        label: '各市问题收集率',
+        label: '各县问题收集率',
         code: 'questionCollection',
         route: '/gov/main/report/questionCollection',
       },
       {
-        label: '各市问题解决率',
+        label: '各县问题解决率',
         code: 'questionResolve',
         route: '/gov/main/report/questionResolve',
       },
       {
-        label: '各市问题满意率',
+        label: '各县问题满意率',
         code: 'questionSatisfy',
         route: '/gov/main/report/questionSatisfy',
       },
@@ -147,17 +147,17 @@ export const menuList: Menu[] = [
     iconCls: {'anticon-pie-chart': true},
     children: [
       // {
-      //   label: '各市企业三级三类统计表',
+      //   label: '各县企业三级三类统计表',
       //   code: 'threeClassThreeStatistical',
       //   route: '/gov/main/classify/threeClassThreeStatistical',
       // },
       // {
-      //   label: '各市企业分类统计表',
+      //   label: '各县企业分类统计表',
       //   code: 'classify',
       //   route: '/gov/main/classify/classify',
       // },
       {
-        label: '各市企业开通率统计表',
+        label: '各县企业开通率统计表',
         code: 'secondaryOpenRate',
         route: '/gov/main/classify/secondaryOpenRate',
       },

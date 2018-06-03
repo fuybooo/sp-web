@@ -2,7 +2,7 @@
   <div class="main-box">
     <div nz-row class="main-header-info">
       <div nz-col [nzSpan]="12">
-        <div class="ml50">张三 您好，欢迎登录</div>
+        <div class="ml50">{{loginInfo?.username}}您好，欢迎登录</div>
       </div>
       <div nz-col [nzSpan]="12" class="tar">
         <a (click)="logout()">返回</a>

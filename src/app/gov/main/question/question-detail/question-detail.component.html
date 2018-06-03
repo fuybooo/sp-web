@@ -6,27 +6,27 @@
       <table>
         <tr>
           <td>组织机构代码</td>
-          <td>92384324</td>
+          <td>{{questionResult?.company?.organizationcode}}</td>
           <td>社会信用证编号</td>
-          <td>SX0239848234</td>
+          <td>{{questionResult?.company?.socialcreditnumber}}</td>
         </tr>
         <tr>
           <td>法人代表</td>
-          <td>张三</td>
+          <td>{{questionResult?.company?.lawperson}}</td>
           <td>控股情况</td>
-          <td>营业</td>
+          <td>{{questionResult?.company?.enterpriseholding}}</td>
         </tr>
         <tr>
           <td>注册地址</td>
-          <td>北京市朝阳区三元桥凤凰汇A座502</td>
+          <td>{{questionResult?.company?.registeredadress}}</td>
           <td>注册资本（万元）</td>
-          <td>500.00</td>
+          <td>{{questionResult?.company?.registeredcapital}}</td>
         </tr>
         <tr>
           <td>经营地址</td>
-          <td>北京市朝阳区三元桥凤凰汇A座502</td>
+          <td>{{questionResult?.company?.businessaddress}}</td>
           <td>主要业务活动</td>
-          <td>手机零售</td>
+          <td>{{questionResult?.company?.majoractivities}}</td>
         </tr>
       </table>
     </div>
@@ -35,7 +35,7 @@
       <table>
         <tr>
           <td>内容</td>
-          <td>因扩大生产规模，急需一笔5万资金</td>
+          <td>{{questionResult?.question?.content}}</td>
         </tr>
         <tr>
           <td>附件</td>
@@ -44,20 +44,78 @@
       </table>
     </div>
     <div class="title">答复</div>
+    <div class="mt20" *ngFor="let reply of questionResult?.replylist">
+      <div>
+        {{reply.replycomment}}
+      </div>
+      <div>
+        <span>日期：{{reply.replydate}}</span>
+        <span>部门：{{reply.replydept}}</span>
+        <span>姓名：{{reply.replyperson}}</span>
+      </div>
+    </div>
+    <div>
+      <nz-select nzPlaceHolder="切换角色" class="w" （ngModelChange)="changeTestRole($event)">
+        <!--<nz-option [nzValue]="1" [nzLabel]="'企业人员1'"></nz-option>-->
+        <nz-option [nzValue]="2" [nzLabel]="'市级专班2'"></nz-option>
+        <nz-option [nzValue]="3" [nzLabel]="'区级专班3'"></nz-option>
+        <nz-option [nzValue]="4" [nzLabel]="'镇级专班4'"></nz-option>
+        <nz-option [nzValue]="5" [nzLabel]="'部门5'"></nz-option>
+      </nz-select>
+      <nz-select nzPlaceHolder="切换问题状态" class="w" （ngModelChange)="changeTestQuestionStatus($event)">
+        <nz-option [nzValue]="1" [nzLabel]="'企业人员1'"></nz-option>
+        <nz-option [nzValue]="2" [nzLabel]="'市级专班2'"></nz-option>
+        <nz-option [nzValue]="3" [nzLabel]="'区级专班3'"></nz-option>
+        <nz-option [nzValue]="4" [nzLabel]="'镇级专班4'"></nz-option>
+        <nz-option [nzValue]="5" [nzLabel]="'部门5'"></nz-option>
+      </nz-select>
+    </div>
     <div class="mt20">
-      <nz-radio-group [(ngModel)]="handleType">
-        <label nz-radio [nzValue]="1">本级处理</label>
-        <label nz-radio [nzValue]="2">上级处理</label><span class="ml20 text-disable" *ngIf="handleType === 2">上级姓名：王建国</span>
-      </nz-radio-group>
+      <!--市级专班-->
+      <ng-container *ngIf="loginInfo?.role === 2">
+        <nz-radio-group [(ngModel)]="handleType">
+          <label nz-radio [nzValue]="1">本级处理</label>
+          <label nz-radio [nzValue]="2">打回</label>
+        </nz-radio-group>
+      </ng-container>
+      <!--区县专班-->
+      <ng-container *ngIf="loginInfo?.role === 3">
+        <nz-radio-group [(ngModel)]="handleType">
+          <label nz-radio [nzValue]="1">本级处理</label>
+          <label nz-radio [nzValue]="2">打回</label>
+          <label nz-radio [nzValue]="3">其他区处理</label>
+          <label nz-radio [nzValue]="4">上级处理</label>
+        </nz-radio-group>
+      </ng-container>
+      <!--乡镇专班-->
+      <ng-container *ngIf="loginInfo?.role === 4">
+        <nz-radio-group [(ngModel)]="handleType">
+          <label nz-radio [nzValue]="2">打回</label>
+          <label nz-radio [nzValue]="4">上级处理</label>
+        </nz-radio-group>
+      </ng-container>
+      <!--部门工作人员-->
+      <ng-container *ngIf="loginInfo?.role === 5">
+        <nz-radio-group [(ngModel)]="handleType">
+          <label nz-radio [nzValue]="1">接收问题</label>
+          <label nz-radio [nzValue]="2">打回</label>
+          <label nz-radio [nzValue]="3">其他区处理</label>
+          <label nz-radio [nzValue]="4">上级处理</label>
+        </nz-radio-group>
+      </ng-container>
+      <!--<nz-radio-group [(ngModel)]="handleType">-->
+        <!--<label nz-radio [nzValue]="1">本级处理</label>-->
+        <!--<label nz-radio [nzValue]="2">上级处理</label><span class="ml20 text-disable" *ngIf="handleType === 2">上级姓名：王建国</span>-->
+      <!--</nz-radio-group>-->
     </div>
     <div class="mt20" nz-row>
       <div nz-col [nzSpan]="1">说明：</div>
       <div nz-col [nzSpan]="23">
-        <textarea nz-input placeholder="" [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>
+        <textarea nz-input placeholder="" [nzAutosize]="{ minRows: 2, maxRows: 6 }" [(ngModel)]="description"></textarea>
       </div>
     </div>
     <div class="mt20 tac">
-      <button nz-button [nzType]="'primary'">提交</button>
+      <button nz-button [nzType]="'primary'" (click)="submit()">提交</button>
       <button nz-button>返回</button>
     </div>
   </div>
