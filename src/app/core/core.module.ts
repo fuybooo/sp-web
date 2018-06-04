@@ -26,7 +26,6 @@ import {PageNotFoundComponent} from '../page-not-found/page-not-found.component'
   providers: [
     // ng-zorro的全局设置
     {provide: NZ_MESSAGE_CONFIG, useValue: {nzMaxStack: 1} },
-    // todo 升级版本为0.7.0beta.4及以上时，可以删除下面一行 2018-04-16
     {provide: NZ_I18N, useValue: zh_CN},
     // http拦截器
     {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true},
