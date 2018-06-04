@@ -1,11 +1,13 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormConfigItem} from '../../../../../shared/component/form/form.model';
-import {UtilService} from '../../../../../core/util.service';
+import {UtilService} from '../../../../../core/utils/util.service';
 import {urls} from '../../../../../core/urls.model';
 import {AJAXTYPE, HttpRes} from '../../../../../shared/shared.model';
 import {NzMessageService} from 'ng-zorro-antd';
+import {findFormItem} from '../../../../../core/utils/util-component';
+import {guid} from '../../../../../core/utils/util-fns';
 
 @Component({
   selector: 'app-user-detail',
@@ -14,7 +16,7 @@ import {NzMessageService} from 'ng-zorro-antd';
 })
 export class UserDetailComponent implements OnInit {
   form: FormGroup = new FormGroup({});
-  formId = UtilService.guid();
+  formId = guid();
   formConfig: FormConfigItem[][] = [
     [
       {
@@ -70,13 +72,13 @@ export class UserDetailComponent implements OnInit {
     if (this.op !== 'add' && this.id !== '0') {
       this.utilService.get(this.url, {id: this.id}).subscribe((res: HttpRes) => {
         if (res.code === 200) {
-          UtilService.findFormItem(this.formConfig, 'username').defaultValue = res.data.username;
-          UtilService.findFormItem(this.formConfig, 'mobile').defaultValue = res.data.mobile;
-          UtilService.findFormItem(this.formConfig, 'groupname').defaultValue = res.data.groupname;
-          UtilService.findFormItem(this.formConfig, 'orgname').defaultValue = res.data.orgname;
-          UtilService.findFormItem(this.formConfig, 'district').defaultValue = res.data.district;
-          UtilService.findFormItem(this.formConfig, 'dept').defaultValue = res.data.dept;
-          UtilService.findFormItem(this.formConfig, 'loginname').defaultValue = res.data.loginname;
+          findFormItem(this.formConfig, 'username').defaultValue = res.data.username;
+          findFormItem(this.formConfig, 'mobile').defaultValue = res.data.mobile;
+          findFormItem(this.formConfig, 'groupname').defaultValue = res.data.groupname;
+          findFormItem(this.formConfig, 'orgname').defaultValue = res.data.orgname;
+          findFormItem(this.formConfig, 'district').defaultValue = res.data.district;
+          findFormItem(this.formConfig, 'dept').defaultValue = res.data.dept;
+          findFormItem(this.formConfig, 'loginname').defaultValue = res.data.loginname;
           this.showForm = true;
         }
       });

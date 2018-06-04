@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {Column} from '../../../../shared/component/table/table.model';
-import {UtilService} from '../../../../core/util.service';
 import {CoreService} from '../../../../core/core.service';
 import {urls} from '../../../../core/urls.model';
 import {HttpRes} from '../../../../shared/shared.model';
 import {NzMessageService} from 'ng-zorro-antd';
+import {UtilService} from '../../../../core/utils/util.service';
 
 @Component({
   selector: 'app-user',

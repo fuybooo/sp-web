@@ -3,12 +3,14 @@ import {Router} from '@angular/router';
 import {Column} from '../../../shared/component/table/table.model';
 import {NzMessageService, NzModalService} from 'ng-zorro-antd';
 import {ImportFileComponent} from '../../../shared/component/project/import-file/import-file.component';
-import {UtilService} from '../../../core/util.service';
 import {CoreService} from '../../../core/core.service';
 import {urls} from '../../../core/urls.model';
 import {baseList} from '../../../app.model';
 import * as format from 'date-fns/format';
 import {HttpRes} from '../../../shared/shared.model';
+import {UtilService} from '../../../core/utils/util.service';
+import {getModalFooter} from '../../../core/utils/util-component';
+import {getValueList} from '../../../core/utils/util-fns';
 
 @Component({
   selector: 'app-account',
@@ -107,7 +109,7 @@ export class AccountComponent implements OnInit {
       this.message.error('请选择数据');
       return;
     }
-    this.utilService.put(this.url, {idlist: UtilService.getValueList(this.checkedList)}).subscribe((res: HttpRes) => {
+    this.utilService.put(this.url, {idlist: getValueList(this.checkedList)}).subscribe((res: HttpRes) => {
       if (res.code === 200) {
         this.message.success('创建成功');
         this.search({
@@ -136,7 +138,7 @@ export class AccountComponent implements OnInit {
     const modal = this.modalService.create({
       nzTitle: '导入企业信息',
       nzContent: ImportFileComponent,
-      nzFooter: UtilService.getModalFooter((_modal) => {
+      nzFooter: getModalFooter((_modal) => {
         if (_modal.file) {
           this.message.success('上传成功');
           modal.destroy();

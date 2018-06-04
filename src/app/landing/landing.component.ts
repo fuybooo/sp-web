@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NzModalService} from 'ng-zorro-antd';
-import {UtilService} from '../core/util.service';
+import {UtilService} from '../core/utils/util.service';
 import {LoginBoxComponent} from '../login/login-box/login-box.component';
 
 @Component({

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {UtilService} from '../../../core/util.service';
 import {FormConfigItem} from '../../../shared/component/form/form.model';
+import {guid} from '../../../core/utils/util-fns';
 
 @Component({
   selector: 'app-information',
@@ -11,7 +11,7 @@ import {FormConfigItem} from '../../../shared/component/form/form.model';
 export class InformationComponent implements OnInit {
   op = 'view';
   form: FormGroup = new FormGroup({});
-  formId = UtilService.guid();
+  formId = guid();
   formConfig: FormConfigItem[][] = [
     [
       {
@@ -107,7 +107,7 @@ export class InformationComponent implements OnInit {
   }
 
   ngOnInit() {
-    // UtilService.findFormItem(this.formConfig, 'major_activities').defaultValue = '987';
+    // findFormItem(this.formConfig, 'major_activities').defaultValue = '987';
   }
   handleOk() {
     if (this.op === 'edit') {

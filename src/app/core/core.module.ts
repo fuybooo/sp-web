@@ -6,11 +6,11 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {NgZorroAntdModule, NZ_I18N, NZ_MESSAGE_CONFIG, zh_CN} from 'ng-zorro-antd';
 import {HttpInterceptorService} from './http-interceptor.service';
 import {CoreService} from './core.service';
-import {UtilService} from './util.service';
 import {AuthGuardService} from '../shared/guard/auth-guard.service';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {LoginService as GovLoginService} from '../login/login.service';
 import {PageNotFoundComponent} from '../page-not-found/page-not-found.component';
+import {UtilService} from './utils/util.service';
 
 @NgModule({
   imports: [

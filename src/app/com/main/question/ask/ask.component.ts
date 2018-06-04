@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {FormConfigItem} from '../../../../shared/component/form/form.model';
-import {UtilService} from '../../../../core/util.service';
+import {guid} from '../../../../core/utils/util-fns';
 
 @Component({
   selector: 'app-ask',
@@ -10,7 +10,7 @@ import {UtilService} from '../../../../core/util.service';
 })
 export class AskComponent implements OnInit {
   form: FormGroup = new FormGroup({});
-  formId = UtilService.guid();
+  formId = guid();
   formConfig: FormConfigItem[][] = [
     [
       {

@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormGroup} from '@angular/forms';
 import {FormConfigItem} from '../../../../shared/component/form/form.model';
-import {UtilService} from '../../../../core/util.service';
+import {UtilService} from '../../../../core/utils/util.service';
 import {HttpClient} from '@angular/common/http';
-import {urls} from '../../../../core/urls.model';
 import {HttpRes} from '../../../../shared/shared.model';
+import {guid} from '../../../../core/utils/util-fns';
 
 const list1 = [
   {
@@ -69,7 +69,7 @@ declare let OSS: any;
 })
 export class QuestionFormComponent implements OnInit {
   form: FormGroup = new FormGroup({});
-  formId = UtilService.guid();
+  formId = guid();
   formConfig: FormConfigItem[][] = [
     [
       {
@@ -134,7 +134,7 @@ export class QuestionFormComponent implements OnInit {
 
   ngOnInit() {
     // setTimeout(() => {
-    //   console.log(UtilService.findFormItem(this.formConfig, 'question_type_id').list = list1);
+    //   console.log(findFormItem(this.formConfig, 'question_type_id').list = list1);
     // }, 1000);
   }
   handleOk() {

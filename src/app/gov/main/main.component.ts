@@ -2,8 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {menuList} from './main.model';
 import {NzModalService} from 'ng-zorro-antd';
-import {UtilService} from '../../core/util.service';
 import {CoreService} from '../../core/core.service';
+import {getLoginInfo, matchAdditionalRoute} from '../../core/utils/util-project';
+import {UtilService} from '../../core/utils/util.service';
 declare let $: any;
 @Component({
   selector: 'app-main',
@@ -25,7 +26,7 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loginInfo = UtilService.getLoginInfo();
+    this.loginInfo = getLoginInfo();
     // 初始化字典
     // this.utilService.getDictionaries();
     this.initMenuList();
@@ -57,7 +58,7 @@ export class MainComponent implements OnInit {
     this.menuList.forEach(item => {
       if (item.children) {
         item.children.forEach(child => {
-          const matchedRoute = UtilService.matchAdditionalRoute(child, url);
+          const matchedRoute = matchAdditionalRoute(child, url);
           // 根据URL确定当前应该激活那个菜单 (1.路由和参数都匹配；2.额外路由匹配)
           if (url === child.route || matchedRoute) {
             child.isActive = true;
@@ -72,7 +73,7 @@ export class MainComponent implements OnInit {
             child.isActive = false;
           }
         });
-      } else if (url === item.route || UtilService.matchAdditionalRoute(item, url)) {
+      } else if (url === item.route || matchAdditionalRoute(item, url)) {
         item.isActive = true;
         this.currentItem = item;
         this.breadcrumbList = [this.currentItem.label];

@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {FormConfigItem} from '../../../../shared/component/form/form.model';
-import {UtilService} from '../../../../core/util.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AJAXTYPE, HttpRes} from '../../../../shared/shared.model';
 import {NzMessageService} from 'ng-zorro-antd';
 import {urls} from '../../../../core/urls.model';
+import {guid} from '../../../../core/utils/util-fns';
+import {UtilService} from '../../../../core/utils/util.service';
+import {findFormItem} from '../../../../core/utils/util-component';
 
 @Component({
   selector: 'app-org-detail',
@@ -14,7 +16,7 @@ import {urls} from '../../../../core/urls.model';
 })
 export class OrgDetailComponent implements OnInit {
   form: FormGroup = new FormGroup({});
-  formId = UtilService.guid();
+  formId = guid();
   formConfig: FormConfigItem[][] = [
     [
       {
@@ -76,12 +78,12 @@ export class OrgDetailComponent implements OnInit {
       this.utilService.get(this.url, {id: this.id}).subscribe((res: HttpRes) => {
         if (res.code === 200) {
           // this.data = res.data;
-          UtilService.findFormItem(this.formConfig, 'orgname').defaultValue = res.data.orgname;
-          UtilService.findFormItem(this.formConfig, 'flowtype').defaultValue = res.data.flowtype;
-          UtilService.findFormItem(this.formConfig, 'type').defaultValue = res.data.type;
-          UtilService.findFormItem(this.formConfig, 'groupname').defaultValue = res.data.groupname;
-          UtilService.findFormItem(this.formConfig, 'district').defaultValue = res.data.district;
-          UtilService.findFormItem(this.formConfig, 'county').defaultValue = res.data.county;
+          findFormItem(this.formConfig, 'orgname').defaultValue = res.data.orgname;
+          findFormItem(this.formConfig, 'flowtype').defaultValue = res.data.flowtype;
+          findFormItem(this.formConfig, 'type').defaultValue = res.data.type;
+          findFormItem(this.formConfig, 'groupname').defaultValue = res.data.groupname;
+          findFormItem(this.formConfig, 'district').defaultValue = res.data.district;
+          findFormItem(this.formConfig, 'county').defaultValue = res.data.county;
           this.showForm = true;
         }
       });

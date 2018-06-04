@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {Column} from '../../../../shared/component/table/table.model';
-import {UtilService} from '../../../../core/util.service';
-import {HttpRes} from '../../../../shared/shared.model';
+import {UtilService} from '../../../../core/utils/util.service';
 import {CoreService} from '../../../../core/core.service';
 import {dateFormatter, statusList} from '../../../../app.model';
 import * as format from 'date-fns/format';

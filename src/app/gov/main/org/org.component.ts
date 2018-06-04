@@ -3,7 +3,7 @@ import {Column} from '../../../shared/component/table/table.model';
 import {Router} from '@angular/router';
 import {urls} from '../../../core/urls.model';
 import {CoreService} from '../../../core/core.service';
-import {UtilService} from '../../../core/util.service';
+import {clearObj} from '../../../core/utils/util-project';
 
 @Component({
   selector: 'app-org',
@@ -60,7 +60,7 @@ export class OrgComponent implements OnInit {
   ngOnInit() {
   }
   reset() {
-    UtilService.clearObj(this.params);
+    clearObj(this.params);
     this.search();
   }
   search(notFetchConfig?) {

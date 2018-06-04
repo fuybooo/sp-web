@@ -1,9 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Column} from '../../../../shared/component/table/table.model';
-import {UtilService} from '../../../../core/util.service';
 import {reportColumns} from '../../main.model';
-import {urls} from '../../../../core/urls.model';
 import {CoreService} from '../../../../core/core.service';
+import {getColumnList} from '../../../../core/utils/util-project';
 
 @Component({
   selector: 'app-report-table',
@@ -22,7 +21,7 @@ export class ReportTableComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.columns = UtilService.getColumnList(reportColumns, this.colKeys);
+    this.columns = getColumnList(reportColumns, this.colKeys);
     this.dataSet = Array(20).fill(0).map((item, i) => ({
       f1: '山东省临沂市',
       f2: '50',

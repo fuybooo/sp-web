@@ -1,8 +1,9 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {UtilService} from '../../../core/util.service';
 import {CoreService} from '../../../core/core.service';
 import {FormConfigItem} from './form.model';
+import {getSpecialCharacterValidator} from '../../../core/utils/util-validate';
+import {getPropValue} from '../../../core/utils/util-fns';
 
 @Component({
   selector: 'app-form',
@@ -49,7 +50,7 @@ export class FormComponent implements OnInit, OnDestroy {
             case 'minlength':
               return Validators.minLength(validator.value);
             case 'mistake':
-              return UtilService.getSpecialCharacterValidator(validator.value, validator.notAllow);
+              return getSpecialCharacterValidator(validator.value, validator.notAllow);
           }
         }) : [])]
       ];
@@ -97,7 +98,7 @@ export class FormComponent implements OnInit, OnDestroy {
       defaultValueField = 'id';
       defaultLabelField = 'name';
     }
-    return UtilService.getPropValue(col.list, this.$(col.field), col.nzValueField || defaultValueField, col.nzLabelField || defaultLabelField);
+    return getPropValue(col.list, this.$(col.field), col.nzValueField || defaultValueField, col.nzLabelField || defaultLabelField);
   }
 
 }

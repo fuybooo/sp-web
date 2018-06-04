@@ -1,6 +1,6 @@
-import {EventEmitter, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Column} from './table.model';
-import {UtilService} from '../../../core/util.service';
+import {UtilService} from '../../../core/utils/util.service';
 declare let $: any;
 
 @Injectable()

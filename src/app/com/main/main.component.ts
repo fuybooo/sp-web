@@ -2,8 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {menuList} from './main.model';
 import {NzModalService} from 'ng-zorro-antd';
-import {UtilService} from '../../core/util.service';
+import {UtilService} from '../../core/utils/util.service';
 import {CoreService} from '../../core/core.service';
+import {getLoginInfo, matchAdditionalRoute} from '../../core/utils/util-project';
 declare let $: any;
 @Component({
   selector: 'app-main',
@@ -25,7 +26,7 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loginInfo = UtilService.getLoginInfo();
+    this.loginInfo = getLoginInfo();
     this.initMenuList();
     // 路由改变时,改变导航栏状态
     this.coreService.routeChangeEvent.subscribe(() => {
@@ -37,7 +38,7 @@ export class MainComponent implements OnInit {
     this.menuList = $.extend(true, [], menuList);
     const url = this.router.routerState.snapshot.url;
     this.menuList.forEach(item => {
-      const matchedRoute = UtilService.matchAdditionalRoute(item, url);
+      const matchedRoute = matchAdditionalRoute(item, url);
       if (url === item.route || matchedRoute) {
         item.isActive = true;
         this.currentItem = item;

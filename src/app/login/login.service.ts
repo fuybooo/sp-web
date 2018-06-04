@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {CoreService} from '../core/core.service';
-import {UtilService} from '../core/util.service';
+import {getUrl} from '../core/utils/util-project';
 
 @Injectable()
 export class LoginService {
@@ -10,6 +10,6 @@ export class LoginService {
   }
 
   login(params) {
-    return this.http.post(UtilService.getUrl('login'), params);
+    return this.http.post(getUrl('login'), params);
   }
 }

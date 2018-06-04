@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {UtilService} from '../../../../core/util.service';
+import {UtilService} from '../../../../core/utils/util.service';
 import {NzMessageService} from 'ng-zorro-antd';
 import {urls} from '../../../../core/urls.model';
 import {HttpRes} from '../../../../shared/shared.model';
+import {getLoginInfo} from '../../../../core/utils/util-project';
 
 @Component({
   selector: 'app-question-detail',
@@ -26,7 +27,7 @@ export class QuestionDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loginInfo = UtilService.getLoginInfo();
+    this.loginInfo = getLoginInfo();
     this.init();
   }
   init() {
