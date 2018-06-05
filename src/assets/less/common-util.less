@@ -30,16 +30,24 @@
   }
 }
 .common-panel {
+  border-radius: @border-radius;
   border: 1px solid @color-border;
   padding: 10px 15px;
+  box-shadow: 0 3px 3px 0 @color-border;
+  //&:hover {
+  //  box-shadow: 0 3px 3px 0 @primary-color;
+  //}
 }
 
 .border-left {
   border-left: @border-left;
 }
-.ant-input-number {
-  width: 100%;
-}
-.ant-input-number-handler-wrap {
-  display: none;
+
+.shape-diamond {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  background-color: @gray-1;
 }

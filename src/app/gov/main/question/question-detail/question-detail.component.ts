@@ -4,7 +4,8 @@ import {UtilService} from '../../../../core/utils/util.service';
 import {NzMessageService} from 'ng-zorro-antd';
 import {urls} from '../../../../core/urls.model';
 import {HttpRes} from '../../../../shared/shared.model';
-import {getLoginInfo} from '../../../../core/utils/util-project';
+import {getLoginInfo, getParentList} from '../../../../core/utils/util-project';
+import {trimList} from '../../../../core/utils/util-fns';
 
 @Component({
   selector: 'app-question-detail',
@@ -16,9 +17,32 @@ export class QuestionDetailComponent implements OnInit {
   op;
   id;
   questionResult;
-  handleType = 1;
+  handleType = 2;
   description;
   loginInfo;
+  role = '';
+  status = 1;
+  allDeptList = [
+    {
+      id: '1',
+      name: '部门1'
+    },
+    {
+      id: '2',
+      name: '部门2'
+    },
+    {
+      id: '3',
+      name: '部门3'
+    },
+    {
+      id: '4',
+      name: '部门4'
+    },
+  ];
+
+  deptList = [];
+  headDept = '';
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -40,8 +64,17 @@ export class QuestionDetailComponent implements OnInit {
   submit() {
 
   }
+  trimList() {
+    return trimList(this.deptList);
+  }
+  getParentList() {
+    return getParentList(this.allDeptList, trimList(this.deptList));
+  }
   changeTestRole(event) {
     this.loginInfo.role = event;
+  }
+  changeTestQuestionStatus(event) {
+
   }
 
 }

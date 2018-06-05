@@ -17,8 +17,8 @@ export function getUrl(mainUrl, paramsId?) {
   if (environment.apiPathChangeable && localStorage && localStorage_apiPath) {
     environment.apiPath = path = getSafeStr(localStorage_apiPath);
   }
-  const url = mainUrl + (paramsId === undefined ? '' : `/${paramsId}`);
-  return environment.isStatic ?
+  const url = mainUrl.url + (paramsId === undefined ? '' : `/${paramsId}`);
+  return mainUrl.isStatic ?
     (environment.deployPath + '/assets/mock' + url + '.json') : (path + url + '/');
 }
 
@@ -84,7 +84,22 @@ export function getCommonParams(params, method = 'get') {
  * @returns {any}
  */
 export function getColumnList(columnList, keys) {
-  return keys.map(key => columnList.find(column => column.field === key || column.key === key));
+  // return keys.map(key => columnList.find(column => column.field === key || column.key === key));
+  return getParentList(columnList, keys, 'field');
+}
+
+/**
+ * 根据字数组获取父数组
+ * allList 全部的父数组
+ * subList 子数组
+ * subKey 子数组的key
+ * 例如 allList = [{id: 1, name: 'n1'}, {id: 2, name: 'n2'}, {id: 3, name: 'n3'}, {id: 4, name: 'n4'}]
+ * subList = [1, 2];
+ * subKey = 'id'
+ * 返回值为 [{id: 1, name: 'n1'}, {id: 2, name: 'n2'}]
+ */
+export function getParentList(allList, subList, subKey = 'id', subSubKey = 'key') {
+  return subList.map(key => allList.find(item => item[subKey] === key || item[subSubKey] === key));
 }
 
 /**

@@ -39,6 +39,12 @@
     content: '';
   }
 }
+.ant-table-small > .ant-table-content > .ant-table-body > table {
+  padding: 0;
+}
+.ant-table-small > .ant-table-content > .ant-table-body > table > .ant-table-thead > tr > th {
+  background-color: @color-table-header;
+}
 .x-small-table {
   table {
     font-size: 12px;
@@ -78,4 +84,10 @@
   &.bg-red {
     background-color: #ff7875!important;// red-4
   }
+}
+.ant-input-number {
+  width: 100%;
+}
+.ant-input-number-handler-wrap {
+  display: none;
 }

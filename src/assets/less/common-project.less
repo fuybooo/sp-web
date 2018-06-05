@@ -24,7 +24,8 @@
     background-color: @color-main;
   }
   .menu-box {
-    max-height: 760px;
+    height: 760px;
+    min-height: 760px;
     border-right: 1px solid @color-main;
     width: @menu-width;
     .content-base;
@@ -110,6 +111,6 @@
     border: 1px solid @color-border;
     border-radius: @border-radius;
     background-color: @gray-1;
-    box-shadow: 0 3px 4px 0 rgba(0,0,0,.06);
+    box-shadow: 0 3px 3px 0 @color-border;
   }
 }

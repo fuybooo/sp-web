@@ -84,6 +84,9 @@ export function guid() {
     return v.toString(16);
   });
 }
+export function trimList(list) {
+  return [...list.filter(item => item !== '')];
+}
 
 /**
  * 深度trim

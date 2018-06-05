@@ -55,19 +55,17 @@
       </div>
     </div>
     <div>
-      <nz-select nzPlaceHolder="切换角色" class="w" （ngModelChange)="changeTestRole($event)">
+      <nz-select nzPlaceHolder="切换角色" class="w240" [(ngModel)]="role" (ngModelChange)="changeTestRole($event)">
         <!--<nz-option [nzValue]="1" [nzLabel]="'企业人员1'"></nz-option>-->
         <nz-option [nzValue]="2" [nzLabel]="'市级专班2'"></nz-option>
         <nz-option [nzValue]="3" [nzLabel]="'区级专班3'"></nz-option>
         <nz-option [nzValue]="4" [nzLabel]="'镇级专班4'"></nz-option>
         <nz-option [nzValue]="5" [nzLabel]="'部门5'"></nz-option>
       </nz-select>
-      <nz-select nzPlaceHolder="切换问题状态" class="w" （ngModelChange)="changeTestQuestionStatus($event)">
-        <nz-option [nzValue]="1" [nzLabel]="'企业人员1'"></nz-option>
-        <nz-option [nzValue]="2" [nzLabel]="'市级专班2'"></nz-option>
-        <nz-option [nzValue]="3" [nzLabel]="'区级专班3'"></nz-option>
-        <nz-option [nzValue]="4" [nzLabel]="'镇级专班4'"></nz-option>
-        <nz-option [nzValue]="5" [nzLabel]="'部门5'"></nz-option>
+      <nz-select nzPlaceHolder="切换问题状态" class="w240" [(ngModel)]="status" (ngModelChange)="changeTestQuestionStatus($event)">
+        <nz-option [nzValue]="1" [nzLabel]="'已提交'"></nz-option>
+        <nz-option [nzValue]="2" [nzLabel]="'办理中'"></nz-option>
+        <nz-option [nzValue]="3" [nzLabel]="'已办结'"></nz-option>
       </nz-select>
     </div>
     <div class="mt20">
@@ -91,22 +89,43 @@
       <ng-container *ngIf="loginInfo?.role === 4">
         <nz-radio-group [(ngModel)]="handleType">
           <label nz-radio [nzValue]="2">打回</label>
-          <label nz-radio [nzValue]="4">上级处理</label>
+          <label nz-radio [nzValue]="4">接受问题</label>
         </nz-radio-group>
       </ng-container>
       <!--部门工作人员-->
       <ng-container *ngIf="loginInfo?.role === 5">
-        <nz-radio-group [(ngModel)]="handleType">
-          <label nz-radio [nzValue]="1">接收问题</label>
-          <label nz-radio [nzValue]="2">打回</label>
-          <label nz-radio [nzValue]="3">其他区处理</label>
-          <label nz-radio [nzValue]="4">上级处理</label>
-        </nz-radio-group>
+        <ng-container *ngIf="status === 1">
+          <nz-radio-group [(ngModel)]="handleType">
+            <label nz-radio [nzValue]="5">接收问题</label>
+            <label nz-radio [nzValue]="2">打回</label>
+          </nz-radio-group>
+        </ng-container>
+        <ng-container *ngIf="status === 2">
+          <nz-radio-group [(ngModel)]="handleType">
+            <label nz-radio [nzValue]="6">已完成</label>
+            <label nz-radio [nzValue]="2">打回</label>
+          </nz-radio-group>
+        </ng-container>
+
       </ng-container>
       <!--<nz-radio-group [(ngModel)]="handleType">-->
         <!--<label nz-radio [nzValue]="1">本级处理</label>-->
         <!--<label nz-radio [nzValue]="2">上级处理</label><span class="ml20 text-disable" *ngIf="handleType === 2">上级姓名：王建国</span>-->
       <!--</nz-radio-group>-->
+    </div>
+    <div class="mt20" *ngIf="handleType === 1">
+      选择部门：
+      <nz-select nzPlaceHolder="切换角色" class="w240" [(ngModel)]="deptList" [nzMode]="'multiple'">
+        <!--<nz-option [nzValue]="1" [nzLabel]="'企业人员1'"></nz-option>-->
+        <nz-option *ngFor="let option of allDeptList" [nzValue]="option.id" [nzLabel]="option.name"></nz-option>
+      </nz-select>
+    </div>
+    <div class="mt20" *ngIf="trimList().length > 1 && handleType === 1">
+      选择牵头部门：
+      <nz-select nzPlaceHolder="切换角色" class="w240" [(ngModel)]="headDept">
+        <!--<nz-option [nzValue]="1" [nzLabel]="'企业人员1'"></nz-option>-->
+        <nz-option *ngFor="let option of getParentList()" [nzValue]="option.id" [nzLabel]="option.name"></nz-option>
+      </nz-select>
     </div>
     <div class="mt20" nz-row>
       <div nz-col [nzSpan]="1">说明：</div>

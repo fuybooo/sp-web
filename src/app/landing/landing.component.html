@@ -1,60 +1,30 @@
 <div class="landing-wrap">
-  <div class="login-part"><a (click)="popLogin()">请登录</a></div>
-  <div class="header">
-    <div nz-row>
-      <div nz-col [nzSpan]="6" class="logo"><span class="ml40 f2m">临沂市政策服务平台</span></div>
-      <div nz-col [nzSpan]="18" class="nav-wrap">
-        <ul class="nav">
-          <li class="active">
-            首页
-          </li>
-          <li>
-            最新政策
-          </li>
-          <li>
-            政策解读
-          </li>
-          <li>
-            导航服务
-          </li>
-          <li>
-            政策包目录
-          </li>
-          <li>
-            行政许可事项目录
-          </li>
-          <li>
-            公共服务事项目录
-          </li>
-        </ul>
+  <div class="landing-side">
+    <span><span class="shape-diamond mr8"></span>首页</span>
+    <span><span class="shape-diamond mr8"></span>工作促进</span>
+    <span><span class="shape-diamond mr8"></span>政策服务</span>
+    <span><span class="shape-diamond mr8"></span>服务企业</span>
+  </div>
+  <div class="landing-bg">
+    <div class="landing-header" nz-row>
+      <div nz-col [nzSpan]="18" class="title">临沂市政企直通信息化平台</div>
+      <div nz-col [nzSpan]="6" class="login-part">您好，<a (click)="popLogin()">请登录</a></div>
+    </div>
+    <div class="landing-notify"></div>
+    <div class="landing-title">
+      <div class="title-1">
+        <span>创新</span>
+        <span>强企</span>
+        <span>解难</span>
+      </div>
+      <div class="title-2">
+        <span>双创双服活动</span>
+      </div>
+      <div class="title-3">
+        <span>创新创业平台培育</span>
+        <span>帮扶重点企业重点项目</span>
       </div>
     </div>
+    <div class="landing-ask">我要提问</div>
   </div>
-  <div class="cb body">
-    <!--<div class="banner">-->
-      <!--<nz-carousel nzAutoPlay>-->
-        <!--<div nz-carousel-content *ngFor="let b of bannerList">-->
-          <!--<img [src]="b.src" [alt]="b.alt">-->
-        <!--</div>-->
-      <!--</nz-carousel>-->
-    <!--</div>-->
-    <div class="list">
-      <div class="f2m">最新政策</div>
-      <ul class="mt20" [hidden]="!showList">
-          <li *ngFor="let item of data">
-            <div nz-row>
-              <div nz-col [nzSpan]="15"><span>{{item.title}}</span></div>
-              <div nz-col [nzSpan]="6">{{item.from}}</div>
-              <div nz-col [nzSpan]="3" class="tar">{{item.time}}</div>
-            </div>
-          </li>
-      </ul>
-      <ng-container *ngIf="!showList">
-        <div class="item-content">
-
-        </div>
-      </ng-container>
-    </div>
-  </div>
-  <div class="footer"></div>
 </div>
