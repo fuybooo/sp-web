@@ -14,8 +14,11 @@
       <div class="summary-container">
         <div class="summary-box left">
           <div class="title">已提交</div>
-          <div class="num">63</div>
-          <div class="unit">件</div>
+          <span class="num">
+            {{data?.total}}
+            <span class="unit">件</span>
+          </span>
+
         </div>
       </div>
     </div>
@@ -23,8 +26,10 @@
       <div class="summary-container">
         <div class="summary-box right">
           <div class="title">已回复</div>
-          <div class="num">14</div>
-          <div class="unit">件</div>
+          <span class="num">
+            {{data?.replies}}
+            <span class="unit">件</span>
+          </span>
         </div>
       </div>
     </div>

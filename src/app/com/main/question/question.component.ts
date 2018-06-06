@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {Column} from '../../../shared/component/table/table.model';
 import {Router} from '@angular/router';
+import {UtilService} from '../../../core/utils/util.service';
+import {HttpRes} from '../../../shared/shared.model';
+import {CoreService} from '../../../core/core.service';
+import * as format from 'date-fns/format';
+import {urls} from '../../../core/urls.model';
+import {dateFormatter} from '../../../app.model';
 
 @Component({
   selector: 'app-question',
@@ -10,21 +16,28 @@ import {Router} from '@angular/router';
 export class QuestionComponent implements OnInit {
   tableId = 'question-list';
   dateRange = [];
+  url = urls.issuelists;
+  params: any = {
+    state: '',
+    typeid: '',
+    content: '',
+  };
   columns: Column[] = [
     {
-      field: 'f1',
+      field: 'type',
       title: '类型'
     },
     {
-      field: 'f2',
+      field: 'question',
       title: '问题'
     },
     {
-      field: 'f3',
-      title: '提交时间'
+      field: 'submitdate',
+      title: '提交时间',
+      formatter: dateFormatter
     },
     {
-      field: 'f4',
+      field: 'status',
       title: '状态'
     },
     {
@@ -37,21 +50,30 @@ export class QuestionComponent implements OnInit {
       link: '/com/main/question/detail'
     }
   ];
-  dataSet = [];
+  statusList = [
+    {
+      value: '1',
+      label: '已回复'
+    }
+  ];
   constructor(
-    private router: Router
+    private router: Router,
+    private utilService: UtilService,
+    private coreService: CoreService,
   ) { }
 
   ngOnInit() {
-    this.dataSet = Array(20).fill(0).map((item, i) => ({
-      f1: '资金保障',
-      f2: '生产规模扩大， 急需一笔5万资金',
-      f3: '2018-05-15 11:05:05',
-      f4: i % 3 ? '已评价' : '办理中',
-      f5: '无',
-    }));
   }
-  onChange(event) {
+  search() {
+    this.coreService.globalTableEvent.emit({
+      tableId: this.tableId,
+      params: this.getParams()
+    });
+  }
+  getParams() {
+    this.params.startdate = this.dateRange[0] ? format(new Date(this.dateRange[0]), 'YYYY-MM-DD') : '';
+    this.params.enddate = this.dateRange[1] ? format(new Date(this.dateRange[1]), 'YYYY-MM-DD') : '';
+    return this.params;
   }
   eventChange(event) {
     if (event.tableId === this.tableId) {

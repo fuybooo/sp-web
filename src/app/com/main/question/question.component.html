@@ -1,53 +1,37 @@
 <div class="common-page">
   <div nz-row [nzGutter]="10">
-    <div nz-col [nzSpan]="3">
-      <nz-dropdown class="w">
-        <button class="w" nz-button nz-dropdown><span>状态</span> <i class="anticon anticon-down"></i></button>
-        <ul nz-menu>
-          <li nz-menu-item>
-            <a>状态1</a>
-          </li>
-          <li nz-menu-item>
-            <a>状态2</a>
-          </li>
-          <li nz-menu-item>
-            <a>状态3</a>
-          </li>
-        </ul>
-      </nz-dropdown>
+    <div nz-col [nzSpan]="5" class="flex-box">
+      <span class="fb100">状态：</span>
+      <nz-select nzPlaceHolder="请选择" class="w" [(ngModel)]="params.state">
+        <ng-container *ngFor="let option of statusList">
+          <nz-option [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+        </ng-container>
+      </nz-select>
     </div>
-    <div nz-col [nzSpan]="3">
-      <nz-dropdown class="w">
-        <button class="w" nz-button nz-dropdown><span>类型</span> <i class="anticon anticon-down"></i></button>
-        <ul nz-menu>
-          <li nz-menu-item>
-            <a>类型1</a>
-          </li>
-          <li nz-menu-item>
-            <a>类型2</a>
-          </li>
-          <li nz-menu-item>
-            <a>类型3</a>
-          </li>
-        </ul>
-      </nz-dropdown>
-    </div>
-    <div nz-col [nzSpan]="6">
-      <input class="w" type="text" nz-input placeholder="输入内容进行查询">
-    </div>
-    <div nz-col [nzSpan]="6">
-      <nz-range-picker class="w" [(ngModel)]="dateRange" (ngModelChange)="onChange($event)"></nz-range-picker>
-    </div>
-    <div nz-col [nzSpan]="2">
-      <button class="w" nz-button [nzType]="'primary'">查询</button>
+    <div nz-col [nzSpan]="5" class="flex-box">
+      <span class="fb100">问题类型：</span>
+      <nz-select nzPlaceHolder="请选择" class="w" [(ngModel)]="params.typeid">
+        <ng-container *ngFor="let option of statusList">
+          <nz-option [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+        </ng-container>
+      </nz-select>
     </div>
     <div nz-col [nzSpan]="4">
+      <input class="w" type="text" nz-input placeholder="输入内容进行查询" [(ngModel)]="params.content">
+    </div>
+    <div nz-col [nzSpan]="6">
+      <nz-range-picker class="w" [(ngModel)]="dateRange"></nz-range-picker>
+    </div>
+    <div nz-col [nzSpan]="2">
+      <button class="w" nz-button [nzType]="'primary'" (click)="search()">查询</button>
+    </div>
+    <div nz-col [nzSpan]="2">
       <button class="w" nz-button [nzType]="'primary'" (click)="toAsk()">我要提问</button>
     </div>
   </div>
   <div class="mt20">
     <app-table
-      [dataSet]="dataSet"
+      [url]="url"
       [columns]="columns"
       [tableId]="tableId"
       [isSortCol]="true"

@@ -34,4 +34,16 @@ export const urls: {[key: string]: UrlConfig} = {
     url: '/users', // 用户
     isStatic: true,
   },
+  companyHome: {
+    url: '/homes',
+    isStatic: true
+  },
+  issuelists: {
+    url: '/issuelists',
+    isStatic: true
+  },
+  phone: {
+    url: '/phone',
+    isStatic: true
+  },
 };

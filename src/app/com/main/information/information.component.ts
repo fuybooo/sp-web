@@ -16,7 +16,7 @@ export class InformationComponent implements OnInit {
     [
       {
         label: '企业名称',
-        field: 'company_name'
+        field: 'companyname'
       },
       {
         label: '行业分类',
@@ -27,63 +27,63 @@ export class InformationComponent implements OnInit {
     ], [
       {
         label: '行业代码',
-        field: 'industry_code'
+        field: 'industrycode'
       },
       {
         label: '社会信用编号',
-        field: 'social_credit_number'
+        field: 'socialcreditnumber'
       },
     ], [
       {
         label: '组织机构代码',
-        field: 'organization_code'
+        field: 'organizationcode'
       },
       {
         label: '工商登记注册号',
-        field: 'business_regist_num'
+        field: 'businessregistnum'
       },
     ], [
       {
         label: '税务登记注册号',
-        field: 'tax_regist_num'
+        field: 'taxregistnum'
       },
       {
         label: '运营状态',
-        field: 'operation_state',
+        field: 'operationstate',
         type: 'select',
         list: []
       },
     ], [
       {
         label: '企业控股情况',
-        field: 'enterprise_holding',
+        field: 'enterpriseholding',
         type: 'select',
         list: []
       },
       {
         label: '注册资金',
-        field: 'registered_capital'
+        field: 'registeredcapital'
       },
     ], [
       {
         label: '成立时间',
-        field: 'founded_time',
+        field: 'foundedtime',
         type: 'date'
       },
       {
         label: '法人代表',
-        field: 'law_person'
+        field: 'lawperson'
       },
     ], [
       {
         label: '登记注册类型',
-        field: 'business_type',
+        field: 'businesstype',
         type: 'select',
         list: []
       },
       {
         label: '单位规模',
-        field: 'unit_size',
+        field: 'unitsize',
         type: 'select',
         list: []
       },
@@ -96,7 +96,7 @@ export class InformationComponent implements OnInit {
       },
       {
         label: '主要业务活动',
-        field: 'major_activities',
+        field: 'majoractivities',
         type: 'select',
         list: []
       },
@@ -107,7 +107,7 @@ export class InformationComponent implements OnInit {
   }
 
   ngOnInit() {
-    // findFormItem(this.formConfig, 'major_activities').defaultValue = '987';
+    // findFormItem(this.formConfig, 'majoractivities').defaultValue = '987';
   }
   handleOk() {
     if (this.op === 'edit') {

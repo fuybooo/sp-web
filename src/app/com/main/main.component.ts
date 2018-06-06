@@ -5,6 +5,10 @@ import {NzModalService} from 'ng-zorro-antd';
 import {UtilService} from '../../core/utils/util.service';
 import {CoreService} from '../../core/core.service';
 import {getLoginInfo, matchAdditionalRoute} from '../../core/utils/util-project';
+import {urls} from '../../core/urls.model';
+import {HttpRes} from '../../shared/shared.model';
+import {getModalFooter} from '../../core/utils/util-component';
+import {BindPhoneComponent} from './bind-phone/bind-phone.component';
 declare let $: any;
 @Component({
   selector: 'app-main',
@@ -32,6 +36,20 @@ export class MainComponent implements OnInit {
     this.coreService.routeChangeEvent.subscribe(() => {
       this.modalService.closeAll();
       this.initMenuList();
+    });
+    this.requestForPhone();
+  }
+  requestForPhone() {
+    this.utilService.get(urls.phone).subscribe((res: HttpRes) => {
+      if (res.code === 200) {
+        if (res.data.result === 0) {
+          const modal = this.modalService.create({
+            nzTitle: '请绑定手机号',
+            nzContent: BindPhoneComponent,
+            nzFooter: getModalFooter((_modal) => {}, () => modal.destroy())
+          });
+        }
+      }
     });
   }
   initMenuList() {

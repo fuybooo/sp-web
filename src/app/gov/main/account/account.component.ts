@@ -89,14 +89,13 @@ export class AccountComponent implements OnInit {
   search(notFetchConfig?) {
     this.coreService.globalTableEvent.emit({
       tableId: this.tableId,
-      dataSet: this.dataSet,
       params: this.getParams(),
       notFetchConfig
     });
   }
   getParams() {
     this.params.startdate = this.dateRange[0] ? format(new Date(this.dateRange[0]), 'YYYY-MM-DD') : '';
-    this.params.enddate = this.dateRange[1] ? format(new Date(this.dateRange[0]), 'YYYY-MM-DD') : '';
+    this.params.enddate = this.dateRange[1] ? format(new Date(this.dateRange[1]), 'YYYY-MM-DD') : '';
     return this.params;
   }
   refreshStatusChange(event) {

@@ -1,0 +1,30 @@
+{
+  "code": 200,
+  "msg": "",
+  "data": {
+    "results": [
+      {
+        "id": "1",
+        "type": "2",
+        "submitdate": 1527865058155,
+        "question": "张三",
+        "status": "1"
+      },
+      {
+        "id": "1",
+        "type": "1",
+        "submitdate": 1527865058155,
+        "question": "张三",
+        "status": "1"
+      },
+      {
+        "id": "1",
+        "type": "3",
+        "submitdate": 1527865058155,
+        "question": "张三",
+        "status": "1"
+      }
+    ],
+    "total": 3
+  }
+}

@@ -14,6 +14,7 @@ import { AskComponent } from './question/ask/ask.component';
 import { DetailComponent } from './question/detail/detail.component';
 import { DetailComponent as EconomicDetailComponent } from './economic/detail/detail.component';
 import { QuestionDetailContentComponent } from './question/detail/question-detail-content/question-detail-content.component';
+import { BindPhoneComponent } from './bind-phone/bind-phone.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { QuestionDetailContentComponent } from './question/detail/question-detai
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}
   ],
-  declarations: [MainComponent, HomeComponent, QuestionComponent, InformationComponent, EconomicComponent, QuestionFormComponent, AskComponent, DetailComponent, EconomicDetailComponent, QuestionDetailContentComponent]
+  entryComponents: [BindPhoneComponent],
+  declarations: [MainComponent, HomeComponent, QuestionComponent, InformationComponent, EconomicComponent, QuestionFormComponent, AskComponent, DetailComponent, EconomicDetailComponent, QuestionDetailContentComponent, BindPhoneComponent]
 })
 export class MainModule { }
