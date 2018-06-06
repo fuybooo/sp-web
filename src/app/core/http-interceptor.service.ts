@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {environment} from '../../environments/environment';
 import 'rxjs/add/operator/do';
 
 /**
@@ -25,8 +24,7 @@ export class HttpInterceptorService implements HttpInterceptor {
       );
     }
     console.log('请求路径和参数', req.url, JSON.stringify(req.body));
-    // 在静态环境中,需要将post请求转化为get请求
-    if (environment.isStatic) {
+    if (req.url.includes('.json')) {
       if (req.method === 'POST') {
         req = req.clone({method: 'GET'});
       }
