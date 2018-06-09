@@ -2,10 +2,12 @@ import {Injectable} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
-import {AJAXTYPE, HttpRes} from '../../shared/shared.model';
+import {AJAXTYPE, dictionaryInfoKey, HttpRes} from '../../shared/shared.model';
 import {isEmptyObject} from './util-fns';
 import {getCommonParams, getUrl} from './util-project';
 import {debounceTime} from 'rxjs/operator/debounceTime';
+import {urls} from '../urls.model';
+import {Dictionaries} from '../common.model';
 
 /**'
  * 工具接口
@@ -14,9 +16,29 @@ import {debounceTime} from 'rxjs/operator/debounceTime';
  */
 @Injectable()
 export class UtilService {
+  static dictionaries: Dictionaries = {};
   constructor(private http: HttpClient) {
   }
 
+  /**
+   * 使用字典时，不能直接调用，因为UtilService.dictionaries不一定存在
+   * 所以取值时应该使用如下方式：
+   * UtilService.getDic(() => this.xxList = UtilService.dictionaries.xx);
+   * @param fn
+   */
+  static getDic(fn) {
+    if (isEmptyObject(UtilService.dictionaries)) {
+      const timer = setInterval(() => {
+        if (localStorage.getItem(dictionaryInfoKey)) {
+          UtilService.dictionaries = JSON.parse(localStorage.getItem(dictionaryInfoKey));
+          fn();
+          clearInterval(timer);
+        }
+      }, 10);
+    } else {
+      fn();
+    }
+  }
   /**
    * 通过传入url，参数，类型调用请求
    * @param url
@@ -85,6 +107,7 @@ export class UtilService {
     return this.http.post(getUrl(url, params.id), getCommonParams(params, 'delete'));
   }
 
+
   /**
    * 远程验证表单中的值是否与数据库中的重复
    * @param url
@@ -111,4 +134,22 @@ export class UtilService {
       });
     };
   }
+
+  /**
+   * 登录之后异步调用，不产生阻塞
+   */
+  getDictionary() {
+    this.get(urls.dictionary).subscribe((res: HttpRes) => {
+      if (res.code === 200) {
+        let di = {};
+        res.data.results.forEach(d => {
+          const list = di[d.typecode] || [];
+          di[d.typecode] = [...list, d];
+        });
+        UtilService.dictionaries = di;
+        localStorage.setItem(dictionaryInfoKey, JSON.stringify(di));
+      }
+    });
+  }
+
 }

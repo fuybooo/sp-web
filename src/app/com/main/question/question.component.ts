@@ -6,7 +6,7 @@ import {HttpRes} from '../../../shared/shared.model';
 import {CoreService} from '../../../core/core.service';
 import * as format from 'date-fns/format';
 import {urls} from '../../../core/urls.model';
-import {dateFormatter} from '../../../app.model';
+import {dateFormatter} from '../../../core/common.model';
 
 @Component({
   selector: 'app-question',
@@ -18,9 +18,9 @@ export class QuestionComponent implements OnInit {
   dateRange = [];
   url = urls.issuelists;
   params: any = {
-    state: '',
-    typeid: '',
-    content: '',
+    state: null,
+    typeid: null,
+    content: null,
   };
   columns: Column[] = [
     {

@@ -2,10 +2,10 @@
   <div class="main-box">
     <div nz-row class="main-header-info">
       <div nz-col [nzSpan]="12">
-        <div class="ml50">{{loginInfo?.username}}您好，欢迎登录</div>
+        <div class="ml50 f22">临沂市政企服务直通信息化平台</div>
       </div>
       <div nz-col [nzSpan]="12" class="tar">
-        <a (click)="logout()">返回</a>
+        {{loginInfo?.username}}您好，欢迎登录
         <a class="ml20 mr50" (click)="logout()">退出</a>
       </div>
     </div>

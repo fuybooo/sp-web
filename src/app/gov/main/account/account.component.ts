@@ -5,7 +5,7 @@ import {NzMessageService, NzModalService} from 'ng-zorro-antd';
 import {ImportFileComponent} from '../../../shared/component/project/import-file/import-file.component';
 import {CoreService} from '../../../core/core.service';
 import {urls} from '../../../core/urls.model';
-import {baseList} from '../../../app.model';
+import {baseList} from '../../../core/common.model';
 import * as format from 'date-fns/format';
 import {HttpRes} from '../../../shared/shared.model';
 import {UtilService} from '../../../core/utils/util.service';

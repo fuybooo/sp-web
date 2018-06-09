@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {urls} from '../../../../core/urls.model';
 import {AJAXTYPE, HttpRes} from '../../../../shared/shared.model';
-import {infoTypeList} from '../../../../app.model';
+import {infoTypeList} from '../../../../core/common.model';
 import {NzMessageService} from 'ng-zorro-antd';
 import {UtilService} from '../../../../core/utils/util.service';
 declare let wangEditor: any;

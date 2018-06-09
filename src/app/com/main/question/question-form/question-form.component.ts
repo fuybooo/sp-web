@@ -5,61 +5,8 @@ import {UtilService} from '../../../../core/utils/util.service';
 import {HttpClient} from '@angular/common/http';
 import {HttpRes} from '../../../../shared/shared.model';
 import {guid} from '../../../../core/utils/util-fns';
+import {findFormItem} from '../../../../core/utils/util-component';
 
-const list1 = [
-  {
-    id: '1',
-    name: '融资需求类'
-  },
-  {
-    id: '2',
-    name: '土地供应类'
-  },
-  {
-    id: '3',
-    name: '人力人才类'
-  },
-  {
-    id: '3',
-    name: '向上申请类'
-  },
-  {
-    id: '3',
-    name: '公共服务类'
-  },
-  {
-    id: '3',
-    name: '公用设施类'
-  },
-  {
-    id: '3',
-    name: '行政审批类'
-  },
-  {
-    id: '3',
-    name: '配套建设类'
-  },
-  {
-    id: '3',
-    name: '安全生产类'
-  },
-  {
-    id: '3',
-    name: '环境保护类'
-  },
-  {
-    id: '3',
-    name: '政策落实类'
-  },
-  {
-    id: '3',
-    name: '企业权益类'
-  },
-  {
-    id: '3',
-    name: '其他服务类'
-  },
-];
 declare let OSS: any;
 
 @Component({
@@ -101,6 +48,8 @@ export class QuestionFormComponent implements OnInit {
         label: '问题性质',
         field: 'questiontypeid',
         type: 'select',
+        nzLabelField: 'dicname',
+        nzValueField: 'code'
       },
     ],
     [
@@ -133,9 +82,9 @@ export class QuestionFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    // setTimeout(() => {
-    //   console.log(findFormItem(this.formConfig, 'question_type_id').list = list1);
-    // }, 1000);
+    UtilService.getDic(() => {
+      findFormItem(this.formConfig, 'questiontypeid').list = UtilService.dictionaries.ISSUE_TYPE;
+    });
   }
   handleOk() {
     console.log(this.form.value);

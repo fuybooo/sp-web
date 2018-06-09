@@ -1,56 +1,46 @@
 <div class="login-box">
-  <form [formGroup]="form">
-    <!--<div class="login-header">-->
-      <!--<div class="header-item" [class.active]="this.loginType === 1" (click)="switchLoginType(1)">-->
-        <!--<div class="top-flag"></div>-->
-        <!--账号登录-->
-      <!--</div>-->
-      <!--<div class="header-item" [class.active]="this.loginType === 2" (click)="switchLoginType(2)">-->
-        <!--<div class="top-flag"></div>-->
-        <!--快捷登录-->
-      <!--</div>-->
-    <!--</div>-->
-    <div class="login-body">
-      <div class="login-input-container" [hidden]="loginType !== 1">
-        <input id="login-name" type="text" formControlName="loginname" #loginname (keyup.enter)="login()">
-        <i class="anticon anticon-user login-prefix"></i>
-        <i class="anticon anticon-close-circle login-suffix vh" (click)="clearValue('loginname', loginname)"></i>
-      </div>
-      <div class="login-input-container" [hidden]="loginType !== 2">
-        <input type="text" formControlName="mobile" #mobile>
-        <i class="anticon anticon-tablet login-prefix"></i>
-        <i class="anticon anticon-close-circle login-suffix vh" (click)="clearValue('mobile', mobile)"></i>
-      </div>
-      <div class="login-input-container" [hidden]="loginType !== 1">
-        <input type="password" formControlName="password" [hidden]="showPassword" [value]="$('password')" #password (keyup.enter)="login()">
-        <input type="text" formControlName="password" [hidden]="!showPassword" [value]="$('password')" #passwordt (keyup.enter)="login()">
-        <i class="anticon anticon-lock login-prefix"></i>
-        <i class="anticon anticon-eye login-suffix vh" *ngIf="!showPassword" (click)="showPassword = !showPassword;"></i>
-        <i class="anticon anticon-eye-o login-suffix vh" *ngIf="showPassword" (click)="showPassword = !showPassword;"></i>
-        <i class="anticon anticon-close-circle login-suffix-second vh" (click)="clearValue('password', password, passwordt)"></i>
-      </div>
-      <div class="login-input-container" [hidden]="loginType !== 2">
-        <input type="text" formControlName="validatorcode" #validatorcode (keyup.enter)="login()">
-        <i class="anticon anticon-key login-prefix"></i>
-        <i class="anticon anticon-close-circle login-suffix-third vh" (click)="clearValue('validatorcode', validatorcode)"></i>
-        <button type="button" nz-button class="valid-btn" (click)="sendVcode()" [disabled]="vcodeBtnDisabled">{{vcodeBtnText}}</button>
-      </div>
-      <div class="login-valid" [hidden]="!showSlider || loginType !== 1">
-        <div id="login-slider-valid" class="slider"></div>
-      </div>
-      <div class="login-remember">
-        <div>
-          <label nz-checkbox formControlName="remember">
-            <span class="text-999">一周内记住我</span>
-          </label>
+  <form [formGroup]="form" class="login-body">
+    <input type="text" name="username" hidden>
+    <input type="password" name="password" hidden>
+    <nz-form-item nzFlex>
+      <nz-form-label [nzSpan]="6">用户名</nz-form-label>
+      <nz-form-control [nzSpan]="18">
+        <input id="login-name" type="text" nz-input formControlName="loginname" placeholder="请输入用户名" (keyup.enter)="login()">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item nzFlex>
+      <nz-form-label [nzSpan]="6">手机号</nz-form-label>
+      <nz-form-control [nzSpan]="18">
+        <input type="text" nz-input formControlName="mobile" placeholder="请输入手机号" (keyup.enter)="login()">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item nzFlex>
+      <nz-form-label [nzSpan]="6">手机验证码</nz-form-label>
+      <nz-form-control [nzSpan]="18">
+        <div class="flex-box">
+          <input class="w mr30" type="text" nz-input formControlName="vcode" placeholder="请输入手机验证码" (keyup.enter)="login()">
+          <button class="fb150" type="button" nz-button (click)="sendVcode()">{{vcodeBtnText}}</button>
         </div>
-        <div>
-          <span class="text-999 cp f12" (click)="forget()">忘记密码</span>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item nzFlex>
+      <nz-form-label [nzSpan]="6">图形验证码</nz-form-label>
+      <nz-form-control [nzSpan]="18">
+        <div class="flex-box">
+          <input class="w mr30" type="text" nz-input formControlName="ivcode" placeholder="请输入图形验证码" (keyup.enter)="login()">
+          <span class="fb150">图形验证码</span>
         </div>
-      </div>
-      <div class="login-button">
-        <button class="w" type="button" nz-button [nzType]="'primary'" (click)="login()">登录</button>
-      </div>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item nzFlex>
+      <nz-form-control>
+        <label nz-checkbox formControlName="read">
+          <span>我同意并已阅读<a>《统一登录协议》</a></span>
+        </label>
+      </nz-form-control>
+    </nz-form-item>
+    <div class="login-button">
+      <button class="w" type="button" nz-button [nzType]="'primary'" (click)="login()">登录</button>
     </div>
   </form>
 </div>

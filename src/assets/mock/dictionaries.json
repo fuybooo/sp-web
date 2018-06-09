@@ -1,0 +1,28 @@
+{
+  "code": 200,
+  "msg": "",
+  "data": {
+    "results": [
+      {
+        "typecode": "ISSUE_TYPE",
+        "code": "001",
+        "dicname": "融资"
+      },
+      {
+        "typecode": "ISSUE_TYPE",
+        "code": "002",
+        "dicname": "融资2"
+      },
+      {
+        "typecode": "INDUSTRY_TYPE",
+        "code": "001",
+        "dicname": "行业1"
+      },
+      {
+        "typecode": "INDUSTRY_TYPE",
+        "code": "002",
+        "dicname": "行业2"
+      }
+    ]
+  }
+}

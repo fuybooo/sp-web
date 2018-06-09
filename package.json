@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng s -o --port 4400",
-    "build": "ng b -e prod -aot --prod -dop --buildOptimizer --preserveSymlinks --bh / --deploy-url /dist -op dist",
+    "b": "ng b -e prod -aot --prod -dop --buildOptimizer --preserveSymlinks --bh / --deploy-url /dist -op dist",
     "lite": "lite-server --baseDir=\"dist\"",
     "test": "ng test",
     "lint": "ng l",

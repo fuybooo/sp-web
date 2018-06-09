@@ -44,14 +44,6 @@
     <nz-badge class="ml20" nzStatus="error" nzText="办理超过15天"></nz-badge>
   </div>
   <div class="mt20">
-    <app-table
-      [url]="url"
-      [params]="params"
-      [columns]="columns"
-      [tableId]="tableId"
-      [isSortCol]="true"
-      [isCheckbox]="false"
-      (eventChange)="eventChange($event)"
-    ></app-table>
+    <app-question-list-content [params]="params" [tableId]="tableId"></app-question-list-content>
   </div>
 </div>

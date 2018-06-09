@@ -18,7 +18,7 @@ export interface HttpRes {
 /**
  * 全局的localStorage key
  */
-const projectPrefix = 'UK';
+const projectPrefix = 'GE';
 export const apiPathKey = projectPrefix + '_apiPathKey_';
 export const loginInfoKey = projectPrefix + '_loginInfoKey_';
 export const dictionaryInfoKey = projectPrefix + '_dictionaryInfoKey_';
@@ -36,15 +36,7 @@ export const AJAXTYPE = {
   PUT: 'PUT',
   DELETE: 'DELETE'
 };
-/**
- * 全局提示语
- */
-export const tips = {
-  leave: '请确定您已经保存了此页面的信息，否则，离开之后此信息会丢失！',
-  back: '您确定要返回吗?',
-};
-export const defaultNzWidth = 560;
-export declare type Op = 'add' | 'edit' | 'view';
+
 /**
  * 全局的正则表达式
  */
@@ -60,7 +52,3 @@ export const REGEXP = {
   onlyCapital: /^[A-Z]{2}$/,
 };
 
-export interface Option {
-  label: string;
-  value: string;
-}

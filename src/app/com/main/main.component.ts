@@ -37,7 +37,7 @@ export class MainComponent implements OnInit {
       this.modalService.closeAll();
       this.initMenuList();
     });
-    this.requestForPhone();
+    // this.requestForPhone();
   }
   requestForPhone() {
     this.utilService.get(urls.phone).subscribe((res: HttpRes) => {

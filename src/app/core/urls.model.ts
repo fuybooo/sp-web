@@ -10,8 +10,8 @@ export const urls: {[key: string]: UrlConfig} = {
     url: '/login', // 登录
     isStatic: true,
   },
-  question: {
-    url: '/question', // 问题
+  questions: {
+    url: '/questions', // 问题
     isStatic: true,
   },
   kpis: {
@@ -46,4 +46,8 @@ export const urls: {[key: string]: UrlConfig} = {
     url: '/phone',
     isStatic: true
   },
+  dictionary: {
+    url: '/dictionaries',
+    isStatic: true
+  }
 };

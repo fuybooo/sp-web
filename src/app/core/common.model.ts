@@ -69,3 +69,12 @@ export const infoTypeList = [
 ];
 export const dateFormatter = (v) => format(new Date(v), 'YYYY-MM-DD');
 
+export interface Dictionary {
+  code: string;
+  dicname: string;
+}
+export interface Dictionaries {
+  ISSUE_TYPE?: Dictionary[];
+  INDUSTRY_TYPE?: Dictionary[];
+}
+

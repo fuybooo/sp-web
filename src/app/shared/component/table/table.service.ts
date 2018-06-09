@@ -5,6 +5,7 @@ declare let $: any;
 
 @Injectable()
 export class TableService {
+  showPagination = true;
   allChecked = false;
   indeterminate = false;
   dataSet = [];

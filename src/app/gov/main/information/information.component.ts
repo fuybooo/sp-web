@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Column} from '../../../shared/component/table/table.model';
 import {Router} from '@angular/router';
-import {dateFormatter, infoStatusList, infoTypeList} from '../../../app.model';
+import {dateFormatter, infoStatusList, infoTypeList} from '../../../core/common.model';
 import {CoreService} from '../../../core/core.service';
 import {urls} from '../../../core/urls.model';
 import {NzMessageService} from 'ng-zorro-antd';

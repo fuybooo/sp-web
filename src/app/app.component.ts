@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
       this.modalService.closeAll();
       this.setPageHeight();
     });
+    $(window).resize(() => this.setPageHeight());
   }
   setPageHeight() {
     setTimeout(() => {

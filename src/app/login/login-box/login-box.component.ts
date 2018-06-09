@@ -7,6 +7,7 @@ import {UtilService} from '../../core/utils/util.service';
 import {HttpRes, REGEXP} from '../../shared/shared.model';
 import {urls} from '../../core/urls.model';
 import {getLoginInfo, saveLoginInfo} from '../../core/utils/util-project';
+import {required} from '../../core/utils/util-validate';
 declare let $: any;
 
 @Component({
@@ -17,10 +18,6 @@ declare let $: any;
 export class LoginBoxComponent implements OnInit {
 
   form: FormGroup;
-  validResult = false;
-  loginType = 1;
-  showPassword = false;
-  showSlider = false;
   vcodeBtnText = '发送验证码';
   vcodeBtnDisabled = false;
   timer;
@@ -33,55 +30,16 @@ export class LoginBoxComponent implements OnInit {
   }
 
   ngOnInit() {
-    $('#login-name').focus();
-    const cookies = getLoginInfo();
-    const token = cookies.token;
+    setTimeout(() => {
+      $('#login-name').focus();
+    }, 500);
     this.form = this.fb.group({
-      loginname: [token ? cookies.loginname : ''],
-      mobile: [token ? cookies.mobile : ''],
-      password: [''],
-      validatorcode: [''],
-      remember: [!!token],
+      loginname: [null, [required]],
+      mobile: [null, [required]],
+      vcode: [null, [required]],
+      ivcode: [null, [required]],
+      read: [true, [Validators.requiredTrue]],
     });
-    this.switchLoginType(1);
-    this.initSlider();
-  }
-  switchLoginType(type) {
-    this.loginType = type;
-    if (this.loginType === 1) {
-      this.$control('mobile').clearValidators();
-      this.$control('validatorcode').clearValidators();
-      this.$control('loginname').setValidators(Validators.required);
-      this.$control('password').setValidators(Validators.required);
-    } else if (this.loginType === 2) {
-      this.$control('loginname').clearValidators();
-      this.$control('password').clearValidators();
-      this.$control('mobile').setValidators(Validators.required);
-      this.$control('validatorcode').setValidators(Validators.required);
-    }
-  }
-  initSlider() {
-    $('#login-slider-valid').slider({
-      width: 268,
-      height: 38,
-      callback: (result) => {
-        this.validResult = result;
-      }
-    });
-  }
-  resetSlider() {
-    $('#login-slider-valid').slider('restore');
-  }
-  clearValue(name, template, template2?) {
-    if (name) {
-      this.$control(name).setValue('');
-    }
-    if (template) {
-      template.focus();
-    }
-    if (this.showPassword && template2) {
-      template2.focus();
-    }
   }
   $control(name) {
     return this.form.controls[name];
@@ -90,10 +48,16 @@ export class LoginBoxComponent implements OnInit {
     return this.$control(name).value;
   }
   login() {
+    // if (this.form.invalid) {
+    //   this.form.markAsDirty();
+    //   this.form.updateValueAndValidity();
+    //   return;
+    // }
     this.utilService.get(urls.login).subscribe((res: HttpRes) => {
       if (res.code === 200) {
         saveLoginInfo(res.data);
-        if (this.$('remember')) {
+        this.utilService.getDictionary();
+        if (this.$('read')) {
           // 用户是工作专班的还是企业的
           this.router.navigate([`/com/main`]);
         } else {
@@ -101,10 +65,6 @@ export class LoginBoxComponent implements OnInit {
         }
       }
     });
-  }
-  forget() {
-    this.resetSlider();
-    this.validResult = false;
   }
   sendVcode() {
     const mobile = this.$('mobile');

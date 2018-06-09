@@ -15,7 +15,7 @@
                   <!--普通选择框-->
                   <ng-container *ngSwitchCase="'select'">
                     <nz-select [nzPlaceHolder]="col.placeholder || '请选择'" [nzMode]="col.mode || 'default'" [formControlName]="col.field" (ngModelChange)="changeControl()">
-                      <nz-option *ngFor="let option of col.list || []" [nzValue]="option[col.nzValueField || 'id']" [nzLabel]="option[col.nzLabelField || 'name']"></nz-option>
+                      <nz-option *ngFor="let option of col.list || []" [nzValue]="option[col.nzValueField || 'code']" [nzLabel]="option[col.nzLabelField || 'dicname']"></nz-option>
                     </nz-select>
                   </ng-container>
                   <!--普通switch-->

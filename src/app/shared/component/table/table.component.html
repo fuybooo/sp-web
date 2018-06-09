@@ -1,6 +1,7 @@
 <nz-table #nzTable
           nzBordered
           nzShowSizeChanger
+          [nzShowPagination]="tableService.showPagination"
           [nzFrontPagination]="!tableService.url"
           [nzData]="tableService.dataSet"
           [nzLoading]="tableService.loading"

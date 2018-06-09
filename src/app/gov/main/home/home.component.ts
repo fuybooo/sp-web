@@ -3,6 +3,7 @@ import * as echart from 'echarts/lib/echarts';
 import 'echarts/lib/chart/pie';
 import 'echarts/lib/component/tooltip';
 import 'echarts/lib/component/title';
+import {guid} from '../../../core/utils/util-fns';
 declare let $: any;
 
 @Component({
@@ -11,7 +12,8 @@ declare let $: any;
   styleUrls: ['./home.component.less']
 })
 export class HomeComponent implements OnInit {
-
+  params = {};
+  tableId = guid();
   constructor() { }
 
   ngOnInit() {

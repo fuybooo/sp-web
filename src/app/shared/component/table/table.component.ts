@@ -17,6 +17,7 @@ export class TableComponent implements OnInit, OnDestroy {
   @Input() params: any = {};
   @Input() columns: Column[] = [];
   @Input() dataSet = [];
+  @Input() showPagination = true;
   @Input() isCheckbox = true; // 是否显示多选
   @Input() isRadio = false; // 是否显示单选
   @Input() isSortCol = false; // 是否显示序号
@@ -81,6 +82,7 @@ export class TableComponent implements OnInit, OnDestroy {
       params: this.params,
       columns: this.columns,
       dataSet: this.dataSet,
+      showPagination: this.showPagination,
       isCheckbox: this.isCheckbox,
       isRadio: this.isRadio,
       isSortCol: this.isSortCol,
