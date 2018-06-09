@@ -22,4 +22,10 @@ export class LandingComponent implements OnInit {
       nzFooter: null
     });
   }
+  changeRoute(page) {
+    switch (page) {
+      case 'home':
+        break;
+    }
+  }
 }

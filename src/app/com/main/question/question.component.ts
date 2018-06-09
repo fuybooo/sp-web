@@ -38,14 +38,29 @@ export class QuestionComponent implements OnInit {
     },
     {
       field: 'status',
-      title: '状态'
+      title: '状态',
+      formatter: v => {
+        switch (v) {
+          case 1:
+            return '已提交';
+          case 2:
+            return '办理中';
+          case 3:
+            return '已办结';
+          case 4:
+            return '退回审核中';
+          case 5:
+            return '已退回';
+        }
+      }
     },
     {
       field: 'f5',
-      title: '申请返回状态'
+      title: '申请退回状态',
+      formatter: v => v === 0 ? '无' : '申请中'
     },
     {
-      text: ['查看', {value: '申请返回', visible: 'f4'}],
+      text: ['查看', {value: '申请退回', visible: 'f4'}],
       event: ['view', 'apply'],
       link: '/com/main/question/detail'
     }

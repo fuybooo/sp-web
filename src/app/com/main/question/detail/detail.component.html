@@ -8,26 +8,12 @@
   </div>
   <div class="mt20">
     <div>
-      <form nz-form>
-        <div nz-row [nzGutter]="30">
-          <div nz-col [nzSpan]="12">
-            <nz-form-item nzFlex>
-              <nz-form-label [nzSpan]="8">企业名称</nz-form-label>
-              <nz-form-control [nzSpan]="16">
-                <span></span>
-              </nz-form-control>
-            </nz-form-item>
-          </div>
-          <div nz-col [nzSpan]="12">
-            <nz-form-item nzFlex>
-              <nz-form-label [nzSpan]="8">组织机构代码</nz-form-label>
-              <nz-form-control [nzSpan]="16">
-                <span></span>
-              </nz-form-control>
-            </nz-form-item>
-          </div>
-        </div>
-      </form>
+      <app-form
+        [formConfig]="formConfig"
+        [(form)]="form"
+        [formId]="formId"
+        [formType]="op"
+      ></app-form>
     </div>
   </div>
   <app-question-detail-content></app-question-detail-content>

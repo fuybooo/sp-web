@@ -1,9 +1,9 @@
 <div class="landing-wrap">
   <div class="landing-side">
-    <span><span class="shape-diamond mr8"></span>首页</span>
-    <span><span class="shape-diamond mr8"></span>工作促进</span>
-    <span><span class="shape-diamond mr8"></span>政策服务</span>
-    <span><span class="shape-diamond mr8"></span>服务企业</span>
+    <span (click)="changeRoute('home')"><span class="shape-diamond mr8"></span>首页</span>
+    <span (click)="changeRoute('policy')"><span class="shape-diamond mr8"></span>政策通知</span>
+    <span (click)="changeRoute('service')"><span class="shape-diamond mr8"></span>企业服务</span>
+    <span (click)="changeRoute('finance')"><span class="shape-diamond mr8"></span>金融专项</span>
   </div>
   <div class="landing-bg">
     <div class="landing-header" nz-row>
@@ -25,6 +25,6 @@
         <span>帮扶重点企业重点项目</span>
       </div>
     </div>
-    <div class="landing-ask">我要提问</div>
+    <div class="landing-ask" (click)="changeRoute('ask')">我要提问</div>
   </div>
 </div>
