@@ -25,7 +25,7 @@ export function maxLength(maxLen: number) {
     const value = control.value;
     if (value && value.trim) {
       if (value.trim().length > maxLen) {
-        return {maxlength: true};
+        return {maxlength: true, error: true};
       }
     }
   };
@@ -39,7 +39,7 @@ export function minLength(minLen: number) {
     const value = control.value;
     if (value && value.trim) {
       if (value.trim().length < minLen) {
-        return {minlength: true};
+        return {minlength: true, error: true};
       }
     }
   };
@@ -78,14 +78,12 @@ export function getSpecialCharacterValidator(specialCharacter: RegExp, mode = tr
  * @param key
  * @returns {(control:FormControl)=>{error: boolean, duplicated: boolean}}
  */
-export function getIsDupValidator(list, key) {
+export function getIsDupValidator(list, key = 'name') {
   return function (control: FormControl) {
     if (control.value && control.value.trim() !== '') {
       // 判断控件是否重复
-      for (const item of list) {
-        if (control.value === item[key]) {
-          return {error: true, duplicated: true};
-        }
+      if (list.some(item => item[key] === control.value)) {
+        return {error: true, dup: true};
       }
     }
   };
