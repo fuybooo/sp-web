@@ -37,7 +37,7 @@ export class QuestionListContentComponent implements OnInit {
     },
     {
       title: '操作',
-      text: '查看',
+      text: ['查看', {value: '改为满意', visible: 'status', visibleValueList: [1], type: 'changeRate'}], // 额外的判断是否显示
       event: 'view',
       link: '/gov/main/question/quesDetail'
     }

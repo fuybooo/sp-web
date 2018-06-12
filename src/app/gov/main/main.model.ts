@@ -66,30 +66,30 @@ export const menuList: Menu[] = [
     code: 'question',
     route: '/gov/main/question/list',
     iconCls: {'anticon-question-circle-o': true},
-    additionalRoutes: [
-      {
-        route: '/gov/main/question/quesDetail',
-        label: '问题详情'
-      }
-    ],
-    // children: [
+    // additionalRoutes: [
     //   {
-    //     label: '问题清单',
-    //     code: 'quesList',
-    //     route: '/gov/main/question/list',
-    //   },
-    //   {
-    //     label: '问题督办',
-    //     code: 'quesHandle',
-    //     route: '/gov/main/question/handle',
-    //     additionalRoutes: [
-    //       {
-    //         route: '/gov/main/question/quesDetail',
-    //         label: '问题督办详情'
-    //       }
-    //     ],
-    //   },
+    //     route: '/gov/main/question/quesDetail',
+    //     label: '问题详情'
+    //   }
     // ],
+    children: [
+      {
+        label: '问题清单',
+        code: 'quesList',
+        route: '/gov/main/question/list',
+        additionalRoutes: [
+          {
+            route: '/gov/main/question/quesDetail',
+            label: '问题详情'
+          }
+        ],
+      },
+      {
+        label: '问题督办',
+        code: 'quesHandle',
+        route: '/gov/main/question/handle',
+      },
+    ],
   },
   {
     label: '工作汇总',

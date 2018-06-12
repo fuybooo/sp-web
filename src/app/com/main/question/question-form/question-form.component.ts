@@ -6,6 +6,7 @@ import {HttpClient} from '@angular/common/http';
 import {HttpRes} from '../../../../shared/shared.model';
 import {guid} from '../../../../core/utils/util-fns';
 import {findFormItem} from '../../../../core/utils/util-component';
+import {getParams, getWholeParams} from '../../../../core/utils/util-project';
 
 declare let OSS: any;
 
@@ -15,6 +16,7 @@ declare let OSS: any;
   styleUrls: ['./question-form.component.less']
 })
 export class QuestionFormComponent implements OnInit {
+  token = 'db8fde9553b4b66916022174da88b753';
   form: FormGroup = new FormGroup({});
   formId = guid();
   formConfig: FormConfigItem[][] = [
@@ -91,29 +93,71 @@ export class QuestionFormComponent implements OnInit {
     // 上传文件
     if (this.form.value.files && this.form.value.files.length) {
       // 获取STS临时授权信息
-      // this.getSts();
+      this.getbasic();
     }
   }
-  getSts() {
-    this.utilService.get('requesttoken').subscribe((res: HttpRes) => {
+  getbasic() {
+    this.http.post('http://10.18.15.133:8060/uk-bsc/v1/requestoss/', {
+      'req_type': '10',
+      'method': 'get',
+      'bodyparams': {},
+      'token': this.token,
+      'data': JSON.stringify({})
+    }).subscribe((res: HttpRes) => {
       if (res.code === 200) {
-        // 提供web服务端签名
-        this.getSign(res.data);
+        this.getSts(res.data);
+        // BucktName,Floder,OssEndpoint,OssDomain
       }
     });
   }
-  getSign(params) {
-    this.utilService.get('postobjectpolicy', params).subscribe((res: HttpRes) => {
+  getSts(params) {
+    this.http.post('http://10.18.15.133:8060/uk-bsc/v1/requesttoken/', {
+      'req_type': '10',
+      'method': 'get',
+      'bodyparams': {},
+      'token': this.token,
+      'data': JSON.stringify({})
+    }).subscribe((res: HttpRes) => {
+      if (res.code === 200) {
+        // 提供web服务端签名
+        const client = new OSS.Wrapper({
+          accessKeyId: res.data.AccessKeyId,
+          accessKeySecret: res.data.AccessKeySecret,
+          stsToken: res.data.SecurityToken,
+          endpoint: params.OssDomain,
+          bucket: params.BucktName
+        });
+        client.multipartUpload(params.Floder + 'file-name', this.form.value.files[0]).then(response => {
+          console.log('文件上传之后的返回值', response);
+        }).catch(function (err) {
+          console.log(err);
+        });
+      }
+    });
+  }
+  getSign(params, baseParams) {
+    this.http.post('http://10.18.15.133:8060/uk-bsc/v1/postobjectpolicy/', {
+      'req_type': '10',
+      'method': 'get',
+      'bodyparams': {},
+      'token': this.token,
+      'data': JSON.stringify({
+        accessKeyId: params.AccessKeyId,
+        secretAccessKey: params.AccessKeySecret,
+        securityToken: params.SecurityToken,
+        dir: baseParams.Floder,
+      })
+    }).subscribe((res: HttpRes) => {
       if (res.code === 200) {
         const result = res.data;
         const client = new OSS.Wrapper({
           accessKeyId: result.accessid,
           accessKeySecret: result.AccessKeySecret,
           stsToken: result.SecurityToken,
-          endpoint: '<oss endpoint>',
-          bucket: '<Your bucket name>'
+          endpoint: baseParams.OssEndpoint,
+          bucket: baseParams.BucktName
         });
-        client.multipartUpload('file-name', this.form.value.files).then(response => {
+        client.multipartUpload(baseParams.Floder + 'file-name', this.form.value.files).then(response => {
           console.log('文件上传之后的返回值', response);
         });
       }

@@ -16,6 +16,7 @@ export class TableCellComponent implements OnInit {
 
   popVisible = false;
   delPopVisible = false;
+  checkQuestionHandleOptions = [];
   constructor(private router: Router) {}
   ngOnInit() {
   }
@@ -42,5 +43,12 @@ export class TableCellComponent implements OnInit {
     this.emitEvent(col, data, event);
     this.popVisible = false;
     this.delPopVisible = false;
+  }
+  hasPermission() {
+    // 当前权限是否应该展示该按钮
+    return true;
+  }
+  shouldVisible(data, visibleField, visibleValueList) {
+    return visibleValueList.some(v => v === data[visibleField]);
   }
 }
