@@ -49,12 +49,12 @@ export const menuList: Menu[] = [
   //     }
   //   ],
   // },
-  // {
-  //   label: '企业经济数据',
-  //   code: 'economic',
-  //   route: '/gov/main/economic',
-  //   iconCls: {'anticon-api': true},
-  // },
+  {
+    label: '企业经济数据',
+    code: 'economic',
+    route: '/gov/main/economic',
+    iconCls: {'anticon-api': true},
+  },
   // {
   //   label: '项目经济数据',
   //   code: 'projEconomic',

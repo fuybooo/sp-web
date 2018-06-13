@@ -13,7 +13,7 @@ import {trimList} from '../../../../core/utils/util-fns';
   styleUrls: ['./question-detail.component.less']
 })
 export class QuestionDetailComponent implements OnInit {
-  url = urls.question;
+  url = urls.questions;
   op;
   id;
   questionResult;
@@ -75,6 +75,9 @@ export class QuestionDetailComponent implements OnInit {
   }
   changeTestQuestionStatus(event) {
 
+  }
+  back() {
+    history.back();
   }
 
 }

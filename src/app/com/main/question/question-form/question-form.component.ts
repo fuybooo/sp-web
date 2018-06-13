@@ -16,7 +16,7 @@ declare let OSS: any;
   styleUrls: ['./question-form.component.less']
 })
 export class QuestionFormComponent implements OnInit {
-  token = 'db8fde9553b4b66916022174da88b753';
+  token = 'eec6151fced666926f2c9536cdcf486f';
   form: FormGroup = new FormGroup({});
   formId = guid();
   formConfig: FormConfigItem[][] = [
@@ -124,10 +124,10 @@ export class QuestionFormComponent implements OnInit {
           accessKeyId: res.data.AccessKeyId,
           accessKeySecret: res.data.AccessKeySecret,
           stsToken: res.data.SecurityToken,
-          endpoint: params.OssDomain,
+          endpoint: params.OssEndpoint,
           bucket: params.BucktName
         });
-        client.multipartUpload(params.Floder + 'file-name', this.form.value.files[0]).then(response => {
+        client.multipartUpload(params.Floder + this.form.value.files[0].name, this.form.value.files[0]).then(response => {
           console.log('文件上传之后的返回值', response);
         }).catch(function (err) {
           console.log(err);

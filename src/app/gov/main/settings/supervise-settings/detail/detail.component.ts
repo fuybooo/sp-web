@@ -76,5 +76,8 @@ export class DetailComponent implements OnInit {
       f3: [''],
     });
   }
+  back() {
+    history.back();
+  }
 
 }
