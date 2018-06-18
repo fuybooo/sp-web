@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/do';
+import {Observable} from 'rxjs/index';
+import {tap} from 'rxjs/internal/operators';
 
 /**
  * 请求监听拦截器
@@ -29,7 +29,7 @@ export class HttpInterceptorService implements HttpInterceptor {
         req = req.clone({method: 'GET'});
       }
     }
-    return next.handle(req).do((res: HttpResponse<any>) => {
+    return next.handle(req).pipe(tap((res: HttpResponse<any>) => {
       // 请求成功
       // 登录权限为空
       if (res.body) {
@@ -44,7 +44,7 @@ export class HttpInterceptorService implements HttpInterceptor {
         // 跳转到登录页面
         this.router.navigate(['/login']);
       }
-    });
+    }));
   }
 
 }

@@ -28,7 +28,7 @@
   .menu-box {
     height: 760px;
     min-height: 760px;
-    border-right: 1px solid @color-main;
+    //border-right: 1px solid @color-main;
     width: @menu-width;
     .content-base;
     left: 50px;
@@ -49,10 +49,10 @@
   .main-content {
     .content-base;
     padding: 30px;
-    left: e("calc(250px + 50px)"); // @menu-width
+    left: e("calc(250px + 70px)"); // @menu-width
     top: 80px;
-    border-left: 1px solid @primary-color;
-    margin-left: -1px;
+    //border-left: 1px solid @primary-color;
+    //margin-left: -1px;
     //min-height: 600px;
     .main-breadcrumb {
       margin-left: 15px;
@@ -61,12 +61,12 @@
 }
 @media screen and (max-width: 1510px) {
   .main-content {
-    width: e("calc(1510px - (250px + 100px))"); // @menu-width
+    width: e("calc(1510px - (250px + 120px))"); // @menu-width
   }
 }
 @media screen and (min-width: 1510px) {
   .main-content {
-    width: e("calc(100vw - (250px + 100px))"); // @menu-width
+    width: e("calc(100vw - (250px + 120px))"); // @menu-width
   }
 }
 @media screen and (max-height: 810px){
@@ -105,7 +105,6 @@
 }
 .login-page-body {
   .login-box {
-    width: 330px;
     position: absolute;
     top: 160px;
     left: 50%;

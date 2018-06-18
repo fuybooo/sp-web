@@ -85,7 +85,7 @@ export class InformationComponent implements OnInit {
         label: '单位规模',
         field: 'unitsize',
         type: 'select',
-        list: []
+        list: [{code: '1', name: '小型'}, {code: '2', name: '中型'}, {code: '3', name: '大型'}]
       },
     ], [
       {

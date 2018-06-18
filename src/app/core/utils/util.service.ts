@@ -1,13 +1,13 @@
 import {Injectable} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs/index';
 import {HttpClient} from '@angular/common/http';
 import {AJAXTYPE, dictionaryInfoKey, HttpRes} from '../../shared/shared.model';
 import {isEmptyObject} from './util-fns';
 import {getCommonParams, getUrl} from './util-project';
-import {debounceTime} from 'rxjs/operator/debounceTime';
 import {urls} from '../urls.model';
 import {Dictionaries} from '../common.model';
+import {debounceTime} from 'rxjs/internal/operators';
 
 /**'
  * 工具接口
@@ -118,8 +118,7 @@ export class UtilService {
   getSyncValidator(url, extend = {}, field = 'value') {
     return (control: FormControl) => {
       return Observable.create((observer) => {
-        // todo 在angular 6 中尝试 .pipe(debounceTime(100))
-        this.get(getUrl(url), {[field]: control.value.trim() || '', ...extend}).subscribe((res: HttpRes) => {
+        this.get(getUrl(url), {[field]: control.value.trim() || '', ...extend}).pipe(debounceTime(100)).subscribe((res: HttpRes) => {
           if (res.code === 200) {
             if (res.data.isExist) {
               observer.next({error: true, dup: true});

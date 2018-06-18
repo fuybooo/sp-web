@@ -36,11 +36,9 @@
         [nzFilters]="col.filterArray"
         (nzFilterChange)="tableService.filterChange(col,$event)"
     >
-      <ng-container *ngIf="col.title">
-        <span class="dib va-2" [class.w4rem]="col.textLimit" [class.va-11]="col.textLimit"  [class.tac]="col.textLimit">
-          {{col.title}}
-        </span>
-      </ng-container>
+      <span class="dib va-2" [class.w4rem]="col.textLimit" [class.va-11]="col.textLimit"  [class.tac]="col.textLimit">
+        {{col.title || '操作'}}
+      </span>
     </th>
   </tr>
   </thead>
