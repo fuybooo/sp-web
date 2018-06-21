@@ -16,13 +16,16 @@ export class InformationComponent implements OnInit {
     [
       {
         label: '企业名称',
-        field: 'companyname'
+        field: 'companyname',
+        validators: [
+          {
+            type: 'required'
+          }
+        ]
       },
       {
         label: '行业分类',
-        field: 'industry',
-        type: 'select',
-        list: []
+        field: 'industry'
       },
     ], [
       {
@@ -36,7 +39,12 @@ export class InformationComponent implements OnInit {
     ], [
       {
         label: '组织机构代码',
-        field: 'organizationcode'
+        field: 'organizationcode',
+        validators: [
+          {
+            type: 'required'
+          }
+        ]
       },
       {
         label: '工商登记注册号',
@@ -49,9 +57,7 @@ export class InformationComponent implements OnInit {
       },
       {
         label: '运营状态',
-        field: 'operationstate',
-        type: 'select',
-        list: []
+        field: 'operationstate'
       },
     ], [
       {
@@ -92,7 +98,12 @@ export class InformationComponent implements OnInit {
         label: '隶属关系',
         field: 'relationship',
         type: 'select',
-        list: []
+        list: [],
+        validators: [
+          {
+            type: 'required'
+          }
+        ]
       },
       {
         label: '主要业务活动',

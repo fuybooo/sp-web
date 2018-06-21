@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
           data: [ 25, 100 - 25]
         }
       ],
-      color: ['#d2292c', '#eee'],
+      color: ['#85ce3f', '#eee'],
     });
   }
 

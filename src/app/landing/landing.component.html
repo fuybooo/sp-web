@@ -1,30 +1,72 @@
+<!--<div class="landing-wrap">-->
+  <!--<div class="landing-side">-->
+    <!--<span (click)="changeRoute('home')"><span class="shape-diamond mr8"></span>首页</span>-->
+    <!--<span (click)="changeRoute('policy')"><span class="shape-diamond mr8"></span>政策通知</span>-->
+    <!--<span (click)="changeRoute('service')"><span class="shape-diamond mr8"></span>企业服务</span>-->
+    <!--<span (click)="changeRoute('finance')"><span class="shape-diamond mr8"></span>金融专项</span>-->
+  <!--</div>-->
+  <!--<div class="landing-bg">-->
+    <!--<div class="landing-header" nz-row>-->
+      <!--<div nz-col [nzSpan]="18" class="title">临沂市政企直通信息化平台</div>-->
+      <!--<div nz-col [nzSpan]="6" class="login-part">您好，<a (click)="popLogin()">请登录</a></div>-->
+    <!--</div>-->
+    <!--<div class="landing-notify"></div>-->
+    <!--<div class="landing-title">-->
+      <!--<div class="title-1">-->
+        <!--<span>创新</span>-->
+        <!--<span>强企</span>-->
+        <!--<span>解难</span>-->
+      <!--</div>-->
+      <!--<div class="title-2">-->
+        <!--<span>双创双服活动</span>-->
+      <!--</div>-->
+      <!--<div class="title-3">-->
+        <!--<span>创新创业平台培育</span>-->
+        <!--<span>帮扶重点企业重点项目</span>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="landing-ask" (click)="changeRoute('ask')">我要提问</div>-->
+  <!--</div>-->
+<!--</div>-->
+
 <div class="landing-wrap">
-  <div class="landing-side">
-    <span (click)="changeRoute('home')"><span class="shape-diamond mr8"></span>首页</span>
-    <span (click)="changeRoute('policy')"><span class="shape-diamond mr8"></span>政策通知</span>
-    <span (click)="changeRoute('service')"><span class="shape-diamond mr8"></span>企业服务</span>
-    <span (click)="changeRoute('finance')"><span class="shape-diamond mr8"></span>金融专项</span>
-  </div>
-  <div class="landing-bg">
-    <div class="landing-header" nz-row>
-      <div nz-col [nzSpan]="18" class="title">临沂市政企直通信息化平台</div>
-      <div nz-col [nzSpan]="6" class="login-part">您好，<a (click)="popLogin()">请登录</a></div>
-    </div>
-    <div class="landing-notify"></div>
-    <div class="landing-title">
-      <div class="title-1">
-        <span>创新</span>
-        <span>强企</span>
-        <span>解难</span>
+  <div class="content">
+    <div class="header">
+      <div class="flex-box">
+        <div class="logo"></div>
+        <div class="header-title">临沂市政企互通服务信息化平台</div>
       </div>
-      <div class="title-2">
-        <span>双创双服活动</span>
-      </div>
-      <div class="title-3">
-        <span>创新创业平台培育</span>
-        <span>帮扶重点企业重点项目</span>
+      <div class="flex-box">
+        <div class="search">
+          <i class="anticon anticon-search"></i>
+        </div>
+        <div class="login">您好，<a (click)="popLogin()">请登录</a></div>
       </div>
     </div>
-    <div class="landing-ask" (click)="changeRoute('ask')">我要提问</div>
+    <div class="nav">
+      <div class="nav-wrap">
+        <div><a>首页</a></div>
+        <div><a>政策通知</a></div>
+        <div><a>企业服务</a></div>
+        <div><a>金融专项</a></div>
+      </div>
+    </div>
+    <div class="title"></div>
+    <div class="ask">
+      <div nz-row>
+        <div nz-col [nzSpan]="18">
+          <div class="download">
+            APP下载：
+            <a class="ml30"><i class="anticon anticon-apple"></i>苹果</a>
+            <a class="ml30"><i class="anticon anticon-android"></i>安卓</a>
+          </div>
+        </div>
+        <div nz-col [nzSpan]="6">
+          <div class="ask-img" (click)="changeRoute('ask')"></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-line"></div>
+    <div class="footer"></div>
   </div>
 </div>

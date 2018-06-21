@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  apiPath: 'http://172.16.10.8:8060/uk-bsc/v1', // 服务器
+  apiPath: '', // 服务器
   apiPathChangeable: true,
   deployPath: '',
 };
