@@ -2,7 +2,8 @@
   "code": 200,
   "msg": "",
   "data": {
-    "username": "张四",
-    "token": "1"
+    "id": "12",
+    "role": 0,
+    "username": "张四"
   }
 }

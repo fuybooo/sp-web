@@ -211,14 +211,6 @@ export class TableService {
         if (res.code === 200) {
           this.dataSet = res.data[this.resultKey] || res.data.results || [];
           this.total = res.data.total;
-          // 默认状态
-          if (this.selectDefault === 'banks') {
-            this.dataSet.forEach(item => {
-              if (item.flag === 1) {
-                item.isSelected = true;
-              }
-            });
-          }
           this.refreshStatus();
           // 如果需要发送查询完成事件则发送事件
           if (this.afterSearch) {

@@ -2,87 +2,42 @@
   <div class="f22">企业分类花名册</div>
   <div class="mt20" nz-row [nzGutter]="10">
     <div nz-col [nzSpan]="3">
-      <nz-dropdown class="w">
-        <button class="w" nz-button nz-dropdown><span>最新</span> <i class="anticon anticon-down"></i></button>
-        <ul nz-menu>
-          <li nz-menu-item>
-            <a>状态1</a>
-          </li>
-          <li nz-menu-item>
-            <a>状态2</a>
-          </li>
-          <li nz-menu-item>
-            <a>状态3</a>
-          </li>
-        </ul>
-      </nz-dropdown>
+      <nz-select nzPlaceHolder="最近一周" class="w" [(ngModel)]="params.cmptime">
+        <ng-container *ngFor="let option of timeList">
+          <nz-option [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+        </ng-container>
+      </nz-select>
     </div>
     <div nz-col [nzSpan]="3">
-      <nz-dropdown class="w">
-        <button class="w" nz-button nz-dropdown><span>选择企业分类</span> <i class="anticon anticon-down"></i></button>
-        <ul nz-menu>
-          <li nz-menu-item>
-            <a>类型1</a>
-          </li>
-          <li nz-menu-item>
-            <a>类型2</a>
-          </li>
-          <li nz-menu-item>
-            <a>类型3</a>
-          </li>
-        </ul>
-      </nz-dropdown>
+      <nz-select nzPlaceHolder="企业分类" class="w" [(ngModel)]="params.cmptype">
+        <ng-container *ngFor="let option of typeList">
+          <nz-option [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+        </ng-container>
+      </nz-select>
     </div>
     <div nz-col [nzSpan]="3">
-      <nz-dropdown class="w">
-        <button class="w" nz-button nz-dropdown><span>选择企业分级</span> <i class="anticon anticon-down"></i></button>
-        <ul nz-menu>
-          <li nz-menu-item>
-            <a>类型1</a>
-          </li>
-          <li nz-menu-item>
-            <a>类型2</a>
-          </li>
-          <li nz-menu-item>
-            <a>类型3</a>
-          </li>
-        </ul>
-      </nz-dropdown>
+      <nz-select nzPlaceHolder="企业分级" class="w" [(ngModel)]="params.cmplevel">
+        <ng-container *ngFor="let option of levelList">
+          <nz-option [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+        </ng-container>
+      </nz-select>
     </div>
     <div nz-col [nzSpan]="5">
-      <nz-dropdown class="w">
-        <button class="w" nz-button nz-dropdown><span>选择市</span> <i class="anticon anticon-down"></i></button>
-        <ul nz-menu>
-          <li nz-menu-item>
-            <a>类型1</a>
-          </li>
-          <li nz-menu-item>
-            <a>类型2</a>
-          </li>
-          <li nz-menu-item>
-            <a>类型3</a>
-          </li>
-        </ul>
-      </nz-dropdown>
+      <nz-select nzPlaceHolder="选择区县" class="w" [(ngModel)]="params.district">
+        <ng-container *ngFor="let option of districtList">
+          <nz-option [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+        </ng-container>
+      </nz-select>
     </div>
     <div nz-col [nzSpan]="5">
-      <nz-dropdown class="w">
-        <button class="w" nz-button nz-dropdown><span>选择区</span> <i class="anticon anticon-down"></i></button>
-        <ul nz-menu>
-          <li nz-menu-item>
-            <a>类型1</a>
-          </li>
-          <li nz-menu-item>
-            <a>类型2</a>
-          </li>
-          <li nz-menu-item>
-            <a>类型3</a>
-          </li>
-        </ul>
-      </nz-dropdown>
+      <nz-select nzPlaceHolder="选择乡镇" class="w" [(ngModel)]="params.county">
+        <ng-container *ngFor="let option of countyList">
+          <nz-option [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+        </ng-container>
+      </nz-select>
     </div>
     <div nz-col [nzOffset]="1" [nzSpan]="2">
-      <button class="w" nz-button [nzType]="'primary'">查询</button>
+      <button class="w" nz-button [nzType]="'primary'" (click)="search()">查询</button>
     </div>
     <div nz-col [nzSpan]="2">
       <button class="w" nz-button [nzType]="'primary'">导出</button>

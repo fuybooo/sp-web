@@ -1,0 +1,17 @@
+{
+  "code": 200,
+  "msg": "",
+  "data": {
+    "results": [
+      {
+        "id": "1",
+        "componayname": "企业名称",
+        "issuetypecode": "001",
+        "content": "问题具体内容",
+        "createtime": 1527865058155,
+        "status": "1"
+      }
+    ],
+    "total": 6
+  }
+}

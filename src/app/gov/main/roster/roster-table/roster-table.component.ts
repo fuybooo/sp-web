@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Column} from '../../../../shared/component/table/table.model';
 import {Router} from '@angular/router';
+import {urls} from '../../../../core/urls.model';
 
 @Component({
   selector: 'app-roster-table',
@@ -9,34 +10,36 @@ import {Router} from '@angular/router';
 })
 export class RosterTableComponent implements OnInit {
   tableId = 'roster-table';
+  url = urls.companys;
   columns: Column[] = [
     {
-      field: 'f1',
+      field: 'companyname',
       title: '企业名称'
     },
     {
-      field: 'f2',
+      field: 'orgcode',
       title: '组织机构代码'
     },
     {
-      field: 'f3',
+      field: 'level',
       title: '企业分级'
     },
     {
-      field: 'f4',
-      title: '所属市'
+      field: 'districtname',
+      title: '所属县'
     },
     {
-      field: 'f5',
-      title: '所属区'
+      field: 'countyname',
+      title: '所属镇'
     },
     {
-      field: 'f6',
+      field: 'industry',
       title: '所属行业'
     },
     {
-      field: 'f7',
-      title: '盈亏情况'
+      field: 'isprofit',
+      title: '盈亏情况',
+      formatter: v => v ? '盈' : '亏'
     },
     {
       title: '操作',
@@ -45,22 +48,11 @@ export class RosterTableComponent implements OnInit {
       link: '/gov/main/rosDetail'
     }
   ];
-  dataSet = [];
   constructor(
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.dataSet = Array(20).fill(0).map((item, i) => ({
-      id: i + 1,
-      f1: '山东炼钢集团',
-      f2: '982039823',
-      f3:  i % 4 ? '县级' : '市级',
-      f4: i % 4 ? '临沂' : '济南',
-      f5: i % 4 ? '中县' : '中市',
-      f6: '重点服务业企业',
-      f7: i % 5 ? '盈' : '亏'
-    }));
   }
   eventChange(event) {
   }

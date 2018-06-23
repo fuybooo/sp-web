@@ -17,11 +17,11 @@ export class QuestionDetailComponent implements OnInit {
   op;
   id;
   questionResult;
-  handleType = 2;
   description;
-  loginInfo;
-  role = '';
-  status = 1;
+  role = 1;
+  status = '';
+  replyStatus = ''; // 获取到的回复状态，用户根据该状态判断需要做什么操作
+  changeReplyStatus = ''; // 用户对该问题的回复状态
   allDeptList = [
     {
       id: '1',
@@ -51,13 +51,16 @@ export class QuestionDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loginInfo = getLoginInfo();
+    this.role = getLoginInfo().role;
     this.init();
   }
   init() {
     this.utilService.get(this.url, {id: this.id}).subscribe((res: HttpRes) => {
       if (res.code === 200) {
         this.questionResult = res.data;
+        this.status = this.questionResult.question.status;
+        const currentReply = this.questionResult.replylist.find(item => item.iscurrent);
+        this.replyStatus = currentReply ? currentReply.status : '0000';
       }
     });
   }
@@ -71,10 +74,13 @@ export class QuestionDetailComponent implements OnInit {
     return getParentList(this.allDeptList, trimList(this.deptList));
   }
   changeTestRole(event) {
-    this.loginInfo.role = event;
+    this.role = event;
   }
   changeTestQuestionStatus(event) {
-
+    this.status = event;
+  }
+  changeTestReplyStatus(event) {
+    this.replyStatus = event;
   }
   back() {
     history.back();

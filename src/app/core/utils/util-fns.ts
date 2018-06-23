@@ -53,6 +53,9 @@ export function getPropValue(list, value, valueKey = 'value', otherKey = 'label'
   }
   return list.filter(_item => value.some(v => v === _item[valueKey])).map(i => i[otherKey]).join('、');
 }
+export function getDicValue(list, value) {
+  return getPropValue(list, value, 'code', 'dicname');
+}
 
 /**
  * 根据指定keys获取新的子数组，默认获取id数组

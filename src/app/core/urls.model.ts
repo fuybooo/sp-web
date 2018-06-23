@@ -11,7 +11,7 @@ export const urls: {[key: string]: UrlConfig} = {
     isStatic: true,
   },
   questions: {
-    url: '/questions', // 问题
+    url: '/issues', // 问题
     isStatic: true,
   },
   kpis: {
@@ -48,6 +48,10 @@ export const urls: {[key: string]: UrlConfig} = {
   },
   dictionary: {
     url: '/dictionaries',
+    isStatic: true
+  },
+  companys: {
+    url: '/companys',
     isStatic: true
   }
 };

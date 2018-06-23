@@ -8,4 +8,5 @@ export const environment = {
   apiPath: '', // 服务器
   apiPathChangeable: true,
   deployPath: '',
+  // deployPath: '/dist',
 };

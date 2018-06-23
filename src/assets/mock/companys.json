@@ -1,0 +1,19 @@
+{
+  "code": 200,
+  "msg": "",
+  "data": {
+    "results": [
+      {
+        "id": "1",
+        "companyname": "公司名称",
+        "orgcode": "234233",
+        "level": "公司级别",
+        "districtname": "公司所在县名称",
+        "countyname": "公司所在镇名称",
+        "industry": "行业code",
+        "isprofit": 1
+      }
+    ],
+    "total": 3
+  }
+}

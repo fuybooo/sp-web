@@ -3,7 +3,7 @@
   "msg": "",
   "data": {
     "company": {
-      "organizationcode": "",
+      "orgcode": "",
       "socialcreditnumber": "",
       "lawperson": "",
       "enterpriseholding": "",
@@ -30,7 +30,9 @@
         "replycomment": "",
         "replydate": "",
         "replydept": "",
-        "replyperson": ""
+        "replyperson": "",
+        "iscurrent": 1,
+        "status": "HF01"
       }
     ]
   }

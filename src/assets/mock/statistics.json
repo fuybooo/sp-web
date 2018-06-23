@@ -1,0 +1,28 @@
+{
+  "code": 200,
+  "msg": "",
+  "data": {
+    "summarylist": [
+      {
+        "issuetypecode": "001",
+        "total": 20,
+        "done": 18
+      },
+      {
+        "issuetypecode": "002",
+        "total": 20,
+        "done": 18
+      }
+    ],
+    "districtsummarylist": [
+      {
+        "districtname": "",
+        "total": 20
+      },
+      {
+        "districtname": "",
+        "total": 20
+      }
+    ]
+  }
+}

@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {urls} from '../../../../../core/urls.model';
 import {Column} from '../../../../../shared/component/table/table.model';
 import {dateFormatter} from '../../../../../core/common.model';
+import {UtilService} from '../../../../../core/utils/util.service';
+import {getDicValue} from '../../../../../core/utils/util-fns';
 
 @Component({
   selector: 'app-question-list-content',
@@ -13,21 +15,23 @@ export class QuestionListContentComponent implements OnInit {
   @Input() tableId;
   @Input() showPagination = true;
   url = urls.questions;
+  issueTypeList = [];
   columns: Column[] = [
     {
       field: 'componayname',
       title: '企业名称'
     },
     {
-      field: 'typename',
-      title: '问题类型'
+      field: 'issuetypecode',
+      title: '问题类型',
+      formatter: v => getDicValue(this.issueTypeList, v)
     },
     {
       field: 'content',
       title: '具体问题'
     },
     {
-      field: 'date',
+      field: 'createtime',
       title: '提交时间',
       formatter: dateFormatter
     },
@@ -45,6 +49,7 @@ export class QuestionListContentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    UtilService.getDic(() => this.issueTypeList = UtilService.dictionaries.ISSUE_TYPE);
   }
   eventChange(event) {
   }

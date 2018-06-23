@@ -4,7 +4,7 @@
   "data": {
     "results": [
       {
-        "district": "",
+        "districtname": "",
         "fiftyresolvedrate": "",
         "severnresolvedrate ": "",
         "overfiftyresolvedrate ": "",
@@ -15,7 +15,6 @@
         "unsolvedquestionnum": "",
         "totalquestionnum": "",
         "resolvedquestionrate": ""
-
       }
     ]
   }

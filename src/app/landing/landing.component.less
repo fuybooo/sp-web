@@ -1,13 +1,10 @@
 @import "../../assets/less/vars";
-@landing-theme: #85ce3f;
-@landing-theme-hover: color(~`colorPalette("@{landing-theme}", 5)`);
 .landing-wrap {
   width: 100%;
   height: 100%;
     position: relative;
-    overflow: hidden;
     min-width: 1366px;
-    min-height: 460px;
+    min-height: 770px;
     background: url("../../assets/images/gov/landing/bg.png") no-repeat;
     background-size: 100%;
   .content {
@@ -32,25 +29,25 @@
         i{
           cursor: pointer;
           &:hover {
-            color: @landing-theme-hover;
+            //color: @landing-theme-hover;
           }
         }
       }
       .login {
         color: #fff;
-        a {
-          color: @landing-theme;
-          &:hover {
-            color: @landing-theme-hover;
-          }
-        }
+        //a {
+        //  color: @landing-theme;
+        //  &:hover {
+        //    color: @landing-theme-hover;
+        //  }
+        //}
       }
     }
     .nav {
       background-color: #fff;
       height: 50px;
       line-height: 50px;
-      margin-top: 20px;
+      margin-top: 5%;
       border: 1px solid transparent;
       border-radius: 8px;
       padding: 0 200px;
@@ -66,12 +63,12 @@
       }
     }
     .title {
-      margin-top: 20px;
+      margin-top: 10%;
       background: url("../../assets/images/gov/landing/title.png") no-repeat center center;
       height: 140px;
     }
     .ask {
-      margin-top: 20px;
+      margin-top: 10%;
       .download {
         color: #fff;
         height: 120px;
@@ -83,8 +80,18 @@
         height: 120px;
       }
     }
-    .footer-line {
-      background: -webkit-linear-gradient(left , #3cc3f4 0% , #85ce3f 100%);
+    .footer {
+      position: absolute;
+      width: 100%;
+      height: 70px;
+      left: 0;
+      bottom: 20px;
+      color: #fff;
+      padding: 0 100px;
+      .footer-line {
+        background: #fff;
+        height: 1px;
+      }
     }
   }
 }

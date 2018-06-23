@@ -17,7 +17,7 @@ export function getUrl(mainUrl, paramsId?) {
   if (environment.apiPathChangeable && localStorage && localStorage_apiPath) {
     environment.apiPath = path = getSafeStr(localStorage_apiPath);
   }
-  const url = mainUrl.url + (paramsId === undefined ? '' : `/${paramsId}`);
+  const url = (mainUrl.url || mainUrl) + (paramsId === undefined ? '' : `/${paramsId}`);
   return mainUrl.isStatic ?
     (environment.deployPath + '/assets/mock' + url + '.json') : (path + url + '/');
 }
@@ -71,7 +71,7 @@ export function getCommonParams(params, method = 'get') {
   const data = getLoginInfo();
   return {
     data: JSON.stringify(deepTrim(params)),
-    token: data ? data.token : '',
+    userid: data ? data.userid : '',
     method,
     action: params.action || ''
   };
@@ -104,13 +104,20 @@ export function getParentList(allList, subList, subKey = 'id', subSubKey = 'key'
 
 /**
  * 将登陆信息保存到cookie中
+ *  0:市领导
+ *  1:市政企
+ *  2:市专班
+ *  3:县区专班
+ *  4:乡镇专班
+ *  5:部门
+ *  6:企业
+ *  9:admin
  */
 export function saveLoginInfo(data) {
   const cookieConfig = {expires: 7};
   $.cookie('username', data.username, cookieConfig);
-  $.cookie('loginname', data.loginname, cookieConfig);
-  $.cookie('mobile', data.mobile, cookieConfig);
-  $.cookie('token', data.token, cookieConfig);
+  $.cookie('id', data.id, cookieConfig);
+  $.cookie('role', data.role, cookieConfig);
 }
 
 /**
@@ -120,9 +127,8 @@ export function saveLoginInfo(data) {
 export function getLoginInfo() {
   return {
     username: $.cookie('username'),
-    loginname: $.cookie('loginname'),
-    mobile: $.cookie('mobile'),
-    token: $.cookie('token'),
+    userid: $.cookie('id'),
+    role: $.cookie('role'),
   };
 }
 
